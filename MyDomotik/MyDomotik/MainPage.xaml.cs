@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using System.Globalization;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +27,25 @@ namespace MyDomotik
         public MainPage()
         {
             this.InitializeComponent();
+            this.displayTime();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void displayTime()
+        {
+            TimeBox.Text = DateTime.Now.ToString();
+        }
+
+        private void TimeBox_Copy_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+      
+       
     }
 }

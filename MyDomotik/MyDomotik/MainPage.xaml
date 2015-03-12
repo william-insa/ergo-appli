@@ -7,12 +7,29 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
-        <Rectangle Fill="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" HorizontalAlignment="Left" Height="64" VerticalAlignment="Top" Width="1366"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="-3,61,0,0" VerticalAlignment="Top" Height="288" Width="469"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="7,314,0,0" VerticalAlignment="Top" Height="290" Width="490"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="460,61,0,0" VerticalAlignment="Top" Height="288" Width="466"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="920,61,-3,0" VerticalAlignment="Top" Height="288" Width="449"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="920,343,-3,0" VerticalAlignment="Top" Height="290" Width="449"/>
+    <Grid x:Name="MainGrid" Background="{ThemeResource SearchBoxForegroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="767*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="60" Margin="267,10,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="832"/>
+
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="60" Margin="10,10,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="252"/>
+
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="60" Margin="1104,10,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="252"/>
+
+
+        <Rectangle x:Name="MainBar" Fill="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" HorizontalAlignment="Left" Height="141" VerticalAlignment="Top" Width="1346" Margin="10,615,0,0" Grid.Row="1"/>
+        <TextBlock x:Name="TimeBox" HorizontalAlignment="Left" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" FontSize="24" FontWeight="Bold" TextAlignment="Center" FontFamily="Segoe UI" Margin="10,10,0,0" Grid.Row="1" Foreground="Black"/>
+        <TextBlock x:Name="TimeBox_Copy" HorizontalAlignment="Left" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="832" FontSize="30" TextAlignment="Center" FontFamily="Segoe UI" Margin="267,10,0,0" Grid.Row="1" >
+    		<Run Foreground="Black" Text="Pièces de la maison"/>
+    		<Run Text="&#xA;"/>
+        </TextBlock>
+        <Image x:Name="IconConfig" HorizontalAlignment="Left" Height="60" Margin="1189.954,11.243,0,-69.243" VerticalAlignment="Top" Width="64" Source="Assets/Icones_etudiant_insa/ICONS_MDTOUCH/size_44x44/configuration_0.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <Image.RenderTransform>
+                <CompositeTransform Rotation="-86.456"/>
+            </Image.RenderTransform>
+        </Image>
+
     </Grid>
 </Page>
