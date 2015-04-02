@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -15,39 +13,28 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+// Pour en savoir plus sur le modèle d'élément Page vierge, consultez la page http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace MyDomotik
 {
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    /// 
-   
-    public sealed partial class MainPage : Page
+    public sealed partial class ReglagesReseau : Page
     {
-        //public static Room[] rooms;
-        
-        public MainPage()
+        public ReglagesReseau()
         {
             this.InitializeComponent();
-            this.displayTime();
-            //this.displayRooms();
- 
         }
 
-        private void displayTime()
+        private void retourPage(object sender, RoutedEventArgs e)
         {
-            TimeBox.Text = DateTime.Now.ToString();
+            Frame.Navigate(typeof(AdminPage));
         }
 
-     
-
-       /* private void displayRooms()
+        public void exitAdmin(object sender, RoutedEventArgs e)
         {
-          TO DO
-        }*/
-
-      
-       
+            Frame.Navigate(typeof(MainPage));
+        }
     }
 }
