@@ -2731,12 +2731,16 @@
       <DependentUpon>BlankPage1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Device.cs" />
+    <Compile Include="Format.cs" />
     <Compile Include="GestionIcones.xaml.cs">
       <DependentUpon>GestionIcones.xaml</DependentUpon>
     </Compile>
     <Compile Include="GestionIcones2.xaml.cs">
       <DependentUpon>GestionIcones2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Grille.cs" />
+    <Compile Include="Icone.cs" />
+    <Compile Include="Image.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
