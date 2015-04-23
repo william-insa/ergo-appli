@@ -10,7 +10,8 @@ namespace MyDomotik
     {
         private int nbColonnes;
         private int nbLignes;
-
+        
+        // constructeur format
         public Format(int nbColonnes, int nbLignes)
         {
             if (!(nbColonnes <= 0 || nbLignes <= 0))
@@ -21,6 +22,7 @@ namespace MyDomotik
             
         }
 
+        // getters and setters nbColonnes, nbLignes
         public int getNbColonnes()
         {
             return this.nbColonnes;
