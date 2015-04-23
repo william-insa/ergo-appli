@@ -9,76 +9,67 @@ namespace MyDomotik
     class Grille
     {
         // format de la grille
-        private Format format;
+        private int nbColonnes;
+        private int nbLignes;
         // nombre de cases par grille
         private int nbCasesGrille;
-        
-     
-
         // hashmap associant une icone à une case de la grille représentée par son index
         private Dictionary<int,Icone> icones;
 
-        /*// nombre d'icones
-        private int nbIcones;
-
-         // liste des icones contenues dans la grille
-        private List<Icone> icones;*/
-
+        // constructeur
         public Grille(Format format)
         {
-            this.format = format;
-            this.nbCasesGrille = format.getNbColonnes() * format.getNbLignes();
+            this.setFormat(format);
+            this.nbCasesGrille = nbColonnes * nbLignes;
             this.icones = new Dictionary<int,Icone>();
-            //this.nbIcones = 0;
         }
 
-        public Format getFormat()
+
+        // getters and setters nbColonnes, nbLignes
+        public int getNbColonnes()
         {
-            return this.format;
+            return this.nbColonnes;
         }
 
-        /*public List<Icone> getIcones()
+        public int getNbLignes()
         {
-            return this.icones;
-        }*/
+            return this.nbLignes;
+        }
 
+        // nombre de lignes et colonnes en fonction du format demandé
+        public void setFormat(Format format)
+        {
+            switch (format)
+            {
+                case Format.PETIT :
+                    this.nbColonnes = 6;
+                    this.nbLignes = 3;
+                    break;
+
+                case Format.MOYEN:
+                default :
+                    this.nbColonnes = 4;
+                    this.nbLignes = 2;
+                    break;
+
+                case Format.GRAND:
+                    this.nbColonnes = 3;
+                    this.nbLignes = 2;
+                    break;
+               
+            }
+        }
+
+        // retourne l'icone située à l'index demandé
         public Icone getIcone(int index)
         {
             return this.icones[index];
         }
 
-        public void setFormat(int nbCol, int nbLignes)
-        {
-            this.format.setNbColonnes(nbCol);
-            this.format.setNbLignes(nbLignes);
-        }
-
-        /*
-        // Insère l'Icone icone à la position index dans la liste des icones
-        public void addIcone(Icone icone, int index)
-        {
-            this.icones.Insert(index,icone);
-            this.nbIcones++;
-        }
-
-        // Enlève l'Icone icone de la liste des icones si celle-ci existe.
-        public void removeIcone(Icone icone)
-        {
-            this.icones.Remove(icone);
-        }
-
-        // Enlève l'icone situé à l'index indiqué de la liste des icones
-        public void removeIcone(int index)
-        {
-            this.icones.RemoveAt(index);
-        }
-        */
-
         // Insère l'Icone icone à la case index 
         public void addIcone(Icone icone, int index)
         {
             this.icones.Add(index, icone);
-            //this.nbIcones++;
         }
 
         // Enlève l'Icone à la case index.
