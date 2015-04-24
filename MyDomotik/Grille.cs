@@ -11,8 +11,6 @@ namespace MyDomotik
         // format de la grille
         private int nbColonnes;
         private int nbLignes;
-        // nombre de cases par grille
-        private int nbCasesGrille;
         // hashmap associant une icone à une case de la grille représentée par son index
         private Dictionary<int,Icone> icones;
 
@@ -20,7 +18,6 @@ namespace MyDomotik
         public Grille(Format format)
         {
             this.setFormat(format);
-            this.nbCasesGrille = nbColonnes * nbLignes;
             this.icones = new Dictionary<int,Icone>();
         }
 
@@ -34,6 +31,12 @@ namespace MyDomotik
         public int getNbLignes()
         {
             return this.nbLignes;
+        }
+
+        // nombre total de cases dans la grille
+        public int nbCasesGrille()
+        {
+            return this.nbColonnes * this.nbLignes;
         }
 
         // nombre de lignes et colonnes en fonction du format demandé
@@ -89,8 +92,9 @@ namespace MyDomotik
             }
 
             // calcul du nombre de pages
-            int nbPages = nbCases / this.nbCasesGrille;
-            if (nbCases % (this.nbCasesGrille) != 0) nbPages += 1 ;
+            int nbCasesGrille = this.nbCasesGrille();
+            int nbPages = nbCases / nbCasesGrille;
+            if (nbCases % (nbCasesGrille) != 0) nbPages += 1 ;
 
             return nbPages;
         }
@@ -98,14 +102,14 @@ namespace MyDomotik
         // pageGrille(numPage) retourne un tableau contenant les icones de la page numPage dans l'ordre
         public Icone[] pageGrille(int numPage)
         {
-            Icone[] pageGrille = new Icone[this.nbCasesGrille];
+            Icone[] pageGrille = new Icone[this.nbCasesGrille()];
 
             //vérification : la page demandée existe-t-elle ?
             if (numPage <= this.nbPagesGrille())
             {
                 // index min et max de la page numPage
-                int indexMin = numPage*this.nbCasesGrille;
-                int indexMax = indexMin + this.nbCasesGrille;
+                int indexMin = numPage*this.nbCasesGrille();
+                int indexMax = indexMin + this.nbCasesGrille();
 
                 foreach (int key in icones.Keys)
                 {

@@ -2730,6 +2730,7 @@
     <Compile Include="BlankPage1.xaml.cs">
       <DependentUpon>BlankPage1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vue.cs" />
     <Compile Include="Device.cs" />
     <Compile Include="Format.cs" />
     <Compile Include="GestionIcones.xaml.cs">

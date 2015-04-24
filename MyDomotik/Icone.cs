@@ -11,7 +11,7 @@ namespace MyDomotik
         private Image image;
         private String nom;
         private Action action;
-        private Navigation navigation;
+        //private Navigation navigation;
 
         // constructeur d'icone associée à une action
         public Icone(Image image, String nom, Action action)
@@ -22,12 +22,12 @@ namespace MyDomotik
         }
 
         // constructeur d'icone associée à une navigation (icone menant à une nouvelle page)
-        public Icone(Image image, String nom, Navigation navigation)
+       /* public Icone(Image image, String nom, Navigation navigation)
         {
             this.image = image;
             this.nom = nom;
             this.navigation = navigation;
-        }
+        }*/
 
         //getters et setters image, nom, action, navigation
         public Image getImage()
@@ -60,7 +60,7 @@ namespace MyDomotik
             this.action = action;
         }
 
-        public Navigation getNavigation()
+       /* public Navigation getNavigation()
         {
             return this.navigation;
         }
@@ -68,7 +68,7 @@ namespace MyDomotik
         public void setNavigation(Navigation navigation)
         {
             this.navigation = navigation;
-        }
+        }*/
 
         // méthode d'affichage d'une icone
         public void afficherIcone()

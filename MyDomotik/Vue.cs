@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace MyDomotik
 {
-    class Page
+    class Vue
     {
         private String nom;
         private Grille grille;
 
         // constructeur à partir du nom et du format de la grille
-        public Page(String nom, Format formatGrille)
+        public Vue(String nom, Format formatGrille)
         {
             this.nom = nom;
             this.grille = new Grille(formatGrille);
         }
 
         // constructeur à partir du nom et du "format par défaut"
-        public Page(String nom)
+        public Vue(String nom)
         {
             this.nom = nom;
             this.grille = new Grille(Format.MOYEN);
@@ -41,6 +41,6 @@ namespace MyDomotik
             return this.nom;
         }
 
-        public 
+       
     }
 }
