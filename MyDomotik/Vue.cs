@@ -26,21 +26,21 @@ namespace MyDomotik
         }
 
         // Getters et setters
-        public void setNom(String nom)
-        {
-            this.nom = nom;
-        }
 
+        public String Nom
+        {
+            get { return nom; }
+            set { nom = value; }
+        }
         public void setFormatGrille(Format format)
         {
             this.grille.setFormat(format);
         }
 
-        public String getNom()
+        // ajouter une icone à la grille de la page
+        public void ajouterIcone(Icone icone, int index)
         {
-            return this.nom;
+            this.grille.addIcone(icone, index);
         }
-
-       
     }
 }

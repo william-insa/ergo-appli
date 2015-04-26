@@ -16,7 +16,7 @@
 
         </Grid.RowDefinitions>
 
-        <Rectangle Fill="#FFD100FF" Stroke="Black" VerticalAlignment="Top" Grid.Row="2" Height="153" Margin="10,10,10,0"/>
+        <Rectangle x:Name="barreMenu" Fill="#FFD100FF" Stroke="Black" VerticalAlignment="Top" Grid.Row="2" Height="153" Margin="10,10,10,0"/>
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -45,7 +45,7 @@
 
         </Grid>
 
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF0D1F91"  Width="1346" Height="500" Grid.Row="1">
+        <Grid x:Name="cadre" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF0D1F91"  Width="1346" Height="500" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -78,11 +78,11 @@
 
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="icon2_0" Grid.Column="0" Height="139" Margin="7" Width="435" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF47CB16">
+            <Button x:Name="accueil" Grid.Column="0" Height="139" Margin="7" Width="435" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF47CB16">
                 <Image Height="137" Width="272" Source="Assets/acceuil.PNG"/>
             </Button>
 
-            <Button x:Name="icon2_1" Grid.Column="1" Height="139" Margin="7" Width="435" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF47CB16">
+            <Button x:Name="precedent" Grid.Column="1" Height="139" Margin="7" Width="435" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF47CB16">
                 <Image Height="116.145" Width="341.828" Source="Assets/suivant.PNG" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
                     <Image.RenderTransform>
                         <CompositeTransform Rotation="-180.172"/>
@@ -91,7 +91,7 @@
                 </Image>
             </Button>
 
-            <Button x:Name="icon2_2" Grid.Column="2" Height="139" Margin="7" Width="434" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF47CB16">
+            <Button x:Name="suivant" Grid.Column="2" Height="139" Margin="7" Width="434" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF47CB16" Click="icon2_2_Click">
                 <Image Height="119" Width="292" Source="Assets/suivant.PNG"/>
             </Button>
 

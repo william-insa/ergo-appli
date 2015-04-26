@@ -13,6 +13,18 @@ namespace MyDomotik
         private int taille;
         private String source;
 
+        //getters and setters
+        public int Taille
+        {
+            get { return taille; }
+            set { taille = value; }
+        }
+        public String Source
+        {
+            get { return source; }
+            set { source = value; }
+        }
+
         // constructeur d'image
         public Image(String nomFichier, int taille)
         {

@@ -11,6 +11,8 @@ namespace MyDomotik
         // format de la grille
         private int nbColonnes;
         private int nbLignes;
+
+    
         // hashmap associant une icone à une case de la grille représentée par son index
         private Dictionary<int,Icone> icones;
 
@@ -22,16 +24,17 @@ namespace MyDomotik
         }
 
 
-        // getters and setters nbColonnes, nbLignes
-        public int getNbColonnes()
+        // getters nbColonnes, nbLignes
+        public int NbLignes
         {
-            return this.nbColonnes;
+            get { return nbLignes; }
         }
 
-        public int getNbLignes()
+        public int NbColonnes
         {
-            return this.nbLignes;
+            get { return nbColonnes; }
         }
+
 
         // nombre total de cases dans la grille
         public int nbCasesGrille()

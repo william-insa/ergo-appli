@@ -14,18 +14,24 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Windows;
 
 
 namespace MyDomotik
 {
     public sealed partial class MainPage : Page
     {
+
         public MainPage()
         {
             this.InitializeComponent();
             this.displayTime();
         }
 
+        private void afficheCouleur()
+        {
+            cadre.Background. ;
+        }
         private void displayTime()
         {
             TimeBox.Text = DateTime.Now.ToString();
@@ -37,6 +43,8 @@ namespace MyDomotik
         {
             this.Frame.Navigate(typeof(AdminPage));
         }
+
+      
 
 
     }

@@ -11,7 +11,7 @@ namespace MyDomotik
         private Image image;
         private String nom;
         private Action action;
-        //private Navigation navigation;
+        private Navigation navigation;
 
         // constructeur d'icone associée à une action
         public Icone(Image image, String nom, Action action)
@@ -22,53 +22,36 @@ namespace MyDomotik
         }
 
         // constructeur d'icone associée à une navigation (icone menant à une nouvelle page)
-       /* public Icone(Image image, String nom, Navigation navigation)
+       public Icone(Image image, String nom, Navigation navigation)
         {
             this.image = image;
             this.nom = nom;
             this.navigation = navigation;
-        }*/
+        }
 
         //getters et setters image, nom, action, navigation
-        public Image getImage()
+         internal Image Image
         {
-            return this.image;
+            get { return image; }
+            set { image = value; }
         }
 
-        public void setImage(Image image)
-        {
-            this.image = image;
-        }
+         public String Nom
+         {
+             get { return nom; }
+             set { nom = value; }
+         }
+         public Action Action
+         {
+             get { return action; }
+             set { action = value; }
+         }
 
-        public String getNom()
-        {
-            return this.nom;
-        }
-
-        public void setNom(String nom)
-        {
-            this.nom = nom;
-        }
-
-        public Action getAction()
-        {
-            return this.action;
-        }
-
-        public void setAction(Action action)
-        {
-            this.action = action;
-        }
-
-       /* public Navigation getNavigation()
-        {
-            return this.navigation;
-        }
-
-        public void setNavigation(Navigation navigation)
-        {
-            this.navigation = navigation;
-        }*/
+         internal Navigation Navigation
+         {
+             get { return navigation; }
+             set { navigation = value; }
+         }
 
         // méthode d'affichage d'une icone
         public void afficherIcone()
