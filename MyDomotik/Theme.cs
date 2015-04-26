@@ -37,12 +37,6 @@ namespace MyDomotik
             Couleur = new Couleur();
         }
 
-        public Theme()
-        {
-            ModeDefilement = 0;
-            VitesseDefilement = 0;
-            Couleur = new Couleur();
-        }
 
         public Theme(int modeDef, int vitesseDef, Couleur coul)
         {

@@ -16,9 +16,13 @@
 
         </Grid.RowDefinitions>
 
-        <Rectangle x:Name="barreMenu" Fill="#FFD100FF" Stroke="Black" VerticalAlignment="Top" Grid.Row="2" Height="153" Margin="10,10,10,0"/>
+        <Rectangle x:Name="barreMenu" Stroke="Black" VerticalAlignment="Top" Grid.Row="2" Height="153" Margin="10,10,10,0">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="DarkMagenta"/>
+            </Rectangle.Fill>
+        </Rectangle>
 
-        <Grid>
+                <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="270*"/>
                 <ColumnDefinition Width="845*"/>
@@ -91,7 +95,7 @@
                 </Image>
             </Button>
 
-            <Button x:Name="suivant" Grid.Column="2" Height="139" Margin="7" Width="434" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF47CB16" Click="icon2_2_Click">
+            <Button x:Name="suivant" Grid.Column="2" Height="139" Margin="7" Width="434" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF47CB16">
                 <Image Height="119" Width="292" Source="Assets/suivant.PNG"/>
             </Button>
 

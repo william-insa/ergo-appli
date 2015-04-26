@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Windows;
+using Windows.UI;
 
 
 namespace MyDomotik
@@ -26,11 +27,23 @@ namespace MyDomotik
         {
             this.InitializeComponent();
             this.displayTime();
+            this.afficheCouleur(new Couleur()); // il faut passer la couleur attribut de la classe configuration
         }
 
-        private void afficheCouleur()
+        // Affiche les couleurs de la grille, la barre de menu et ses boutons en fonction du thème de couleurs passé en paramètre
+        private void afficheCouleur(Couleur couleur)
         {
-            cadre.Background. ;
+
+            Brush grille = new SolidColorBrush(couleur.CouleurGrille);
+            Brush barre = new SolidColorBrush(couleur.CouleurBarre);
+            Brush boutons = new SolidColorBrush(couleur.CouleurIconeBarre);
+
+            barreMenu.Fill = barre;
+            cadre.Background = grille;
+            accueil.Background = boutons;
+            precedent.Background = boutons;
+            suivant.Background = boutons;
+    
         }
         private void displayTime()
         {

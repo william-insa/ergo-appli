@@ -2727,9 +2727,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Arbre.cs" />
     <Compile Include="BlankPage1.xaml.cs">
       <DependentUpon>BlankPage1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Couleur.cs" />
+    <Compile Include="Navigation.cs" />
+    <Compile Include="Theme.cs" />
     <Compile Include="Vue.cs" />
     <Compile Include="Device.cs" />
     <Compile Include="Format.cs" />
@@ -2755,7 +2759,6 @@
     <Compile Include="ReglagesReseau.xaml.cs">
       <DependentUpon>ReglagesReseau.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Room.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
