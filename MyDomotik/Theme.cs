@@ -37,12 +37,12 @@ namespace MyDomotik
         // constructeurs
         public Theme()
         {
-            ModeDefilement = 0;
+            ModeDefilement = false;
             VitesseDefilement = 0;
             Couleur = new Couleur();
         }
 
-        public Theme(Booleen modeDef, int vitesseDef, Couleur coul)
+        public Theme(Boolean modeDef, int vitesseDef, Couleur coul)
         {
         ModeDefilement = modeDef;
         VitesseDefilement = vitesseDef;

@@ -24,17 +24,14 @@ namespace MyDomotik
     {
         // Numéro de page de la grille : modifié lors d'une interaction avec la barre de navigation
         private int numGrille;
-        private Couleur couleur;
-
-        // par la suite ces attributs seront présents dans la classe configuration
-        private static Arbre arbre; 
-        private static Theme theme; 
+        private Theme theme; 
 
         public MainPage()
         {
             // Initialisation
             this.numGrille = 0;
-            this.couleur = theme.Couleur;
+            this.theme = Configuration.theme;
+            Arbre arbre = Configuration.arbre;
             this.InitializeComponent();
 
             // affichage de l'heure
@@ -42,9 +39,10 @@ namespace MyDomotik
 
             // affichage de la grille
             this.afficheGrille(arbre.PageCourante.Grille, this.numGrille);
-
+        
             // affichage des couleurs
-            this.afficheCouleur(couleur); 
+            this.afficheCouleur(theme.Couleur); 
+
         }
 
         // Affiche les couleurs de la grille, la barre de menu et ses boutons en fonction du thème de couleurs passé en paramètre
@@ -53,7 +51,7 @@ namespace MyDomotik
 
             Brush grille = new SolidColorBrush(couleur.CouleurGrille);
             Brush barre = new SolidColorBrush(couleur.CouleurBarre);
-            Brush boutons = new SolidColorBrush(couleur.CouleurIconeBarre);
+            Brush boutons = new SolidColorBrush(couleur.CouleurBoutons);
 
             barreMenu.Fill = barre;
             cadre.Background = grille;

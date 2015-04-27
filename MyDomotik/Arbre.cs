@@ -48,10 +48,10 @@ namespace MyDomotik
            PageCourante = v;
         }
 
-        public List<string> cheminPageCourante()
+       /* public List<string> cheminPageCourante()
         {
-
-        }
+            
+        }*/
 
     }
 }

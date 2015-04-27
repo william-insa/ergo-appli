@@ -2732,7 +2732,6 @@
     <Compile Include="BlankPage1.xaml.cs">
       <DependentUpon>BlankPage1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Configuration.cs" />
     <Compile Include="Couleur.cs" />
     <Compile Include="Equipement.cs" />
     <Compile Include="Modalite.cs" />

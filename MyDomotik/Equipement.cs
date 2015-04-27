@@ -36,7 +36,7 @@ namespace MyDomotik
         }
    
 
-        public void addAction(Action a)
+        /*public void addAction(Action a)
         {
             this.action.Add(a);
             a.Equipement(this);
@@ -45,6 +45,6 @@ namespace MyDomotik
         public void afficheAction()
         {
 
-        }
+        }*/
     }
 }

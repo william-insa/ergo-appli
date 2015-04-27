@@ -54,11 +54,5 @@ namespace MyDomotik
             set { modalite = value; }
         }
 
-
-
-        internal void Equipement(MyDomotik.Equipement equipement)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
