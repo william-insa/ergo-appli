@@ -8,12 +8,12 @@ namespace MyDomotik
 {
     class Arbre
     {
+        // champs
         private Vue noeux;
         private List<Arbre> fils = null;
         private Vue pageCourante;
-
-
-
+        
+        // propriétés
         internal Vue Noeux
         {
             get { return noeux; }
@@ -32,12 +32,13 @@ namespace MyDomotik
             set { pageCourante = value; }
         }
 
-
+        // constructeur
         public Arbre(Vue v)
         {
             Noeux = v;
         }
 
+        // méthodes
         public void ajouterArbre(Arbre element)
         {
             Fils.Add(element);
@@ -45,6 +46,11 @@ namespace MyDomotik
 
         public void modifPageCourante(Vue v){
            PageCourante = v;
+        }
+
+        public List<string> cheminPageCourante()
+        {
+
         }
 
     }

@@ -82,11 +82,11 @@
 
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="accueil" Grid.Column="0" Height="139" Margin="7" Width="435" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF47CB16">
+            <Button x:Name="accueil" Grid.Column="0" Height="139" Margin="7" Width="435" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF47CB16" Click="PageAccueil">
                 <Image Height="137" Width="272" Source="Assets/acceuil.PNG"/>
             </Button>
 
-            <Button x:Name="precedent" Grid.Column="1" Height="139" Margin="7" Width="435" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF47CB16">
+            <Button x:Name="precedent" Grid.Column="1" Height="139" Margin="7" Width="435" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF47CB16" Click="PagePrecedente">
                 <Image Height="116.145" Width="341.828" Source="Assets/suivant.PNG" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
                     <Image.RenderTransform>
                         <CompositeTransform Rotation="-180.172"/>
@@ -95,7 +95,7 @@
                 </Image>
             </Button>
 
-            <Button x:Name="suivant" Grid.Column="2" Height="139" Margin="7" Width="434" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF47CB16">
+            <Button x:Name="suivant" Grid.Column="2" Height="139" Margin="7" Width="434" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF47CB16" Click="PageSuivante">
                 <Image Height="119" Width="292" Source="Assets/suivant.PNG"/>
             </Button>
 

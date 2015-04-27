@@ -11,6 +11,7 @@ namespace MyDomotik
         private String nom;
         private Grille grille;
 
+
         // constructeur à partir du nom et du format de la grille
         public Vue(String nom, Format formatGrille)
         {
@@ -31,6 +32,12 @@ namespace MyDomotik
         {
             get { return nom; }
             set { nom = value; }
+        }
+
+        internal Grille Grille
+        {
+            get { return grille; }
+            set { grille = value; }
         }
         public void setFormatGrille(Format format)
         {
