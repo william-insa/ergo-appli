@@ -2729,9 +2729,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Arbre.cs" />
-    <Compile Include="BlankPage1.xaml.cs">
-      <DependentUpon>BlankPage1.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Configuration.cs" />
     <Compile Include="Couleur.cs" />
     <Compile Include="Equipement.cs" />
     <Compile Include="Modalite.cs" />
@@ -2781,10 +2779,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="AdminPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="BlankPage1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

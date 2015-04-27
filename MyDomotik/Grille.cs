@@ -11,6 +11,7 @@ namespace MyDomotik
         // format de la grille
         private int nbColonnes;
         private int nbLignes;
+        private Format format;
 
     
         // hashmap associant une icone à une case de la grille représentée par son index
@@ -25,6 +26,13 @@ namespace MyDomotik
 
 
         // getters nbColonnes, nbLignes
+
+        internal Format Format
+        {
+            get { return format; }
+            set { format = value; }
+        }
+
         public int NbLignes
         {
             get { return nbLignes; }
@@ -125,6 +133,8 @@ namespace MyDomotik
 
             return pageGrille;
         }
+
+
 
 
     }

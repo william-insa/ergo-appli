@@ -24,14 +24,17 @@ namespace MyDomotik
     {
         // Numéro de page de la grille : modifié lors d'une interaction avec la barre de navigation
         private int numGrille;
-        private Theme theme; 
+        private Grille grille;
+        private Theme theme;
+        private Arbre arbre;
 
         public MainPage()
         {
             // Initialisation
             this.numGrille = 0;
+            this.grille = Configuration.arbre.PageCourante.Grille;
             this.theme = Configuration.theme;
-            Arbre arbre = Configuration.arbre;
+            this.arbre = Configuration.arbre;
             this.InitializeComponent();
 
             // affichage de l'heure
@@ -62,15 +65,74 @@ namespace MyDomotik
         }
 
         // Affiche la grille avec le bon format et les icones correspondant au numéro de Page de la grille numGrille : TO DO
-        private void afficheGrille(Grille grille, int numGrille)
+        private void afficheGrille(Grille grille, int numGrille, Grid cadre)
         {
             // icones : tableau contenant les icones à afficher
             Icone[] icones = grille.pageGrille(numGrille);
-            for (int i = 0; i < grille.nbCasesGrille(); i++)
+
+            // création de la grid
+
+            switch (grille.Format)
             {
-                Button button = new Button();
-                button.Name = "bouton" + i;
+                case Format.PETIT :
+                     ColumnDefinition colDef1 = new ColumnDefinition();
+                     ColumnDefinition colDef2 = new ColumnDefinition();
+                     ColumnDefinition colDef3 = new ColumnDefinition();
+                     ColumnDefinition colDef4 = new ColumnDefinition();
+                     ColumnDefinition colDef5 = new ColumnDefinition();
+                     ColumnDefinition colDef6 = new ColumnDefinition();
+                     cadre.ColumnDefinitions.Add(colDef1);
+                     cadre.ColumnDefinitions.Add(colDef2);
+                     cadre.ColumnDefinitions.Add(colDef3);
+                     cadre.ColumnDefinitions.Add(colDef4);
+                     cadre.ColumnDefinitions.Add(colDef5);
+                     cadre.ColumnDefinitions.Add(colDef6);
+
+                     RowDefinition ligneDef1 = new RowDefinition();
+                     RowDefinition ligneDef2 = new RowDefinition();
+                     RowDefinition ligneDef3 = new RowDefinition();
+                     cadre.RowDefinitions.Add(ligneDef1);
+                     cadre.RowDefinitions.Add(ligneDef2);
+                     cadre.RowDefinitions.Add(ligneDef3);
+
+                    break;
+
+                case Format.MOYEN :
+                default :
+
+                     ColumnDefinition colmoy1 = new ColumnDefinition();
+                     ColumnDefinition colmoy2 = new ColumnDefinition();
+                     ColumnDefinition colmoy3 = new ColumnDefinition();
+                     ColumnDefinition colmoy4 = new ColumnDefinition();
+                     cadre.ColumnDefinitions.Add(colmoy1);
+                     cadre.ColumnDefinitions.Add(colmoy2);
+                     cadre.ColumnDefinitions.Add(colmoy3);
+                     cadre.ColumnDefinitions.Add(colmoy4);
+
+                     RowDefinition lignemoy1 = new RowDefinition();
+                     RowDefinition lignemoy2 = new RowDefinition();
+                     cadre.RowDefinitions.Add(lignemoy1);
+                     cadre.RowDefinitions.Add(lignemoy2);
+
+                    break;
+
+                case Format.GRAND :
+
+                     ColumnDefinition colgd1 = new ColumnDefinition();
+                     ColumnDefinition colgd2 = new ColumnDefinition();
+                     ColumnDefinition colgd3 = new ColumnDefinition();
+                     cadre.ColumnDefinitions.Add(colgd1);
+                     cadre.ColumnDefinitions.Add(colgd2);
+                     cadre.ColumnDefinitions.Add(colgd3);
+
+                     RowDefinition lignegd1 = new RowDefinition();
+                     RowDefinition lignegd2 = new RowDefinition();
+                     cadre.RowDefinitions.Add(lignegd1);
+                     cadre.RowDefinitions.Add(lignegd2);
+
+                    break;
             }
+            
 
         }
 
@@ -107,10 +169,11 @@ namespace MyDomotik
         {
             if (!theme.ModeDefilement)
             {
-                if (numGrille < arbre.PageCourante.Grille.nbPagesGrille())
+                Grille grille = Configuration.arbre.PageCourante.Grille;
+                if (numGrille < grille.nbPagesGrille())
                 {
                 numGrille++;
-                this.afficheGrille(arbre.PageCourante.Grille, numGrille);
+                this.afficheGrille(grille, numGrille);
                 }
             }
             

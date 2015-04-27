@@ -50,7 +50,7 @@
         </Grid>
 
         <Grid x:Name="cadre" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF0D1F91"  Width="1346" Height="500" Grid.Row="1">
-            <Grid.ColumnDefinitions>
+           <!-- <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -61,7 +61,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <!--
+            
             <Button x:Name="icon3" Grid.Row="0" Grid.Column="2" Height="236" Margin="6,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}"/>
             <Button x:Name="icon3_Copy" Grid.Row="0" Grid.Column="1" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}"/>
             <Button x:Name="icon3_Copy1" Grid.Row="0" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}"/>
