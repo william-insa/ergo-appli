@@ -8,10 +8,12 @@ namespace MyDomotik
 {
     class Theme
     {
+        // champs
         private int modeDefilement;
         private int vitesseDefilement;
         private Couleur couleur;
 
+        // propriétés
         public int ModeDefilement
         {
             get { return modeDefilement; }
@@ -30,13 +32,13 @@ namespace MyDomotik
             set { couleur = value; }
         }
 
+        // constructeurs
         public Theme()
         {
             ModeDefilement = 0;
             VitesseDefilement = 0;
             Couleur = new Couleur();
         }
-
 
         public Theme(int modeDef, int vitesseDef, Couleur coul)
         {

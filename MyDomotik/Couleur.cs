@@ -42,20 +42,19 @@ namespace MyDomotik
             get { return listeCouleurs; }
         }
 
-
-        public Couleur() //initialisation -> couleurs par défault sont les 3 premières de la liste
+        // constructeurs
+        public Couleur() //initialisation -> les couleurs par défault sont les 3 premières de la liste (càd le premier thème)
         {
-            CouleurBarre = ListeCouleurs[0];
-            CouleurGrille = ListeCouleurs[1];
-            CouleurIconeBarre = ListeCouleurs[2];
+            CouleurGrille = ListeCouleurs[0];
+            CouleurBarre = ListeCouleurs[1];
+            CouleurBoutons = ListeCouleurs[2];
         }
 
         public Couleur(Color coulBarre, Color coulGrille, Color coulIconeBarre)
         {
             CouleurBarre = coulBarre;
             CouleurGrille = coulGrille;
-            CouleurIconeBarre = coulIconeBarre;
+            CouleurBoutons = CoulBoutons;
         }
-
     }
 }
