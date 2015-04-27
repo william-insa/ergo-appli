@@ -43,18 +43,11 @@ namespace MyDomotik
         }
 
         // constructeurs
-        public Couleur() //initialisation -> les couleurs par défault sont les 3 premières de la liste (càd le premier thème)
+        public Couleur(int i)  // créé la couleur avec le i-ème thème de la liste de couleurs
         {
-            CouleurGrille = ListeCouleurs[0];
-            CouleurBarre = ListeCouleurs[1];
-            CouleurBoutons = ListeCouleurs[2];
-        }
-
-        public Couleur(Color coulBarre, Color coulGrille, Color CoulBoutons)
-        {
-            CouleurBarre = coulBarre;
-            CouleurGrille = coulGrille;
-            CouleurBoutons = CoulBoutons;
+            CouleurGrille = ListeCouleurs[3*i];
+            CouleurBarre = ListeCouleurs[3*i + 1];
+            CouleurBoutons = ListeCouleurs[3*i + 2];
         }
     }
 }
