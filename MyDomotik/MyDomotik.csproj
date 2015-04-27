@@ -2721,6 +2721,7 @@
     <Content Include="Assets\suivant.PNG" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action.cs" />
     <Compile Include="AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
@@ -2731,8 +2732,12 @@
     <Compile Include="BlankPage1.xaml.cs">
       <DependentUpon>BlankPage1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Configuration.cs" />
     <Compile Include="Couleur.cs" />
+    <Compile Include="Equipement.cs" />
+    <Compile Include="Modalite.cs" />
     <Compile Include="Navigation.cs" />
+    <Compile Include="Piece.cs" />
     <Compile Include="Theme.cs" />
     <Compile Include="Vue.cs" />
     <Compile Include="Device.cs" />
