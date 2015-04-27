@@ -11,6 +11,36 @@ namespace MyDomotik
         public static Theme theme;
         public static Arbre arbre;
 
+        private Vue mainPage;
+        private List<Action> actions;
+        private List<Equipement> equipements;
+        private List<Modalite> modalites;
+        private List<Piece> pieces;
+
+        //getters et setters
+        internal List<Piece> Pieces
+        {
+            get { return pieces; }
+            set { pieces = value; }
+        }
+        internal List<Modalite> Modalites
+        {
+            get { return modalites; }
+            set { modalites = value; }
+        }
+        
+        internal List<Equipement> Equipements
+        {
+            get { return equipements; }
+            set { equipements = value; }
+        }
+
+        internal List<Action> Actions
+        {
+            get { return actions; }
+            set { actions = value; }
+        }
+       
         public static Theme Theme
         {
             get { return Configuration.theme; }
@@ -23,6 +53,21 @@ namespace MyDomotik
             set { Configuration.arbre = value; }
         }
 
+        //constructeur
+        public Configuration()
+        {
+            this.mainPage = new Vue("Pièces");
+            this.actions = new List<Action>();
+            this.equipements = new List<Equipement>();
+            this.pieces = new List<Piece>();
+            this.modalites = new List<Modalite>();
+
+            theme = new Theme();
+            arbre = new Arbre(this.mainPage);
+            
+        }
+
+        
 
 
     }
