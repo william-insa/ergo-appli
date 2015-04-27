@@ -5,59 +5,53 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
+
 namespace MyDomotik
 {
     class Enregistrement
     {
-        string config; // configuration à enregistrer
-        string fileName = "config.xml";
-            
-            // System.IO.File.WriteAllLines(@"C:\Users\Public\TestFolder\WriteLines.txt", lines);
+        private string config = ""; // configuration à enregistrer
+        private string fileName = "config.xml";
+
+        // System.IO.File.WriteAllLines(@"C:\Users\Public\TestFolder\WriteLines.txt", lines);
 
         public Enregistrement(Configuration c)
         {
             config = c.toStringXML();
-            creerFichierEnr(config);
+            creerFichierEnr();
+        }
+
+        public Enregistrement()
+        {
+
         }
 
 
-        private void creerFichierEnr(string conf){
-            
+        private void creerFichierEnr()
+        {
+
             /*
-             * 
-            // Use Combine again to add the file name to the path.
-            pathString = System.IO.Path.Combine(@".\", fileName);
+            System.IO.Stream stream = new System.IO.MemoryStream();
 
-            // Verify the path that you have constructed.
-            Console.WriteLine("Path to my file: {0}\n", pathString);
+            using (Stream fs = File.OpenWrite(path))
 
-            // Check that the file doesn't already exist. If it doesn't exist, create
-            // the file and write integers 0 - 99 to it.
-            // DANGER: System.IO.File.Create will overwrite the file if it already exists.
-            // This could happen even with random file names, although it is unlikely.
-            if (!System.IO.File.Exists(pathString))
+            using (StreamWriter file = new StreamWriter(stream))
             {
-                using (System.IO.FileStream fs = System.IO.File.Create(pathString))
-                {
-                    for (byte i = 0; i < 100; i++)
-                    {
-                        fs.WriteByte(i);
-                    }
-                }
+                file.Write(config);
             }
-            else
+            */
+
+            /*
+            string fileeName = "test.txt";
+            string textToAdd = "Example text in file";
+
+            using (StreamWriter writer = new StreamWriter(fileeName)
             {
-                Console.WriteLine("File \"{0}\" already exists.", fileName);
-                return;
+                writer.Write(textToAdd);
             }
-       */
-             
+            */
+
+
         }
-            
-
-
-
-
-
     }
 }
