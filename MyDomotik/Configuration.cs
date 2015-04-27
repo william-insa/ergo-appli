@@ -64,7 +64,15 @@ namespace MyDomotik
 
             theme = new Theme();
             arbre = new Arbre(this.mainPage);
-            
+        }
+
+        public string toStringXML(){  // retourne la configuration sous forme de balisage XML (plus simple pour sauvegarder dans un fichier)
+            string configXML = "";
+
+            // à compléter (William)
+
+            return configXML;
+
         }
 
         
