@@ -37,7 +37,7 @@
 
             <TextBlock x:Name="TimeBox" HorizontalAlignment="Center" Height="65" TextWrapping="Wrap" VerticalAlignment="Center" Width="252" FontSize="24" FontWeight="Bold" TextAlignment="Center" FontFamily="Segoe UI" Grid.Row="0" Grid.Column="0" Foreground="Black" Margin="9,19,9,1"/>
 
-            <TextBlock x:Name="page_title" HorizontalAlignment="Center" FontWeight="Bold" Height="48" TextWrapping="Wrap" VerticalAlignment="Center" Width="832" FontSize="30" TextAlignment="Center" FontFamily="Segoe UI" Grid.Row="0" Grid.Column="1" >
+            <TextBlock x:Name="page_title" HorizontalAlignment="Center" FontWeight="Bold" Height="48" TextWrapping="Wrap" VerticalAlignment="Center" Width="832" FontSize="30" TextAlignment="Center" FontFamily="Segoe UI" Grid.Row="0" Grid.Column="1" Margin="7,21,6,16" >
     			<Run Foreground="Black" Text="Pièces de la maison"/>
             </TextBlock>
 
@@ -50,7 +50,7 @@
         </Grid>
 
         <Grid x:Name="cadre" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF0D1F91"  Width="1346" Height="500" Grid.Row="1">
-            <!--
+            
            <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -67,12 +67,14 @@
             <Button x:Name="icon3_Copy" Grid.Row="0" Grid.Column="1" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}"/>
             <Button x:Name="icon3_Copy1" Grid.Row="0" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}"/>
             <Button x:Name="icon3_Copy2" Grid.Row="1" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Grid.Column="1"/>
-            <Button x:Name="icon3_Copy3" Grid.Row="1" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}"/>
+            <Button x:Name="icon3_Copy3" Grid.Row="1" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}">
+                <Image x:Name="truc" Height="137" Width="272" Source="Assets/acceuil.PNG"/>
+            </Button>
             <Button x:Name="icon3_Copy4" Grid.Row="1" Height="236" Margin="6,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Grid.Column="2"/>
             <Button x:Name="icon3_Copy5" Grid.Row="0" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Grid.Column="3"/>
             <Button x:Name="icon3_Copy6" Grid.Row="1" Height="236" Margin="6,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Grid.Column="3"/>
             
-            -->
+            
 
 
         </Grid>

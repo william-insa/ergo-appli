@@ -31,16 +31,21 @@ namespace MyDomotik
         public MainPage()
         {
             Configuration configuration = new Configuration();
+            InitializeComponent();
+
+            Icone icone = new Icone("icone", "bathroom_0.png", 64, new Action("actionbidon", new Modalite()));
+            truc.Source = icone.Source;
+           
             // Initialisation
             this.numGrille = 0;
             this.grille = configuration.arbre.PageCourante.Grille;
             this.theme = configuration.theme;
             this.arbre = configuration.arbre;
             this.InitializeComponent();
-
+            
             // affichage de l'heure
             this.displayTime(); 
-
+            
             // affichage de la grille
             this.afficheGrille();
         
