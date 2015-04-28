@@ -36,6 +36,7 @@ namespace MyDomotik
         public Arbre(Vue v)
         {
             Noeux = v;
+            this.pageCourante = v;
         }
 
         // méthodes

@@ -50,7 +50,8 @@
         </Grid>
 
         <Grid x:Name="cadre" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF0D1F91"  Width="1346" Height="500" Grid.Row="1">
-           <!-- <Grid.ColumnDefinitions>
+            <!--
+           <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>

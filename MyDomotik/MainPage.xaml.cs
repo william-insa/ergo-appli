@@ -30,21 +30,22 @@ namespace MyDomotik
 
         public MainPage()
         {
+            Configuration configuration = new Configuration();
             // Initialisation
             this.numGrille = 0;
-            this.grille = Configuration.arbre.PageCourante.Grille;
-            this.theme = Configuration.theme;
-            this.arbre = Configuration.arbre;
+            this.grille = configuration.arbre.PageCourante.Grille;
+            this.theme = configuration.theme;
+            this.arbre = configuration.arbre;
             this.InitializeComponent();
 
             // affichage de l'heure
             this.displayTime(); 
 
             // affichage de la grille
-            this.afficheGrille(arbre.PageCourante.Grille, this.numGrille);
+            this.afficheGrille();
         
             // affichage des couleurs
-            this.afficheCouleur(theme.Couleur); 
+            this.afficheCouleur(this.theme.Couleur); 
 
         }
 
@@ -65,10 +66,10 @@ namespace MyDomotik
         }
 
         // Affiche la grille avec le bon format et les icones correspondant au numéro de Page de la grille numGrille : TO DO
-        private void afficheGrille(Grille grille, int numGrille, Grid cadre)
+        private void afficheGrille()
         {
             // icones : tableau contenant les icones à afficher
-            Icone[] icones = grille.pageGrille(numGrille);
+            Icone[] icones = this.grille.pageGrille(this.numGrille);
 
             // création de la grid
 
@@ -155,10 +156,10 @@ namespace MyDomotik
         {
             if (!theme.ModeDefilement)
             {
-                if (numGrille > 0)
+                if (this.numGrille > 0)
                 {
-                    numGrille--;
-                    this.afficheGrille(arbre.PageCourante.Grille, numGrille);
+                    this.numGrille--;
+                    this.afficheGrille();
                 }
             }
 
@@ -169,11 +170,10 @@ namespace MyDomotik
         {
             if (!theme.ModeDefilement)
             {
-                Grille grille = Configuration.arbre.PageCourante.Grille;
-                if (numGrille < grille.nbPagesGrille())
+                if (this.numGrille < this.grille.nbPagesGrille())
                 {
                 numGrille++;
-                this.afficheGrille(grille, numGrille);
+                this.afficheGrille();
                 }
             }
             

@@ -8,8 +8,8 @@ namespace MyDomotik
 {
     class Configuration
     {
-        public static Theme theme;
-        public static Arbre arbre;
+        public Theme theme;
+        public Arbre arbre;
 
         private Vue mainPage;
         private List<Action> actions;
@@ -43,14 +43,14 @@ namespace MyDomotik
        
         public static Theme Theme
         {
-            get { return Configuration.theme; }
-            set { Configuration.theme = value; }
+            get { return Theme; }
+            set { Theme = value; }
         }
 
         public static Arbre Arbre
         {
-            get { return Configuration.arbre; }
-            set { Configuration.arbre = value; }
+            get { return Arbre; }
+            set { Arbre = value; }
         }
 
         //constructeur
@@ -62,8 +62,8 @@ namespace MyDomotik
             this.pieces = new List<Piece>();
             this.modalites = new List<Modalite>();
 
-            theme = new Theme();
-            arbre = new Arbre(this.mainPage);
+            this.theme = new Theme();
+            this.arbre = new Arbre(this.mainPage);
         }
 
         public string toStringXML(){  // retourne la configuration sous forme de balisage XML (plus simple pour sauvegarder dans un fichier)

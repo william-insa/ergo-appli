@@ -16,7 +16,7 @@ namespace MyDomotik
         private Color couleurBoutons;
 
         private readonly Color[] listeCouleurs = new Color[]
-   {Colors.Blue, Colors.DarkMagenta, Colors.Green,
+   {Colors.Blue, Colors.Violet, Colors.Lime,
     Colors.Red , Colors.Yellow     , Colors.White
    };
         public Color CouleurGrille
@@ -48,6 +48,12 @@ namespace MyDomotik
             CouleurGrille = ListeCouleurs[3*i];
             CouleurBarre = ListeCouleurs[3*i + 1];
             CouleurBoutons = ListeCouleurs[3*i + 2];
+        }
+        public Couleur()  // créé la couleur avec le i-ème thème de la liste de couleurs
+        {
+            CouleurGrille = ListeCouleurs[0];
+            CouleurBarre = ListeCouleurs[1];
+            CouleurBoutons = ListeCouleurs[2];
         }
     }
 }
