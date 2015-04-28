@@ -39,7 +39,7 @@ namespace MyDomotik
         {
             ModeDefilement = false;
             VitesseDefilement = 0;
-            Couleur = new Couleur();
+            Couleur = new Couleur(0); // edit (William) : par l'initialisation, on choisit le premier thème
         }
 
         public Theme(Boolean modeDef, int vitesseDef, Couleur coul)
