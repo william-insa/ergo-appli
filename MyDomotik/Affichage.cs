@@ -84,8 +84,8 @@ namespace MyDomotik
         public void afficheGrille(Grid cadre)
         {
             //couleur boutons
-            Brush boutonActif = new SolidColorBrush(Theme.Couleur.CouleurBoutonActif);
-            Brush boutonVide = new SolidColorBrush(Theme.Couleur.CouleurBoutonVide);
+            Brush boutonActif = new SolidColorBrush(theme.Couleur.CouleurBoutonActif);
+            Brush boutonVide = new SolidColorBrush(theme.Couleur.CouleurBoutonVide);
 
             // icones : tableau contenant les icones à afficher
             Icone[] icones = this.grille.pageGrille();

@@ -69,7 +69,7 @@ namespace MyDomotik
                 CouleurBarre = ListeCouleurs[5 * i + 1];
                 CouleurBoutons = ListeCouleurs[5 * i + 2];
                 CouleurBoutonActif = ListeCouleurs[5 * i + 3];
-                CouleurBoutonActif = ListeCouleurs[5 * i + 4];
+                CouleurBoutonVide = ListeCouleurs[5 * i + 4];
             }
             else
             {
@@ -77,7 +77,7 @@ namespace MyDomotik
                 CouleurBarre = ListeCouleurs[1];
                 CouleurBoutons = ListeCouleurs[2];
                 CouleurBoutonActif = ListeCouleurs[3];
-                CouleurBoutonActif = ListeCouleurs[4];
+                CouleurBoutonVide = ListeCouleurs[4];
             }
             
         }
@@ -87,7 +87,7 @@ namespace MyDomotik
             CouleurBarre = ListeCouleurs[1];
             CouleurBoutons = ListeCouleurs[2];
             CouleurBoutonActif = ListeCouleurs[3];
-            CouleurBoutonActif = ListeCouleurs[4];
+            CouleurBoutonVide = ListeCouleurs[4];
         }
     }
 }
