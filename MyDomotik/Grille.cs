@@ -124,22 +124,22 @@ namespace MyDomotik
         }
 
         // pageGrille(numPage) retourne un tableau contenant les icones de la page numPage dans l'ordre
-        public Icone[] pageGrille(int numPage)
+        public Icone[] pageGrille()
         {
             Icone[] pageGrille = new Icone[this.nbCasesGrille()];
 
             //vérification : la page demandée existe-t-elle ?
-            if (numPage <= this.nbPagesGrille())
+            if (numGrille < this.nbPagesGrille())
             {
                 // index min et max de la page numPage
-                int indexMin = numPage*this.nbCasesGrille();
-                int indexMax = indexMin + this.nbCasesGrille();
+                int indexMin = numGrille*this.nbCasesGrille();
+                int indexMax = indexMin + this.nbCasesGrille() - 1;
 
                 foreach (int key in icones.Keys)
                 {
                     if (key >= indexMin && key <= indexMax)
                     {
-                        pageGrille[key] = this.icones[key];
+                        pageGrille[key%nbCasesGrille()] = this.icones[key];
                     }
                 }
             }
@@ -150,7 +150,7 @@ namespace MyDomotik
         // si possible incremente le numero de la page de la grille et return vrai, retourne faux sinon
         public Boolean pageSuivante()
         {
-                if (this.numGrille < this.nbPagesGrille())
+                if (this.numGrille < this.nbPagesGrille()-1)
                 {
                     numGrille++;
                     return true;

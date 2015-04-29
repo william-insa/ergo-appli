@@ -66,26 +66,8 @@ namespace MyDomotik
             suivant.Background = boutons;
         }
 
-
-
-        // Affiche la grille avec le bon format et les icones correspondant au numéro de Page de la grille numGrille : TO DO
-        public void afficheGrille(Grid cadre)
+        public void creerGrille(Grid cadre)
         {
-            //couleur boutons
-            Brush boutonActif = new SolidColorBrush(Colors.Red);
-            Brush boutonVide = new SolidColorBrush(Colors.White);
-
-            // icones : tableau contenant les icones à afficher
-            //Icone[] icones = this.grille.pageGrille(this.numGrille);
-
-            // tableau d'icones test
-            Icone icone1 = new Icone("icone1", "bathroom_0.png", 64, (Action)null);
-            Icone icone2 = new Icone("icone2", "bedroom_0.png", 64, (Action)null);
-            Icone icone3 = new Icone("icone3", "battery_0.png", 64, (Action)null);
-            Icone icone4 = new Icone("icone4", "bathroom_0.png", 64, (Action)null);
-
-            Icone[] icones = new Icone[6] { icone1, null, icone2, null, icone3, icone4 };
-
             // création de la grid
             for (int j = 0; j < grille.NbColonnes; j++)
             {
@@ -95,6 +77,18 @@ namespace MyDomotik
             {
                 cadre.RowDefinitions.Add(new RowDefinition());
             }
+
+        }
+
+        // Affiche la grille avec le bon format et les icones correspondant au numéro de Page de la grille numGrille : TO DO
+        public void afficheGrille(Grid cadre)
+        {
+            //couleur boutons
+            Brush boutonActif = new SolidColorBrush(Colors.Red);
+            Brush boutonVide = new SolidColorBrush(Colors.White);
+
+            // icones : tableau contenant les icones à afficher
+            Icone[] icones = this.grille.pageGrille();
 
             // ajout des boutons et de leurs icones dans la grille
             int cpt = 0;
@@ -106,8 +100,6 @@ namespace MyDomotik
                     bouton.SetValue(Grid.ColumnProperty, j);
                     bouton.SetValue(Grid.RowProperty, i);
 
-                    cadre.Children.Add(bouton);
-
                     if (cpt < icones.Length)
                     {
                         if (icones[cpt] != null)
@@ -117,6 +109,7 @@ namespace MyDomotik
                         }
                     }
 
+                    cadre.Children.Add(bouton);
                     cpt++;
                 }
             }
@@ -140,7 +133,12 @@ namespace MyDomotik
             
             image.SetValue(Image.HeightProperty, 0.5 * hauteur);
             image.SetValue(Image.WidthProperty, 0.5 * hauteur);
-        }  
+        }
 
+
+        public void nettoieGrille(Grid cadre)
+        {
+            cadre.Children.Clear();
+        }
     }
 }

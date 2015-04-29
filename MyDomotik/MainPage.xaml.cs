@@ -32,19 +32,43 @@ namespace MyDomotik
         public MainPage()
         {
             Configuration configuration = new Configuration();
+            this.arbre = configuration.arbre;
+            this.theme = configuration.theme;
+            
             InitializeComponent();
 
+            // test affichage de la grille
+            Icone icone1 = new Icone("icone1", "bathroom_0.png", 64, (Action)null);
+            Icone icone2 = new Icone("icone2", "bedroom_0.png", 64, (Action)null);
+            Icone icone3 = new Icone("icone3", "battery_0.png", 64, (Action)null);
+            Icone icone4 = new Icone("icone4", "bathroom_0.png", 64, (Action)null);
+            configuration.ajouterIcone(arbre.PageCourante, icone1, 0);
+            configuration.ajouterIcone(arbre.PageCourante, icone3, 2);
+            configuration.ajouterIcone(arbre.PageCourante, icone4, 4);
+            configuration.ajouterIcone(arbre.PageCourante, icone2, 6);
+            configuration.ajouterIcone(arbre.PageCourante, icone2, 8);
+            configuration.ajouterIcone(arbre.PageCourante, icone1, 10);
+            configuration.ajouterIcone(arbre.PageCourante, icone1, 12);
+            configuration.ajouterIcone(arbre.PageCourante, icone1, 13);
+            configuration.ajouterIcone(arbre.PageCourante, icone2, 16);
+            configuration.ajouterIcone(arbre.PageCourante, icone1, 17);
+            configuration.ajouterIcone(arbre.PageCourante, icone1, 24);
+            configuration.ajouterIcone(arbre.PageCourante, icone2, 25);
+            //fin test
+
             // Initialisation
-            this.theme = configuration.theme;
+            
             this.grille = configuration.arbre.PageCourante.Grille;
             this.affichage = new Affichage(this.grille, this.theme);
-            this.arbre = configuration.arbre;          
+                 
             
             // affichage de l'heure
             this.displayTime(); 
+
+          
             
             // affichage de la grille
-
+            this.affichage.creerGrille(cadre);
             this.affichage.afficheGrille(cadre);
         
             // affichage des couleurs
@@ -71,6 +95,7 @@ namespace MyDomotik
         {
             if (!theme.ModeDefilement && this.grille.pagePrecedente())
             {
+                this.affichage.nettoieGrille(cadre);
                 this.affichage.afficheGrille(cadre);
             }
 
@@ -79,11 +104,11 @@ namespace MyDomotik
         // accès à la page suivante de la grille
         private void PageSuivante(object sender, RoutedEventArgs e)
         {
-            if (this.theme.ModeDefilement && this.grille.pageSuivante())
+            if (!this.theme.ModeDefilement && this.grille.pageSuivante())
             {
+                this.affichage.nettoieGrille(cadre);
                 this.affichage.afficheGrille(cadre);
             }
-      
         }
 
         // accès à la page d'accueil : TO DO
