@@ -54,5 +54,10 @@ namespace MyDomotik
             
         }*/
 
+
+        internal void retourAccueil()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -49,5 +49,17 @@ namespace MyDomotik
         {
             this.grille.addIcone(icone, index);
         }
+
+        // enlever l'icone à l'index index
+        public void enleverIcone(int index)
+        {
+            this.grille.removeIcone(index);
+        }
+
+        // retourne l'icone située à l'index demandé
+        public Icone getIcone(int index)
+        {
+            return this.grille.getIcone(index);
+        }
     }
 }

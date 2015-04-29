@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using System.Drawing;
 using System.IO;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -15,9 +14,8 @@ namespace MyDomotik
     class Icone
     {
         private String nomIcone;
-        private Image image;
-        private BitmapImage source;
-
+        private Image image;    
+        private Uri uri;
 
         private int taille;
         private String chaineSource;
@@ -31,11 +29,8 @@ namespace MyDomotik
         // source du fichier créé par rapport à la taille de l'icone
         public void SourceImage(String nomFichier)
         {
-
-            this.chaineSource = @"ms-apx:/Assets/ICONS_MDTOUCH/size_" + this.taille + "x" + this.taille + "/" + nomFichier; // spécifie le dossier adéquat en fonction de la taille de l'image
-            Uri imageUri = new Uri(this.chaineSource, UriKind.Absolute);
-            this.Source = new BitmapImage(imageUri);
-              
+            this.chaineSource = "ms-appx:///Assets/ICONS_MDTOUCH/size_" + this.taille + "x" + this.taille + "/" + nomFichier; // spécifie le dossier adéquat en fonction de la taille de l'image
+            this.Uri = new Uri(this.chaineSource, UriKind.Absolute);          
         }
 
         // constructeur d'icone associée à une action
@@ -48,7 +43,7 @@ namespace MyDomotik
 
             // création de l'image à partir de la source
             this.image = new Image();
-            this.image.Source = this.source;
+            //this.image.Source = this.sourceBi;
             
             this.nomIcone = nom;
             
@@ -66,7 +61,7 @@ namespace MyDomotik
 
             // création de l'image à partir de la source
             this.image = new Image();
-            this.image.Source = this.source;
+            //this.image.Source = this.sourceBi;
            
             this.nomIcone = nom;
            
@@ -74,13 +69,6 @@ namespace MyDomotik
             this.action = null;
         }
 
-        //getters et setters image, nom, action, navigation
-
-        public BitmapImage Source
-        {
-            get { return source; }
-            set { source = value; }
-        }
          internal Image Image
         {
             get { return image; }
@@ -121,10 +109,13 @@ namespace MyDomotik
         }
 
 
-        // méthode d'affichage d'une icone
-        public void afficherIcone()
-        {
 
+        public Uri Uri
+        {
+            get { return uri; }
+            set { uri = value; }
         }
+
+       
     }
 }

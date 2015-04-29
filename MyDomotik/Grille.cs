@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace MyDomotik
 {
@@ -17,11 +19,15 @@ namespace MyDomotik
         // hashmap associant une icone à une case de la grille représentée par son index
         private Dictionary<int,Icone> icones;
 
+        // numéro de la page courante de la grille
+        private int numGrille;
+
         // constructeur
         public Grille(Format format)
         {
             this.setFormat(format);
             this.icones = new Dictionary<int,Icone>();
+            this.numGrille = 0;
         }
 
 
@@ -42,6 +48,13 @@ namespace MyDomotik
         {
             get { return nbColonnes; }
         }
+
+        public int NumGrille
+        {
+            get { return numGrille; }
+            set { numGrille = value; }
+        }
+
 
 
         // nombre total de cases dans la grille
@@ -134,8 +147,30 @@ namespace MyDomotik
             return pageGrille;
         }
 
+        // si possible incremente le numero de la page de la grille et return vrai, retourne faux sinon
+        public Boolean pageSuivante()
+        {
+                if (this.numGrille < this.nbPagesGrille())
+                {
+                    numGrille++;
+                    return true;
+                }
+                return false;
+        }
 
 
 
+        // si possible decremente le numero de la page de la grille et return vrai, retourne faux sinon
+        public Boolean pagePrecedente()
+        {
+            if (this.numGrille > 0)
+            {
+                this.numGrille--;
+                return true;
+            }
+            return false;
+        }
+
+  
     }
 }

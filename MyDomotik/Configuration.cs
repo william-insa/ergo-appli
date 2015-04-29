@@ -75,6 +75,24 @@ namespace MyDomotik
 
         }
 
+        // ajouter une icone à la grille de la page
+        public void ajouterIcone(Vue page, Icone icone, int index)
+        {
+            page.ajouterIcone(icone, index);
+        }
+
+        // enlever l'icone à l'index index
+        public void enleverIcone(Vue page, int index)
+        {
+            page.enleverIcone(index);
+        }
+
+        // retourne l'icone située à l'index demandé
+        public Icone getIcone(Vue page, int index)
+        {
+            return page.getIcone(index);
+        }
+
         
 
 
