@@ -31,11 +31,14 @@ namespace MyDomotik
 
         public MainPage()
         {
+          // Initialisation
             Configuration configuration = new Configuration();
             this.arbre = configuration.arbre;
             this.theme = configuration.theme;
-            
+          
             InitializeComponent();
+          
+          // affichage de la grille
 
             // test affichage de la grille
             Icone icone1 = new Icone("icone1", "bathroom_0.png", 64, (Action)null);
@@ -56,22 +59,16 @@ namespace MyDomotik
             configuration.ajouterIcone(arbre.PageCourante, icone2, 25);
             //fin test
 
-            // Initialisation
-            
             this.grille = configuration.arbre.PageCourante.Grille;
             this.affichage = new Affichage(this.grille, this.theme);
                  
-            
-            // affichage de l'heure
-            this.displayTime(); 
-
-          
-            
-            // affichage de la grille
             this.affichage.creerGrille(cadre);
             this.affichage.afficheGrille(cadre);
-        
-            // affichage des couleurs
+
+          // affichage de l'heure
+            this.displayTime(); 
+            
+          // affichage des couleurs
             this.affichage.afficheCouleur(barreMenu, cadre, accueil, precedent, suivant);
 
         }
