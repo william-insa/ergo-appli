@@ -1,10 +1,14 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 //using ClassLibrary1.OutputStream;
+using Windows.Storage.Streams;
+using System.IO;
+using Windows.Storage;
+using System.Xml.Serialization;
 
 namespace MyDomotik
 {
@@ -13,7 +17,16 @@ namespace MyDomotik
         private string config = ""; // configuration à enregistrer
         private string fileName = "config.xml";
      //   private OutputStream o;
+        private FileRandomAccessStream a = new FileRandomAccessStream();
 
+        private Stream s = new Stream();
+
+        StorageFile  f = new StorageFile();
+
+        ApplicationData a = new ApplicationData();
+
+
+        private StreamWriter sw = new System.IO.StreamWriter();
         // System.IO.File.WriteAllLines(@"C:\Users\Public\TestFolder\WriteLines.txt", lines);
 
         public Enregistrement(Configuration c)
@@ -62,6 +75,7 @@ namespace MyDomotik
             */
         /*
 
-        } */
+        } * /
     }
 }
+*/

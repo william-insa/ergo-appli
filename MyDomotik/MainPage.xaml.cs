@@ -132,7 +132,7 @@ namespace MyDomotik
             Icone[] icones = grille.pageGrille();
             for(int i=0; i<icones.Length; i++)
             {
-                icones[i].Bouton.Click += new RoutedEventHandler(IconeClick);  
+                icones[i].Bouton.Click += new RoutedEventHandler(IconeClick);  // ça suffit pas !
             }
         }
 
