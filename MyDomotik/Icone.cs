@@ -22,8 +22,8 @@ namespace MyDomotik
 
         private Action action;
         private Navigation navigation;
-        
 
+        private Button bouton;
        
         
         // source du fichier créé par rapport à la taille de l'icone
@@ -68,6 +68,17 @@ namespace MyDomotik
             this.navigation = navigation;
             this.action = null;
         }
+
+        //navigation ou action ?
+      private Boolean navigue(int index)
+      {
+          return (this.Navigation != null);
+      }
+
+      private Boolean actionne(int index)
+      {
+          return (this.Action != null);
+      }
 
          internal Image Image
         {
@@ -115,7 +126,11 @@ namespace MyDomotik
             get { return uri; }
             set { uri = value; }
         }
-
+        public Button Bouton
+        {
+            get { return bouton; }
+            set { bouton = value; }
+        }
        
     }
 }

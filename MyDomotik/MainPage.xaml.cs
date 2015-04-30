@@ -39,9 +39,11 @@ namespace MyDomotik
             InitializeComponent();
           
           // affichage de la grille
+            Vue pageSuiv = new Vue("the big page");
+            Navigation nav = new Navigation(pageSuiv);
 
             // test affichage de la grille
-            Icone icone1 = new Icone("icone1", "bathroom_0.png", 64, (Action)null);
+            Icone icone1 = new Icone("icone1", "bathroom_0.png", 64, nav);
             Icone icone2 = new Icone("icone2", "bedroom_0.png", 64, (Action)null);
             Icone icone3 = new Icone("icone3", "battery_0.png", 64, (Action)null);
             Icone icone4 = new Icone("icone4", "bathroom_0.png", 64, (Action)null);
@@ -59,25 +61,35 @@ namespace MyDomotik
             configuration.ajouterIcone(arbre.PageCourante, icone2, 25);
             //fin test
 
-            this.grille = configuration.arbre.PageCourante.Grille;
+            afficherPage();
+            premierAffichage = false;
+
+        }
+
+        // affichage de la page courante
+        public void afficherPage() 
+
+        {
+            page_title.Text = this.arbre.PageCourante.Nom;
+            this.grille = this.arbre.PageCourante.Grille;
             this.affichage = new Affichage(this.grille, this.theme);
-                 
+
             this.affichage.creerGrille(cadre);
+
             this.affichage.afficheGrille(cadre);
 
-          // affichage de l'heure
-            this.displayTime(); 
-            
-          // affichage des couleurs
-            this.affichage.afficheCouleur(barreMenu, cadre, accueil, precedent, suivant);
+            // affichage de l'heure
+            this.displayTime();
 
+            // affichage des couleurs
+            this.affichage.afficheCouleur(barreMenu, cadre, accueil, precedent, suivant);
         }
 
 
         // affichage de l'heure : TO DO
         public void displayTime()
         {
-            TimeBox.Text = DateTime.Now.ToString();
+            TimeBox.Text = DateTime.Now.Hour + ":" + DateTime.Now.Minute;
         }
      
        
@@ -111,7 +123,38 @@ namespace MyDomotik
         // accès à la page d'accueil : TO DO
         private void PageAccueil(object sender, RoutedEventArgs e)
         {
-            this.arbre.retourAccueil();
+                this.arbre.PageCourante = this.arbre.Racine;
+                this.Frame.Navigate(typeof(MainPage));
+        }
+
+      
+
+        // actions
+        private void attribueHandler()
+        {
+            Icone[] icones = grille.pageGrille();
+            for(int i=0; i<icones.Length; i++)
+            {
+                icones[i].Bouton.Click += IconeClick;  // ça suffit pas !  
+            }
+
+        }
+
+        private void IconeClick(object sender, RoutedEventArgs e)
+        {
+            Button boutonClick = sender as Button;
+            // test handler
+            accueil.Background = new SolidColorBrush(Colors.White);
+
+            int indexClick = (int)boutonClick.Tag;
+            Icone icone = grille.pageGrille()[indexClick];
+
+            // si icone de navigation : changement de page
+            if (icone.Navigation != null)
+            {
+                this.arbre.PageCourante = icone.Navigation.PageFils;
+                this.Frame.Navigate(typeof(MainPage));
+            }
         }
 
     }

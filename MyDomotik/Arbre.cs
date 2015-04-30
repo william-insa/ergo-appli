@@ -9,15 +9,15 @@ namespace MyDomotik
     class Arbre
     {
         // champs
-        private Vue noeux;
+        private Vue racine;
         private List<Arbre> fils = null;
         private Vue pageCourante;
         
         // propriétés
-        internal Vue Noeux
+        internal Vue Racine
         {
-            get { return noeux; }
-            set { noeux = value; }
+            get { return racine; }
+            set { racine = value; }
         }
 
         internal List<Arbre> Fils
@@ -35,7 +35,7 @@ namespace MyDomotik
         // constructeur
         public Arbre(Vue v)
         {
-            Noeux = v;
+            Racine = v;
             this.pageCourante = v;
         }
 
@@ -57,7 +57,24 @@ namespace MyDomotik
 
         internal void retourAccueil()
         {
-            throw new NotImplementedException();
+           // throw new NotImplementedException();
         }
+
+        /*public Arbre arbreVue(Vue v) // retourne l'arbre associé à la Vue v dans l'arbre global arbreConfig de la Configuration
+        {               
+            if(a.Noeux.Nom == v.Nom) {
+                return a;
+            }
+            else if (a.Fils != null)
+            {
+                foreach (Arbre arbre in a.Fils)
+                {
+                    Arbre aTemp = arbre.arbreVue(v);
+                    if (aTemp != null)
+                        return aTemp;
+                }
+            }
+            return null;
+        }*/
     }
 }

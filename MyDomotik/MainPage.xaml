@@ -38,9 +38,7 @@
 
             <TextBlock x:Name="TimeBox" HorizontalAlignment="Center" Height="65" TextWrapping="Wrap" VerticalAlignment="Center" Width="252" FontSize="24" FontWeight="Bold" TextAlignment="Center" FontFamily="Segoe UI" Grid.Row="0" Grid.Column="0" Foreground="Black" Margin="9,19,9,1"/>
 
-            <TextBlock x:Name="page_title" HorizontalAlignment="Center" FontWeight="Bold" Height="48" TextWrapping="Wrap" VerticalAlignment="Center" Width="832" FontSize="30" TextAlignment="Center" FontFamily="Segoe UI" Grid.Row="0" Grid.Column="1" Margin="7,21,6,16" >
-    			<Run Foreground="Black" Text="Pièces de la maison"/>
-            </TextBlock>
+            <TextBlock x:Name="page_title" HorizontalAlignment="Center" FontWeight="Bold" Height="48" TextWrapping="Wrap" VerticalAlignment="Center" Width="832" FontSize="30" TextAlignment="Center" FontFamily="Segoe UI" Grid.Row="0" Grid.Column="1" Margin="7,21,6,16" Foreground="Black" Text="Pièces de la maison"/>
 
             <Button x:Name="configButton"  Height="64" Width="238" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{x:Null}" Grid.Column="2" FontSize="18" DoubleTapped="adminSelect" Margin="7,11,0,10">
                 <TextBlock TextWrapping="Wrap" Text="Configuration" FontWeight="Bold" Foreground="Black" FontSize="24"/>

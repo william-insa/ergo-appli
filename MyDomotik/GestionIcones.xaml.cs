@@ -50,6 +50,8 @@ namespace MyDomotik
             this.Frame.Navigate(typeof(GestionIcones2));
         }
 
+        //événement qui gère le double click sur une icone
+        //affiche un mesage pour le choix de l'emplacement de l'icone dans la grille et récupère les informations sur l'icone
         private void choixImage(object sender, DoubleTappedRoutedEventArgs e)
         {
             message.Text = "Veuillez clicker sur l'endroit où vous souhaitez inserer l'icone";
@@ -59,11 +61,13 @@ namespace MyDomotik
             
         }
 
+        //événement qui gère le click sur un bouton
+        //affiche l'icone double clickée sur le bouton
         private void choixPositionIcone(object sender, RoutedEventArgs e)
         {
             Button b = sender as Button;
             String nom = image.Name.Replace("é", ".");
-            Icone icone = new Icone("house", nom , 64, new Navigation());
+            Icone icone = new Icone("house", nom , 64, new Navigation(new Vue("pageIcones")));
             affich.afficherIcone(icone, b);
             //message.Text = nom;
             message.Text = " ";

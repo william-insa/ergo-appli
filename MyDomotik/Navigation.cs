@@ -22,5 +22,10 @@ namespace MyDomotik
         void goToChild(Vue fils){
             // à faire
         }
+
+        public Navigation(Vue pageFille) 
+        {
+            this.PageFils = pageFille;
+        }
     }
 }
