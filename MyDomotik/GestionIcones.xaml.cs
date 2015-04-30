@@ -22,6 +22,14 @@ namespace MyDomotik
     /// </summary>
     public sealed partial class GestionIcones : Page
     {
+
+       public Image image;
+       public String source;
+       //public TextBlock message;
+       private static Grille g = new Grille(Format.MOYEN);
+       private Affichage affich = new Affichage(g, new Theme());
+
+
         public GestionIcones()
         {
             this.InitializeComponent();
@@ -40,6 +48,34 @@ namespace MyDomotik
         private void goToIcones(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(GestionIcones2));
+        }
+
+        private void choixImage(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            message.Text = "Veuillez clicker sur l'endroit où vous souhaitez inserer l'icone";
+
+            image = sender as Image;
+           // source = image.Source.ToString();
+            
+        }
+
+        private void choixPositionIcone(object sender, RoutedEventArgs e)
+        {
+            Button b = sender as Button;
+            String nom = image.Name.Replace("é", ".");
+            Icone icone = new Icone("house", nom , 64, new Navigation());
+            affich.afficherIcone(icone, b);
+            //message.Text = nom;
+            message.Text = " ";
+            
+        }
+
+        private void enleverIcone(object sender, DoubleTappedRoutedEventArgs e)
+        {
+           // Button b = sender as Button;
+            // String nom = image.Name.Replace("é", ".");
+            // Icone icone = new Icone("house", nom, 64, new Navigation());
+          //  affich.enleverImageBouton(icone, b);
         }
 
        

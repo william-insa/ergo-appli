@@ -10,6 +10,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Shapes;
 
+
 namespace MyDomotik
 {
     class Affichage
@@ -112,7 +113,7 @@ namespace MyDomotik
                         if (icones[cpt] != null)
                         {
 
-                            afficherIcone(icones[cpt], bouton, cadre, i, j);
+                            afficherIcone(icones[cpt], bouton);
                             bouton.SetValue(Button.BackgroundProperty, boutonActif);
 
                         }
@@ -125,7 +126,7 @@ namespace MyDomotik
 
 
         /*------------------------------affichage de l'icone dans la grille grid------------------------------*/
-        public void afficherIcone(Icone icone, Button bouton, Grid cadre)
+        public void afficherIcone(Icone icone, Button bouton)
         {
 
             Image image = creerImage(icone, bouton);
@@ -178,7 +179,7 @@ namespace MyDomotik
             //labelIcone.SetValue(TextBlock.TextWrappingProperty, "Wrap");
             labelIcone.TextWrapping = TextWrapping.Wrap;
 
-            labelIcone.SetValue(TextBlock.FontWeightProperty, "Bold");
+           // labelIcone.SetValue(TextBlock.FontWeightProperty, "Bold");
             //labelIcone.SetValue(TextBlock.ForegroundProperty, "Black");
             labelIcone.SetValue(TextBlock.FontSizeProperty, 24);
 
@@ -197,8 +198,31 @@ namespace MyDomotik
 
             grilleBouton.Children.Add(image);
             grilleBouton.Children.Add(labelIcone);
-
             bouton.Content = grilleBouton;
+
+       /*     switch (choix)
+            {
+                case 0: 
+                   grilleBouton.Children.Add(image);
+                   grilleBouton.Children.Add(labelIcone);
+                   bouton.Content = grilleBouton;
+                break;
+
+                case 1:
+               // grilleBouton.Children.Remove(bouton);
+                bouton.Content = null;
+                break;
+
+            }*/
+         
         }
+
+       /* public void enleverImageBouton(Icone icone, Button bouton)
+        {      
+            Image image = creerImage(icone, bouton);
+
+            TextBlock labelIcone = creerLabel(icone);          
+            ajouterImageBouton(bouton, image, labelIcone, 1);
+        }*/
     }
 }
