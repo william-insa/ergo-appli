@@ -28,6 +28,7 @@ namespace MyDomotik
         private Arbre arbre;
         private Theme theme;
         private Grille grille;
+        private int indexClick;
 
         public MainPage()
         {
@@ -41,7 +42,7 @@ namespace MyDomotik
           // affichage de la grille
 
             // test affichage de la grille
-            Icone icone1 = new Icone("icone1", "bathroom_0.png", 64, (Action)null);
+            Icone icone1 = new Icone("icone1", "bathroom_0.png", 64, new Navigation(new Vue("the page")));
             Icone icone2 = new Icone("icone2", "bedroom_0.png", 64, (Action)null);
             Icone icone3 = new Icone("icone3", "battery_0.png", 64, (Action)null);
             Icone icone4 = new Icone("icone4", "bathroom_0.png", 64, (Action)null);
@@ -59,27 +60,34 @@ namespace MyDomotik
             configuration.ajouterIcone(arbre.PageCourante, icone2, 25);
             //fin test
 
-            this.grille = configuration.arbre.PageCourante.Grille;
-            this.affichage = new Affichage(this.grille, this.theme);
-                 
-            this.affichage.creerGrille(cadre);
-            this.affichage.afficheGrille(cadre);
-
-          // affichage de l'heure
-            this.displayTime(); 
-            
-          // affichage des couleurs
-            this.affichage.afficheCouleur(barreMenu, cadre, accueil, precedent, suivant);
+            afficherPage();
+           
 
         }
 
-        public void afficherPage() { }
+        // affichage de la page courante
+        public void afficherPage() 
+
+        {
+            page_title.Text = this.arbre.PageCourante.Nom;
+            this.grille = this.arbre.PageCourante.Grille;
+            this.affichage = new Affichage(this.grille, this.theme);
+
+            this.affichage.creerGrille(cadre);
+            this.affichage.afficheGrille(cadre);
+
+            // affichage de l'heure
+            this.displayTime();
+
+            // affichage des couleurs
+            this.affichage.afficheCouleur(barreMenu, cadre, accueil, precedent, suivant);
+        }
 
 
         // affichage de l'heure : TO DO
         public void displayTime()
         {
-            TimeBox.Text = DateTime.Now.ToString();
+            TimeBox.Text = DateTime.Now.Hour + ":" + DateTime.Now.Minute;
         }
      
        
@@ -114,6 +122,33 @@ namespace MyDomotik
         private void PageAccueil(object sender, RoutedEventArgs e)
         {
             this.arbre.retourAccueil();
+        }
+
+      
+
+        // actions
+        private void attribueHandler()
+        {
+            Icone[] icones = grille.pageGrille();
+            for(int i=0; i<icones.Length; i++)
+            {
+                icones[i].Bouton.Click += new RoutedEventHandler(IconeClick);  
+            }
+        }
+
+        void IconeClick(object sender, RoutedEventArgs e)
+        {
+            page_title.Text = "COUCOU";
+            Button bouton = sender as Button;
+            int indexClick = (int)bouton.Tag;
+
+            Icone icone = grille.pageGrille()[indexClick];
+            // si icone de navigation : changement de page
+            if (icone.Navigation != null)
+            {
+                this.arbre.PageCourante = icone.Navigation.PageFils;
+                afficherPage();
+            }
         }
 
     }

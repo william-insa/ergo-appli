@@ -114,6 +114,7 @@ namespace MyDomotik
 
                             afficherIcone(icones[cpt], bouton, cadre);
                             bouton.SetValue(Button.BackgroundProperty, boutonActif);
+                            bouton.Tag = cpt;
 
                         }
                     }
@@ -163,21 +164,16 @@ namespace MyDomotik
 
             // police du label
 
-            //labelIcone.SetValue(TextBlock.FontFamilyProperty, "Segoe UI");
             labelIcone.FontFamily = new FontFamily("Segoe UI");
+            labelIcone.Foreground = new SolidColorBrush(Colors.Black);
+            labelIcone.FontSize = 24;
 
-            labelIcone.SetValue(TextBlock.HorizontalAlignmentProperty, "Center");
+            // positionnement du label
 
-            labelIcone.SetValue(TextBlock.VerticalAlignmentProperty, "Center");
-
-            labelIcone.SetValue(TextBlock.TextAlignmentProperty, "Center");
-
-            //labelIcone.SetValue(TextBlock.TextWrappingProperty, "Wrap");
+            labelIcone.TextAlignment = TextAlignment.Center;
+            labelIcone.VerticalAlignment = VerticalAlignment.Center;
+            labelIcone.HorizontalAlignment = HorizontalAlignment.Center;
             labelIcone.TextWrapping = TextWrapping.Wrap;
-
-            //labelIcone.SetValue(TextBlock.FontWeightProperty, "Bold");
-            //labelIcone.SetValue(TextBlock.ForegroundProperty, "Black");
-            //labelIcone.SetValue(TextBlock.FontSizeProperty, 24);
 
             return labelIcone;
         }
