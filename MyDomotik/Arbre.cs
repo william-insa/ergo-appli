@@ -59,5 +59,22 @@ namespace MyDomotik
         {
             throw new NotImplementedException();
         }
+
+        public Arbre arbreVue(Vue v) // retourne l'arbre associé à la Vue v dans l'arbre global arbreConfig de la Configuration
+        {               
+            if(a.Noeux.Nom == v.Nom) {
+                return a;
+            }
+            else if (a.Fils != null)
+            {
+                foreach (Arbre arbre in a.Fils)
+                {
+                    Arbre aTemp = arbre.arbreVue(v);
+                    if (aTemp != null)
+                        return aTemp;
+                }
+            }
+            return null;
+        }
     }
 }

@@ -93,8 +93,26 @@ namespace MyDomotik
             return page.getIcone(index);
         }
 
-        
+        public void ajouterPiece(Vue page, Icone icone, int index, Piece piece)
+        {
+            // ajoute une page (associée à la piece) à l'arbre
+            Arbre a = Arbre.arbreVue(page);
+            a.Fils.Add(new Arbre(page));
 
+            // ajoute une icone (associee à la pièce) à la grille de la mainPage + à la liste Configuration.pieces
+            mainPage.ajouterIcone(icone, index);
+            Pieces.Add(piece);
+        }
 
+        public void ajouterEquipement(Vue page, Piece piece, Equipement equipmt, int index){
+    /*   à finir
+            // ajoute une page à l'arbre
+            Arbre a = Arbre.arbreVue(page);
+            a.Fils.Add(new Arbre(page));
+
+            // ajoute une icone (associee à l'equipement) a la grille de la page de la piece + à la liste Configuration.equipements
+            mainPage.ajouterIcone(icone, index);
+            Pieces.Add(piece);
+     */
     }
 }
