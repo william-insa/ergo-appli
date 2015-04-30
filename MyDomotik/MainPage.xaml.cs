@@ -73,6 +73,8 @@ namespace MyDomotik
 
         }
 
+        public void afficherPage() { }
+
 
         // affichage de l'heure : TO DO
         public void displayTime()
