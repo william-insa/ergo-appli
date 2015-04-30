@@ -28,7 +28,6 @@ namespace MyDomotik
         private Arbre arbre;
         private Theme theme;
         private Grille grille;
-        private int indexClick;
 
         public MainPage()
         {
@@ -40,9 +39,11 @@ namespace MyDomotik
             InitializeComponent();
           
           // affichage de la grille
+            Vue pageSuiv = new Vue("the big page");
+            Navigation nav = new Navigation(pageSuiv);
 
             // test affichage de la grille
-            Icone icone1 = new Icone("icone1", "bathroom_0.png", 64, new Navigation(new Vue("the page")));
+            Icone icone1 = new Icone("icone1", "bathroom_0.png", 64, nav);
             Icone icone2 = new Icone("icone2", "bedroom_0.png", 64, (Action)null);
             Icone icone3 = new Icone("icone3", "battery_0.png", 64, (Action)null);
             Icone icone4 = new Icone("icone4", "bathroom_0.png", 64, (Action)null);
@@ -61,7 +62,7 @@ namespace MyDomotik
             //fin test
 
             afficherPage();
-           
+            premierAffichage = false;
 
         }
 
@@ -74,6 +75,7 @@ namespace MyDomotik
             this.affichage = new Affichage(this.grille, this.theme);
 
             this.affichage.creerGrille(cadre);
+
             this.affichage.afficheGrille(cadre);
 
             // affichage de l'heure
@@ -121,7 +123,8 @@ namespace MyDomotik
         // accès à la page d'accueil : TO DO
         private void PageAccueil(object sender, RoutedEventArgs e)
         {
-            this.arbre.retourAccueil();
+                this.arbre.PageCourante = this.arbre.Racine;
+                this.Frame.Navigate(typeof(MainPage));
         }
 
       
@@ -132,22 +135,25 @@ namespace MyDomotik
             Icone[] icones = grille.pageGrille();
             for(int i=0; i<icones.Length; i++)
             {
-                icones[i].Bouton.Click += new RoutedEventHandler(IconeClick);  // ça suffit pas !
+                icones[i].Bouton.Click += IconeClick;  // ça suffit pas !  
             }
+
         }
 
-        void IconeClick(object sender, RoutedEventArgs e)
+        private void IconeClick(object sender, RoutedEventArgs e)
         {
-            page_title.Text = "COUCOU";
-            Button bouton = sender as Button;
-            int indexClick = (int)bouton.Tag;
+            Button boutonClick = sender as Button;
+            // test handler
+            accueil.Background = new SolidColorBrush(Colors.White);
 
+            int indexClick = (int)boutonClick.Tag;
             Icone icone = grille.pageGrille()[indexClick];
+
             // si icone de navigation : changement de page
             if (icone.Navigation != null)
             {
                 this.arbre.PageCourante = icone.Navigation.PageFils;
-                afficherPage();
+                this.Frame.Navigate(typeof(MainPage));
             }
         }
 

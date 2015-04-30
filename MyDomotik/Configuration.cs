@@ -28,7 +28,7 @@ namespace MyDomotik
             get { return modalites; }
             set { modalites = value; }
         }
-        
+
         internal List<Equipement> Equipements
         {
             get { return equipements; }
@@ -40,7 +40,7 @@ namespace MyDomotik
             get { return actions; }
             set { actions = value; }
         }
-       
+
         public static Theme Theme
         {
             get { return Theme; }
@@ -56,7 +56,7 @@ namespace MyDomotik
         //constructeur
         public Configuration()
         {
-            this.mainPage = new Vue("Pièces");
+            this.mainPage = new Vue("Pièces de la Maison");
             this.actions = new List<Action>();
             this.equipements = new List<Equipement>();
             this.pieces = new List<Piece>();
@@ -66,7 +66,8 @@ namespace MyDomotik
             this.arbre = new Arbre(this.mainPage);
         }
 
-        public string toStringXML(){  // retourne la configuration sous forme de balisage XML (plus simple pour sauvegarder dans un fichier)
+        public string toStringXML()
+        {  // retourne la configuration sous forme de balisage XML (plus simple pour sauvegarder dans un fichier)
             string configXML = "";
 
             // à compléter (William)
@@ -93,7 +94,7 @@ namespace MyDomotik
             return page.getIcone(index);
         }
 
-        public void ajouterPiece(Vue page, Icone icone, int index, Piece piece)
+       /* public void ajouterPiece(Vue page, Icone icone, int index, Piece piece)
         {
             // ajoute une page (associée à la piece) à l'arbre
             Arbre a = Arbre.arbreVue(page);
@@ -102,17 +103,20 @@ namespace MyDomotik
             // ajoute une icone (associee à la pièce) à la grille de la mainPage + à la liste Configuration.pieces
             mainPage.ajouterIcone(icone, index);
             Pieces.Add(piece);
+        }*/
+
+        public void ajouterEquipement(Vue page, Piece piece, Equipement equipmt, int index)
+        {
+            /*   à finir
+                    // ajoute une page à l'arbre
+                    Arbre a = Arbre.arbreVue(page);
+                    a.Fils.Add(new Arbre(page));
+
+                    // ajoute une icone (associee à l'equipement) a la grille de la page de la piece + à la liste Configuration.equipements
+                    mainPage.ajouterIcone(icone, index);
+                    Pieces.Add(piece);
+             */
         }
-
-        public void ajouterEquipement(Vue page, Piece piece, Equipement equipmt, int index){
-    /*   à finir
-            // ajoute une page à l'arbre
-            Arbre a = Arbre.arbreVue(page);
-            a.Fils.Add(new Arbre(page));
-
-            // ajoute une icone (associee à l'equipement) a la grille de la page de la piece + à la liste Configuration.equipements
-            mainPage.ajouterIcone(icone, index);
-            Pieces.Add(piece);
-     */
     }
+
 }
