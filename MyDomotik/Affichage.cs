@@ -113,14 +113,14 @@ namespace MyDomotik
                         if (icones[cpt] != null)
                         {
 
-                            afficherIcone(icones[cpt], bouton, cadre);
+                            afficherIcone(icones[cpt], bouton);
                             bouton.SetValue(Button.BackgroundProperty, boutonActif);
                             bouton.Tag = cpt;
 
                         }
 
                         cadre.Children.Add(bouton);
-
+                        
                         listeBoutons.Add(bouton);
 
                         cpt++;
@@ -134,14 +134,14 @@ namespace MyDomotik
 
 
         /*------------------------------affichage de l'icone dans la grille grid------------------------------*/
-        public void afficherIcone(Icone icone, Button bouton, Grid cadre)
+        public void afficherIcone(Icone icone, Button bouton)
         {
             Image image = creerImage(icone, bouton);
             TextBlock labelIcone = creerLabel(icone);
             ajouterImageBouton(bouton, image, labelIcone);
         }
 
-        /*----------crée l'image associée à l'icone----------*/
+        /*----------crée l'image adapté à la taille du Bouton----------*/
         public Image creerImage(Icone icone, Button bouton)
         {
             // creation de l'image 

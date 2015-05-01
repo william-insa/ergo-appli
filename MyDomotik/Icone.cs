@@ -70,6 +70,23 @@ namespace MyDomotik
             this.action = null;
         }
 
+        // copie d'une icone
+        public Icone(Icone icone)
+        {
+            this.nomIcone = icone.nomIcone;
+            this.Image = icone.Image;
+            this.Uri = icone.Uri;
+
+            this.taille = icone.taille;
+            this.chaineSource = icone.chaineSource;
+
+            this.Action = icone.action;
+            this.navigation = icone.navigation;
+
+            this.bouton = icone.bouton;
+
+        }
+
 
         /*public void setHandler(RoutedEventHandler handler)
         {
