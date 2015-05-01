@@ -14,19 +14,19 @@ namespace MyDomotik
         private Vue pageCourante;
         
         // propriétés
-        internal Vue Racine
+        public Vue Racine
         {
             get { return racine; }
             set { racine = value; }
         }
 
-        internal List<Arbre> Fils
+        public List<Arbre> Fils
         {
             get { return fils; }
             set { fils = value; }
         }
 
-        internal Vue PageCourante
+        public Vue PageCourante
         {
             get { return pageCourante; }
             set { pageCourante = value; }
@@ -40,9 +40,16 @@ namespace MyDomotik
         }
 
         // méthodes
-        public void ajouterArbre(Arbre element)
+        public void ajouterArbre(Arbre a) // dans l'arbre COURANT, ajoute l'arbre 'a' à la liste des fils 
         {
-            Fils.Add(element);
+            Fils.Add(a);
+        }
+
+        public static void ajouterVue(Vue vuePere, Vue vueFils)   //  dans l'arbre GLOBAL, ajoute la vueFils dans la liste des fils de la vuePere
+        {
+            Arbre aPere = Configuration.Arbre.arbreVue(vuePere);
+            Arbre aFils = new Arbre(vueFils);
+            aPere.ajouterArbre(aFils);
         }
 
         public void modifPageCourante(Vue v){
@@ -55,19 +62,19 @@ namespace MyDomotik
         }*/
 
 
-        internal void retourAccueil()
+        public void retourAccueil()
         {
            // throw new NotImplementedException();
         }
 
-        /*public Arbre arbreVue(Vue v) // retourne l'arbre associé à la Vue v dans l'arbre global arbreConfig de la Configuration
-        {               
-            if(a.Noeux.Nom == v.Nom) {
-                return a;
+        public Arbre arbreVue(Vue v) // retourne le sous-arbre associé à la Vue v dans l'arbre courant
+        {
+            if(this.Racine.Nom == v.Nom) {
+                return this;
             }
-            else if (a.Fils != null)
+            else if (this.Fils != null)
             {
-                foreach (Arbre arbre in a.Fils)
+                foreach (Arbre arbre in this.Fils)
                 {
                     Arbre aTemp = arbre.arbreVue(v);
                     if (aTemp != null)
@@ -75,6 +82,6 @@ namespace MyDomotik
                 }
             }
             return null;
-        }*/
+        }
     }
 }
