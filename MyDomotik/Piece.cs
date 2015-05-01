@@ -8,25 +8,26 @@ namespace MyDomotik
 {
     class Piece
     {
-         
-        // Nom de la pièce
-        private string nom;
+         //champs
 
-        // Equipements de la pièces 
-        public List<Equipement> devices;
-
-        public Piece(string name)
-        {
-            this.nom = name;
-            this.devices = new List<Equipement>();
-        
-        }
+        private string nom;                 // Nom de la pièce
+        public List<Equipement> devices;    // Equipements de la pièces 
 
         public string Nom
         {
             get { return nom; }
             set { nom = value; }
         }
+
+        //constructeur
+        public Piece(string name)
+        {
+            this.nom = name;
+            this.devices = new List<Equipement>();
+
+        }
+
+        //méthodes
 
         /** boolean addDevice : ajoute un appareil de nom "name" à la pièce. 
          * Retourne vrai si l'appareil a été ajouté, faux sinon.
