@@ -31,13 +31,13 @@ namespace MyDomotik
 
         public MainPage()
         {
+            InitializeComponent();
+          
           // Initialisation
             Configuration configuration = new Configuration();
             this.arbre = configuration.arbre;
             this.theme = configuration.theme;
-          
-            InitializeComponent();
-          
+    
           // affichage de la grille
             Vue pageSuiv = new Vue("the big page");
             Navigation nav = new Navigation(pageSuiv);
@@ -62,8 +62,6 @@ namespace MyDomotik
             //fin test
 
             afficherPage();
-            premierAffichage = false;
-
         }
 
         // affichage de la page courante
@@ -72,6 +70,10 @@ namespace MyDomotik
         {
             page_title.Text = this.arbre.PageCourante.Nom;
             this.grille = this.arbre.PageCourante.Grille;
+
+            // attribue l'évenement de navigation associé à chaque icone de la grille
+            // this.attribueHandler();
+
             this.affichage = new Affichage(this.grille, this.theme);
 
             this.affichage.creerGrille(cadre);
@@ -135,12 +137,12 @@ namespace MyDomotik
             Icone[] icones = grille.pageGrille();
             for(int i=0; i<icones.Length; i++)
             {
-                icones[i].Bouton.Click += IconeClick;  // ça suffit pas !  
+                icones[i].setHandler(IconeClick); // ça suffit pas !  
             }
 
         }
 
-        private void IconeClick(object sender, RoutedEventArgs e)
+        public void IconeClick(object sender, RoutedEventArgs e)
         {
             Button boutonClick = sender as Button;
             // test handler

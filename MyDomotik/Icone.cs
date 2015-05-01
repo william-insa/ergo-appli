@@ -7,6 +7,7 @@ using System.IO;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml;
 
 
 namespace MyDomotik
@@ -67,6 +68,14 @@ namespace MyDomotik
            
             this.navigation = navigation;
             this.action = null;
+        }
+
+        public void setHandler(RoutedEventHandler handler)
+        {
+            if (this.Navigation != null)
+            {
+                this.Bouton.Click += handler;
+            } 
         }
 
         //navigation ou action ?

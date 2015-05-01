@@ -103,22 +103,22 @@ namespace MyDomotik
                 for (int i = 0; i < grille.NbLignes; i++)
                 {
                     // placement du bouton dans la grille 
-                    Button bouton = this.formatBouton(boutonVide, cadre);
-                    bouton.SetValue(Grid.ColumnProperty, j);
-                    bouton.SetValue(Grid.RowProperty, i);
+                    icones[cpt].Bouton = this.formatBouton(boutonVide, cadre);
+                    icones[cpt].Bouton.SetValue(Grid.ColumnProperty, j);
+                    icones[cpt].Bouton.SetValue(Grid.RowProperty, i);
 
                     if (cpt < icones.Length)
                     {
                         if (icones[cpt] != null)
                         {
 
-                            afficherIcone(icones[cpt], bouton, cadre);
-                            bouton.SetValue(Button.BackgroundProperty, boutonActif);
-                            bouton.Tag = cpt;
+                            afficherIcone(icones[cpt], icones[cpt].Bouton, cadre);
+                            icones[cpt].Bouton.SetValue(Button.BackgroundProperty, boutonActif);
+                            icones[cpt].Bouton.Tag = cpt;
 
                         }
                     }
-                    cadre.Children.Add(bouton);
+                    cadre.Children.Add(icones[cpt].Bouton);
                     cpt++;
                 }
             }
