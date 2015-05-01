@@ -10,6 +10,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Shapes;
 
+
 namespace MyDomotik
 {
     class Affichage
@@ -112,8 +113,8 @@ namespace MyDomotik
                     {
                         if (icones[cpt] != null)
                         {
-
                             afficherIcone(icones[cpt], bouton);
+
                             bouton.SetValue(Button.BackgroundProperty, boutonActif);
                             bouton.Tag = cpt;
 
@@ -183,6 +184,12 @@ namespace MyDomotik
             labelIcone.HorizontalAlignment = HorizontalAlignment.Center;
             labelIcone.TextWrapping = TextWrapping.Wrap;
 
+
+           // labelIcone.SetValue(TextBlock.FontWeightProperty, "Bold");
+            //labelIcone.SetValue(TextBlock.ForegroundProperty, "Black");
+            labelIcone.SetValue(TextBlock.FontSizeProperty, 24);
+
+
             return labelIcone;
         }
 
@@ -196,10 +203,30 @@ namespace MyDomotik
             image.SetValue(Grid.RowProperty, 0);
             labelIcone.SetValue(Grid.RowProperty, 1);
 
-            grilleBouton.Children.Add(image);
-            grilleBouton.Children.Add(labelIcone);
+          /*  switch (choix) //(tentavie pour enlever une icone de la grille)
+            {
+                case 0:
+                   grilleBouton.Visibility = Visibility.Visible;
+                   grilleBouton.Children.Add(image);
+                   grilleBouton.Children.Add(labelIcone);
+                   bouton.Content = grilleBouton;
+                break;
 
-            bouton.Content = grilleBouton;
+                case 1:
+                   grilleBouton.Visibility = Visibility.Collapsed;
+
+                break;
+
+            }
+         */
         }
+
+      /* public void cacherIcone(Icone icone, Button bouton)
+        {      
+            Image image = creerImage(icone, bouton);
+
+            TextBlock labelIcone = creerLabel(icone);          
+            ajouterImageBouton(bouton, image, labelIcone, 1);
+        }*/
     }
 }

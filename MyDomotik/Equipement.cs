@@ -8,43 +8,52 @@ namespace MyDomotik
 {
     class Equipement
     {
-        // Nom de l'equipement
-        private string nom;
-        // Pièce où se situe l'equipement
-        private Piece piece;
-        // Liste  d'action que l'on peut effectuer avec l'équipement
-        private List<Action> action;
+        // champs
 
+        private string nom;              // Nom de l'equipement
+        private Piece piece;             // Pièce où se situe l'equipement
+        public List<Action> action;     // Liste  d'action que l'on peut effectuer avec l'équipement
 
-        public Equipement(string name) 
-        {
-            this.nom = name;
-            this.action = new List<Action>();
-            this.piece = null;
-        }
         public string Nom
         {
             get { return nom; }
             set { nom = value; }
         }
-
-
-        internal Piece Piece
+        public Piece Piece
         {
             get { return piece; }
             set { piece = value; }
         }
-   
 
-        /*public void addAction(Action a)
+        // constructeur
+        public Equipement(string name)
         {
-            this.action.Add(a);
-            a.Equipement(this);
+            this.nom = name;
+            this.action = new List<Action>();
+            this.piece = null;
         }
 
+        //méthodes
+
+        /** bool addAction : ajoute une action 'a' à la liste d'actions de l'équipement courant
+          * Retourne vrai si l'action a été ajouté, faux sinon.
+          **/
+        public bool addAction(Action a)
+        {
+            if (!action.Contains(a))
+            {
+                action.Add(a);
+                a.Equipement = this;
+                return true;
+            }
+            return false;
+        }
+
+      /*
         public void afficheAction()
         {
 
-        }*/
+        }
+      */
     }
 }

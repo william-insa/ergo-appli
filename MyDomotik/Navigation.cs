@@ -9,23 +9,28 @@ namespace MyDomotik
     class Navigation
     {
         // champs
-        private Vue pageFils;
+        private Vue pageFils;       // Vue accessible lors du clic sur l'icône dont dépend la Navigation courante
 
-        // propriétés
         public Vue PageFils
         {
             get { return pageFils; }
             set { pageFils = value; }
         }
 
-        // méthodes
-        void goToChild(Vue fils){
-            // à faire
+        // constructeur
+        public Navigation(Vue pageFils) 
+        {
+            this.PageFils = pageFils;
         }
 
-        public Navigation(Vue pageFille) 
+        // méthodes
+        public void goToChild() // déplace le "curseur" PageCourante de l'arbre global vers la vue Fils correspondante
         {
-            this.PageFils = pageFille;
+            Arbre a = Configuration.Arbre.arbreVue(PageFils);
+            if (a != null)
+                Configuration.Arbre.PageCourante = a.Racine;
+            else
+                throw new Exception();
         }
     }
 }

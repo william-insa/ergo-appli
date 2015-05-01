@@ -46,7 +46,7 @@
 
         </Grid>
 
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF0D1F91"  Width="1346" Height="500" Grid.Row="1">
+        <Grid x:Name="Grid2" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF0D1F91"  Width="1346" Height="500" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -58,22 +58,28 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+
+
+
             <Button x:Name="icon3" Grid.Row="0" Grid.Column="2" Height="236" Margin="6,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}"/>
             <Button x:Name="icon3_Copy" Grid.Row="0" Grid.Column="1" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}"/>
-            <Button x:Name="icon3_Copy1" Grid.Row="0" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Click="goToIcones">
-
-            </Button>
+            <Button x:Name="icon3_Copy1" Grid.Row="0" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Click="goToIcones"/>
             <TextBlock Height="37" TextWrapping="Wrap" Width="254" Margin="38,190,45,23" Foreground="#FF0C0606" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center">
             	
-            	<Run Text="Cuisine"/>
+        		<Run Text="Cuisine"/>
             </TextBlock>
             <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/diningroom_0.png"/>
 
             <Button x:Name="icon3_Copy2" Grid.Row="1" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Grid.Column="1"/>
-            <Button x:Name="icon3_Copy3" Grid.Row="1" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}"/>
+            <Button x:Name="icon3_Copy3" Grid.Row="1" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Click="choixPositionIcone" DoubleTapped="enleverIcone"/>
             <Button x:Name="icon3_Copy4" Grid.Row="1" Height="236" Margin="6,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Grid.Column="2"/>
-            <Button x:Name="icon3_Copy5" Grid.Row="0" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Grid.Column="3"/>
+            <Button x:Name="icon3_Copy5" Grid.Row="0" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Grid.Column="3">
+
+            </Button>
             <Button x:Name="icon3_Copy6" Grid.Row="1" Height="236" Margin="6,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Grid.Column="3"/>
+            <Rectangle x:Name="messageBox" Grid.ColumnSpan="2" Grid.Column="1" Fill="#FF7E7E83" HorizontalAlignment="Left" Height="88" Margin="42,205,0,0" Grid.RowSpan="2" Stroke="#FF0A0909" VerticalAlignment="Top" Width="591" Visibility="Collapsed"/>
+            <TextBlock x:Name="message" Height="88" TextWrapping="Wrap" Width="591" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FF060606" FontSize="24" FontWeight="Bold" Margin="42,205,0,0" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Column="1">
+            </TextBlock>
 
 
 
@@ -92,8 +98,8 @@
         </Grid>
         <GridView x:Name="ItemGridView"  BorderBrush="LightGray" VerticalAlignment="Top" BorderThickness="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionMode="None" Margin="31,24,19,0" Height="130" Grid.Row="2">
             <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bathroom_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/livingroom_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/house1_0.png"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/livingroom_0.png" />
+            <Image x:Name="house1_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/house1_0.png" DoubleTapped="choixImage" />
             <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/house2_0.png"/>
             <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedroom_0.png"/>
             <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/kitchen_0.png"/>

@@ -8,6 +8,8 @@ namespace MyDomotik
 {
     class Configuration
     {
+        //champs
+
         public Theme theme;
         public Arbre arbre;
 
@@ -18,35 +20,31 @@ namespace MyDomotik
         private List<Piece> pieces;
 
         //getters et setters
-        internal List<Piece> Pieces
+        public List<Piece> Pieces
         {
             get { return pieces; }
             set { pieces = value; }
         }
-        internal List<Modalite> Modalites
+        public List<Modalite> Modalites
         {
             get { return modalites; }
             set { modalites = value; }
         }
-
-        internal List<Equipement> Equipements
+        public List<Equipement> Equipements
         {
             get { return equipements; }
             set { equipements = value; }
         }
-
-        internal List<Action> Actions
+        public List<Action> Actions
         {
             get { return actions; }
             set { actions = value; }
         }
-
         public static Theme Theme
         {
             get { return Theme; }
             set { Theme = value; }
         }
-
         public static Arbre Arbre
         {
             get { return Arbre; }
@@ -133,28 +131,39 @@ namespace MyDomotik
             return page.getIcone(index);
         }
 
-       /* public void ajouterPiece(Vue page, Icone icone, int index, Piece piece)
+        public void ajouterPiece(Vue pagePiece, Icone icone, int index, Piece piece)
         {
             // ajoute une page (associée à la piece) à l'arbre
-            Arbre a = Arbre.arbreVue(page);
-            a.Fils.Add(new Arbre(page));
+            Arbre a = Arbre.arbreVue(pagePiece);
+            a.Fils.Add(new Arbre(pagePiece));
 
             // ajoute une icone (associee à la pièce) à la grille de la mainPage + à la liste Configuration.pieces
             mainPage.ajouterIcone(icone, index);
             Pieces.Add(piece);
-        }*/
+        }
 
-        public void ajouterEquipement(Vue page, Piece piece, Equipement equipmt, int index)
+        public void ajouterEquipement(Vue pagePiece, Vue pageEquip, Piece piece, Equipement equipmt, Icone icone, int index)
         {
-            /*   à finir
-                    // ajoute une page à l'arbre
-                    Arbre a = Arbre.arbreVue(page);
-                    a.Fils.Add(new Arbre(page));
+            // ajoute une page (associée à l'équipement)  à l'arbre
+            Arbre a = Arbre.arbreVue(pagePiece);  // on trouve la pièce dans l'arbre global grâce à la Vue pagePiece de la pièce dans laquelle on souhaite mettre l'équipement
+            a.Fils.Add(new Arbre(pageEquip));  // on ajoute l'équipement à la liste des fils de la Vue pagePiece
 
-                    // ajoute une icone (associee à l'equipement) a la grille de la page de la piece + à la liste Configuration.equipements
-                    mainPage.ajouterIcone(icone, index);
-                    Pieces.Add(piece);
-             */
+            // ajoute une icone (associee à l'equipement) a la grille de la page de la piece + à la liste Configuration.equipements
+            pagePiece.ajouterIcone(icone, index);  // on ajoute l'icone à la grille de la Vue de la pièce
+            Equipements.Add(equipmt);  // on ajoute l'équipement à la liste globale des équipements
+
+            // ajoute l'équipement à la liste des équipements de la pièce associée
+            piece.addDevice(equipmt);
+        }
+
+        public void ajouterAction(Vue pageEquip, Vue pageAction, Equipement equipmt, Action action, Icone icone, int index)
+        {
+            // ajoute une icone (associee à l'action) a la grille de la page de l'equipement + + à la liste Configuration.actions
+            pageEquip.ajouterIcone(icone, index);  // on ajoute l'icone à la grille de la Vue de l'équipement
+            Actions.Add(action);  // on ajoute l'équipement à la liste globale des équipements
+
+            // ajoute l'action à la liste des action de l'équipement associé
+            equipmt.addAction(action);
         }
     }
 
