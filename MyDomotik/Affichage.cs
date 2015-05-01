@@ -199,28 +199,25 @@ namespace MyDomotik
             image.SetValue(Grid.RowProperty, 0);
             labelIcone.SetValue(Grid.RowProperty, 1);
 
-            grilleBouton.Children.Add(image);
-            grilleBouton.Children.Add(labelIcone);
-            bouton.Content = grilleBouton;
-
-       /*     switch (choix)
+          /*  switch (choix) //(tentavie pour enlever une icone de la grille)
             {
-                case 0: 
+                case 0:
+                   grilleBouton.Visibility = Visibility.Visible;
                    grilleBouton.Children.Add(image);
                    grilleBouton.Children.Add(labelIcone);
                    bouton.Content = grilleBouton;
                 break;
 
                 case 1:
-               // grilleBouton.Children.Remove(bouton);
-                bouton.Content = null;
+                   grilleBouton.Visibility = Visibility.Collapsed;
+
                 break;
 
-            }*/
-         
+            }
+         */
         }
 
-       /* public void enleverImageBouton(Icone icone, Button bouton)
+      /* public void cacherIcone(Icone icone, Button bouton)
         {      
             Image image = creerImage(icone, bouton);
 

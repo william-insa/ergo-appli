@@ -62,7 +62,7 @@ namespace MyDomotik
             //fin test
 
             afficherPage();
-            premierAffichage = false;
+//premierAffichage = false;
 
         }
 
