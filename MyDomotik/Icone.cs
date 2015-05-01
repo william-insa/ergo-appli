@@ -70,13 +70,14 @@ namespace MyDomotik
             this.action = null;
         }
 
-        public void setHandler(RoutedEventHandler handler)
+
+        /*public void setHandler(RoutedEventHandler handler)
         {
             if (this.Navigation != null)
             {
                 this.Bouton.Click += handler;
-            } 
-        }
+            }
+        }*/
 
         //navigation ou action ?
       private Boolean navigue(int index)

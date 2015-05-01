@@ -86,8 +86,8 @@ namespace MyDomotik
         }
 
 
-        /*---------- Affiche la grille avec le bon format et les icones correspondant au numéro de Page de la grille numGrille----------*/
-        public void afficheGrille(Grid cadre)
+        /*---------- Affiche la grille avec le bon format et les icones correspondant au numéro de Page de la grille numGrille et retourne la liste des boutons créer----------*/
+        public List<Button> afficheGrille(Grid cadre)
         {
             //couleur boutons
             Brush boutonActif = new SolidColorBrush(theme.Couleur.CouleurBoutonActif);
@@ -95,6 +95,7 @@ namespace MyDomotik
 
             // icones : tableau contenant les icones à afficher
             Icone[] icones = this.grille.pageGrille();
+            List<Button> listeBoutons = new List<Button>();
 
             // ajout des boutons et de leurs icones dans la grille
             int cpt = 0;
@@ -103,25 +104,32 @@ namespace MyDomotik
                 for (int i = 0; i < grille.NbLignes; i++)
                 {
                     // placement du bouton dans la grille 
-                    icones[cpt].Bouton = this.formatBouton(boutonVide, cadre);
-                    icones[cpt].Bouton.SetValue(Grid.ColumnProperty, j);
-                    icones[cpt].Bouton.SetValue(Grid.RowProperty, i);
+                    Button bouton = this.formatBouton(boutonVide, cadre);
+                    bouton.SetValue(Grid.ColumnProperty, j);
+                    bouton.SetValue(Grid.RowProperty, i);
 
                     if (cpt < icones.Length)
                     {
                         if (icones[cpt] != null)
                         {
 
-                            afficherIcone(icones[cpt], icones[cpt].Bouton, cadre);
-                            icones[cpt].Bouton.SetValue(Button.BackgroundProperty, boutonActif);
-                            icones[cpt].Bouton.Tag = cpt;
+                            afficherIcone(icones[cpt], bouton, cadre);
+                            bouton.SetValue(Button.BackgroundProperty, boutonActif);
+                            bouton.Tag = cpt;
 
                         }
+
+                        cadre.Children.Add(bouton);
+
+                        listeBoutons.Add(bouton);
+
+                        cpt++;
                     }
-                    cadre.Children.Add(icones[cpt].Bouton);
-                    cpt++;
                 }
+                
             }
+            
+            return listeBoutons;
         }
 
 
