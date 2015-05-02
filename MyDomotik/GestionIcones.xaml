@@ -51,8 +51,8 @@
         </Grid>
 
 
-        <Rectangle x:Name="messageBox" Grid.Row="1" Fill="#FF7E7E83" HorizontalAlignment="Center" Height="44" Stroke="#FF0A0909" VerticalAlignment="Center" Width="591" Margin="388,211,387,255" Visibility="Collapsed"/>
-        <TextBlock x:Name="message" Text="" Height="44" TextWrapping="Wrap" Width="590" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FF060606" FontSize="24" FontWeight="Bold" Margin="388,211,0,0" Grid.Row="1" TextAlignment="Center"/>
+        <Rectangle x:Name="messageBox" Grid.Row="1" Fill="#FF7E7E83" HorizontalAlignment="Center" Height="50" Stroke="#FF0A0909" VerticalAlignment="Center" Width="705" Margin="332,205,329,255" Visibility="Collapsed"/>
+        <TextBlock x:Name="message" Text="" Height="50" TextWrapping="Wrap" Width="705" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FF060606" FontSize="24" FontWeight="Bold" Margin="332,205,0,0" Grid.Row="1" TextAlignment="Center"/>
         <TextBox x:Name="nomIcone" HorizontalAlignment="Left" Height="42" Margin="465,260,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="446" Grid.Row="1" Background="#FFA49090" FontSize="24" FontWeight="Bold" Visibility="Collapsed"/>
         <Button x:Name="Valider" Content="VALIDER" Height="52" Width="234" Margin="578,304,0,154" Grid.Row="1" Background="#FF7E7E83" FontSize="20" Click="Validation" BorderBrush="#FF7C7272" Visibility="Collapsed"/>
 

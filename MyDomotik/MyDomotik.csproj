@@ -117,6 +117,12 @@
     <Compile Include="Modalite.cs" />
     <Compile Include="Navigation.cs" />
     <Compile Include="Piece.cs" />
+    <Compile Include="ReglagesCouleur.xaml.cs">
+      <DependentUpon>ReglagesCouleur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReglagesTailleIcones.xaml.cs">
+      <DependentUpon>ReglagesTailleIcones.xaml</DependentUpon>
+    </Compile>
     <Compile Include="reglReseau.cs" />
     <Compile Include="Theme.cs" />
     <Compile Include="Vue.cs" />
@@ -181,6 +187,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="ReglagesCouleur.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ReglagesModeSelection.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -188,6 +198,10 @@
     <Page Include="ReglagesReseau.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ReglagesTailleIcones.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

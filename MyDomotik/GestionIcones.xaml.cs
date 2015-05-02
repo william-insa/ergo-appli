@@ -117,6 +117,7 @@ namespace MyDomotik
         private void Validation(object sender, RoutedEventArgs e)
         {
             this.iconePosition = new Icone(nomIcone.Text, "", 64, new Navigation(new Vue("")));
+
             affich.afficherIcone(icone, b);
             message.Text = "";
             messageBox.Visibility = Visibility.Collapsed;
