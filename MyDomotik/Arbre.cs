@@ -119,9 +119,7 @@ namespace MyDomotik
 
         public void retourAccueil()
         {
-           // throw new NotImplementedException();
-
-            // pageCourante = Racine;
+            pageCourante = Racine;
         }
     }
 }

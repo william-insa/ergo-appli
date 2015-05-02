@@ -32,14 +32,17 @@ namespace MyDomotik
             set { theme = value; }
         }
 
-        // constructeur
+        /** constructeur 
+         * Grille grille : grille à afficher
+         * Theme theme : theme de l'application 
+         * **/
         public Affichage(Grille grille, Theme theme)
         {
             this.grille = grille;
             this.theme = theme;
         }
 
-        // constructeur de bouton correspondant au format de la grille
+        // constructeur de bouton correspondant au format de la grille (taille)
         public Button formatBouton(Brush couleur, Grid grid)
         {
             Button bouton = new Button();
@@ -72,6 +75,7 @@ namespace MyDomotik
             suivant.Background = boutons;
         }
 
+        // création de la grid dans la page xaml
         public void creerGrille(Grid cadre)
         {
             // création de la grid
@@ -85,13 +89,17 @@ namespace MyDomotik
             }
 
         }
+
+        // Enlève tous les éléments présents dans la grid de la page xaml
         public void nettoieGrille(Grid cadre)
         {
             cadre.Children.Clear();
         }
 
 
-        /*---------- Affiche la grille avec le bon format et les icones correspondant au numéro de Page de la grille numGrille et retourne la liste des boutons créer----------*/
+        /** Affiche la grille avec le bon format et les icones correspondant au numéro de Page de la grille numGrille et retourne la liste des boutons créer
+         * Grid cadre : grid de la page xaml concernée par l'affichage
+         * **/
         public List<Button> afficheGrille(Grid cadre)
         {
             //couleur boutons
@@ -138,7 +146,10 @@ namespace MyDomotik
         }
 
 
-        /*------------------------------affichage de l'icone dans la grille grid------------------------------*/
+        /**affichage de l'icone dans la grille grid
+         * Icone icone : icone à afficher
+         * Button bouton : bouton où l'afficher
+         * **/
         public void afficherIcone(Icone icone, Button bouton)
         {
             Image image = creerImage(icone, bouton);
@@ -146,7 +157,7 @@ namespace MyDomotik
             ajouterImageBouton(bouton, image, labelIcone);
         }
 
-        /*----------crée l'image adapté à la taille du Bouton----------*/
+        /**A partir de l'icone, crée l'image adapté à la taille du Bouton**/
         public Image creerImage(Icone icone, Button bouton)
         {
             // creation de l'image 
@@ -154,8 +165,6 @@ namespace MyDomotik
             BitmapImage SourceBi = new BitmapImage();
             SourceBi.UriSource = icone.Uri;
             image.Source = SourceBi;
-
-            //bouton.Content = image;
 
             // empeche l'icone de depasser du contour du bouton
 
@@ -168,7 +177,7 @@ namespace MyDomotik
             return image;
 
         }
-        /*----------crée le label associée à l'icone----------*/
+        /** crée le label associée à l'icone (nom de l'icone) **/
         public TextBlock creerLabel(Icone icone)
         {
             // création label : nom de l'icone
@@ -197,7 +206,7 @@ namespace MyDomotik
             return labelIcone;
         }
 
-        /*----------ajout de l'image et du label sur le bouton----------*/
+        /**ajout de l'image et du label sur le bouton**/
         public void ajouterImageBouton(Button bouton, Image image, TextBlock labelIcone)
         {
             Grid grilleBouton = new Grid();
@@ -232,5 +241,6 @@ namespace MyDomotik
             TextBlock labelIcone = creerLabel(icone);          
             ajouterImageBouton(bouton, image, labelIcone, 1);
         }*/
+
     }
 }

@@ -61,14 +61,13 @@ namespace MyDomotik
             Navigation nav2 = new Navigation(pageHome);
             //fin test
 
-            this.mainPage = pageHome;
             this.actions = new List<Action>();
             this.equipements = new List<Equipement>();
             this.pieces = new List<Piece>();
             this.modalites = new List<Modalite>();
 
             this.theme = new Theme();
-            this.arbre = new Arbre(this.mainPage);
+            this.arbre = new Arbre(pageHome);
 
             //test
             Icone icone1 = new Icone("icone1", "bathroom_0.png", 64, nav1);

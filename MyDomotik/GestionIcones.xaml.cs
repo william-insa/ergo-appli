@@ -15,7 +15,6 @@ using Windows.UI.Xaml.Navigation;
 ﻿//using InstanceFactory.MessageBoxSample.UI.Popups;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
-using Windows.UI.Xaml.Controls; 
  
 
 // Pour en savoir plus sur le modèle d'élément Page vierge, consultez la page http://go.microsoft.com/fwlink/?LinkId=234238
@@ -78,15 +77,15 @@ namespace MyDomotik
             messageBox.Visibility = Visibility.Collapsed;
         }
 
-      /*  private void enleverIcone(object sender, DoubleTappedRoutedEventArgs e)
+        private void enleverIcone(object sender, DoubleTappedRoutedEventArgs e)
         {
-            Button b = sender as Button;
+            /*Button b = sender as Button;
             String nom = image.Name.Replace("é", ".");
             Icone icone = new Icone("house", nom, 64, new Navigation(new Vue("page")));
-            affich.cacherIcone(icone, b);
+            affich.cacherIcone(icone, b);*/
         }
 
-       */
+       
 
     }
 }
