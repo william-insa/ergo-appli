@@ -87,6 +87,10 @@ namespace MyDomotik
             }
         }
 
+        public void setNomIcone(int index, int numPage, String nom)
+        {
+            this.getIcone(nbCasesGrille() * numPage + index).NomIcone = nom;
+        }
         // retourne l'icone située à l'index demandé
         public Icone getIcone(int index)
         {
