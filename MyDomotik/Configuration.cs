@@ -15,12 +15,12 @@ namespace MyDomotik
 
         public static Vue mainPage;
         private List<Action> actions;
-        private static List<Equipement> equipements;
-        private static List<Piece> pieces;
+        private List<Equipement> equipements;
         private List<Modalite> modalites;
+        private List<Piece> pieces;
 
         //getters et setters
-        public static List<Piece> Pieces
+        public List<Piece> Pieces
         {
             get { return pieces; }
             set { pieces = value; }
@@ -30,7 +30,7 @@ namespace MyDomotik
             get { return modalites; }
             set { modalites = value; }
         }
-        public static List<Equipement> Equipements
+        public List<Equipement> Equipements
         {
             get { return equipements; }
             set { equipements = value; }
@@ -40,15 +40,15 @@ namespace MyDomotik
             get { return actions; }
             set { actions = value; }
         }
-        public static Theme Theme
+        public Theme Theme
         {
-            get { return Theme; }
-            set { Theme = value; }
+            get { return theme; }
+            set { theme = value; }
         }
-        public static Arbre Arbre
+        public Arbre Arbre
         {
-            get { return Arbre; }
-            set { Arbre = value; }
+            get { return arbre; }
+            set { arbre = value; }
         }
 
         //constructeur
@@ -61,14 +61,13 @@ namespace MyDomotik
             Navigation nav2 = new Navigation(pageHome);
             //fin test
 
-            Configuration.mainPage = pageHome;
-            this.Actions = new List<Action>();
-            Configuration.Equipements = new List<Equipement>();
-            Configuration.Pieces = new List<Piece>();
-            this.Modalites = new List<Modalite>();
+            this.actions = new List<Action>();
+            this.equipements = new List<Equipement>();
+            this.pieces = new List<Piece>();
+            this.modalites = new List<Modalite>();
 
             this.theme = new Theme();
-            this.arbre = new Arbre(Configuration.mainPage);
+            this.arbre = new Arbre(pageHome);
 
             //test
             Icone icone1 = new Icone("icone1", "bathroom_0.png", 64, nav1);
@@ -110,6 +109,7 @@ namespace MyDomotik
             // à compléter (William)
 
             return configXML;
+
         }
 
         // ajouter une icone à la grille de la page
@@ -130,15 +130,18 @@ namespace MyDomotik
             return page.getIcone(index);
         }
 
-        public void ajouterPiece(Vue pagePiece, Icone icone, int index, Piece piece)
+        public void ajouterPiece(Icone icone, int index, int numPage)
         {
+            Piece piece = new Piece(icone.NomIcone);
+            Vue pagePiece = new Vue(icone.NomIcone);
+
             // ajoute une page (associée à la piece) à l'arbre
-            Arbre a = Arbre.arbreVue(pagePiece);
-            a.Fils.Add(new Arbre(pagePiece));
+            arbre.ajouterVue(arbre.Racine, pagePiece);
 
             // ajoute une icone (associee à la pièce) à la grille de la mainPage + à la liste Configuration.pieces
-            mainPage.ajouterIcone(icone, index);
+            arbre.Racine.ajouterIcone(icone, index, numPage);
             Pieces.Add(piece);
+
         }
 
         public void ajouterEquipement(Vue pagePiece, Vue pageEquip, Piece piece, Equipement equipmt, Icone icone, int index)
@@ -167,3 +170,4 @@ namespace MyDomotik
     }
 
 }
+

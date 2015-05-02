@@ -50,6 +50,11 @@ namespace MyDomotik
             this.grille.addIcone(icone, index);
         }
 
+        public void ajouterIcone(Icone icone, int index, int numPage)
+        {
+            this.grille.addIcone(icone, index, numPage);
+        }
+
         // enlever l'icone à l'index index
         public void enleverIcone(int index)
         {

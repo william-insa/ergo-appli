@@ -28,9 +28,18 @@ namespace MyDomotik
         private Affichage affichage;
         private Grille grille;
         private List<Button> listeBoutons;
-        private static Configuration configuration = new Configuration();
 
-        // Initialisation
+        // L'attribut configuration de mainPage garde en mémoire toutes les informations concernant la configuration personnalisée de l'application
+        // (equipements, pieces de la maison, formats et couleurs d'affichage, etc ...) ainsi que l'arborescence des pages.
+
+        private static Configuration configuration = new Configuration();
+        internal static Configuration Configuration
+        {
+            get { return MainPage.configuration; }
+            set { MainPage.configuration = value; }
+        }
+
+        // Méthode principale appelée lors de l'ouverture de l'application : initialisation et affichage de la page courante de l'arbre.
         public MainPage()
         {
             InitializeComponent();
@@ -38,7 +47,10 @@ namespace MyDomotik
             afficherPage();
         }
 
-        // affichage de la page courante
+        /** affichage de la page courante : 
+         * - crée la grille de boutons correspondant à la page courante et l'affiche.
+         * - 
+        **/ 
         public void afficherPage()
         {
             // création de la grille d'affichage des icones
@@ -48,14 +60,10 @@ namespace MyDomotik
 
             // création et affichage de la liste des boutons et des Icones associées
             this.listeBoutons = this.affichage.afficheGrille(cadre);
-            //this.creerListeIcones();
-            // attribution des evenements de navigation à chaque bouton
             this.attribueHandler();
 
-            // affichage du nom de la page
+            // affichage du cadre supérieur de la page
             page_title.Text = configuration.arbre.PageCourante.Nom;
-
-            // affichage de l'heure
             this.displayTime();
 
             // affichage des couleurs
@@ -99,40 +107,43 @@ namespace MyDomotik
             }
         }
 
-        // accès à la page d'accueil : TO DO
+        // accès à la page d'accueil
         private void PageAccueil(object sender, RoutedEventArgs e)
         {
-            configuration.arbre.PageCourante = configuration.arbre.Racine;
+            configuration.arbre.retourAccueil();
             this.Frame.Navigate(typeof(MainPage));
         }
 
 
 
-        // actions
+        // Attribue le gestionnaire d'évenement IconeClick à tous les boutons de la grille
         private void attribueHandler()
         {
             foreach (Button bouton in this.listeBoutons)
             {
-                bouton.Click += IconeClick; // ça suffit pas !  
+                if ((int)bouton.Tag >= 0)
+                {
+                    bouton.Click += IconeClick;
+                }
             }
         }
 
+        //
         private void IconeClick(object sender, RoutedEventArgs e)
         {
             Button boutonClick = sender as Button;
-            /*// test handler
-            accueil.Background = new SolidColorBrush(Colors.White);*/
 
+            // icone : icone correspondant au bouton cliqué
             int indexClick = (int)boutonClick.Tag;
             Icone icone = grille.pageGrille()[indexClick];
 
-            // si icone de navigation : changement de page
+            // Si icone de navigation : changement de page
             if (icone.Navigation != null)
             {
                 configuration.arbre.PageCourante = icone.Navigation.PageFils;
-                this.affichage.nettoieGrille(cadre);
                 this.Frame.Navigate(typeof(MainPage));
             }
+            if (icone.Action != null) { }
         }
 }
 

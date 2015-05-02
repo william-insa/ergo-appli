@@ -47,9 +47,9 @@ namespace MyDomotik
             Fils.Add(a);
         }
 
-        public static void ajouterVue(Vue vuePere, Vue vueFils)   //  dans l'arbre GLOBAL, ajoute la vueFils dans la liste des fils de la vuePere
+        public void ajouterVue(Vue vuePere, Vue vueFils)   //  dans l'arbre GLOBAL, ajoute la vueFils dans la liste des fils de la vuePere
         {
-            Arbre aPere = Configuration.Arbre.arbreVue(vuePere);
+            Arbre aPere = MainPage.Configuration.Arbre.arbreVue(vuePere);
             Arbre aFils = new Arbre(vueFils);
             aPere.ajouterArbre(aFils);
         }
@@ -119,9 +119,7 @@ namespace MyDomotik
 
         public void retourAccueil()
         {
-           // throw new NotImplementedException();
-
-            // pageCourante = Racine;
+            pageCourante = Racine;
         }
     }
 }

@@ -120,7 +120,6 @@
     <Compile Include="reglReseau.cs" />
     <Compile Include="Theme.cs" />
     <Compile Include="Vue.cs" />
-    <Compile Include="Device.cs" />
     <Compile Include="Format.cs" />
     <Compile Include="GestionIcones.xaml.cs">
       <DependentUpon>GestionIcones.xaml</DependentUpon>

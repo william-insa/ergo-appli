@@ -99,12 +99,27 @@ namespace MyDomotik
             this.icones.Add(index, icone);
         }
 
+        // Insère l'Icone icone à la case index de la page numPage
+        public void addIcone(Icone icone, int index, int numPage)
+        {
+            int i = nbCasesGrille() * numPage + index;
+
+            this.icones.Add(i, icone);
+        }
+
         // Enlève l'Icone à la case index.
         public void removeIcone(int index)
         {
             this.icones.Remove(index);
         }
 
+        // Insère l'Icone icone à la case index de la page numPage
+        public void removeIcone(int index, int numPage)
+        {
+            int i = nbCasesGrille() * numPage + index;
+
+            this.icones.Remove(i);
+        }
      // calcule le nombre de pages nécessaires pour afficher la grille
         public int nbPagesGrille()
         {
@@ -127,22 +142,26 @@ namespace MyDomotik
         public Icone[] pageGrille()
         {
             Icone[] pageGrille = new Icone[this.nbCasesGrille()];
-
-            //vérification : la page demandée existe-t-elle ?
-            if (numGrille < this.nbPagesGrille())
+            for (int i = 0; i < this.nbCasesGrille(); i++)
             {
-                // index min et max de la page numPage
-                int indexMin = numGrille*this.nbCasesGrille();
-                int indexMax = indexMin + this.nbCasesGrille() - 1;
+                pageGrille[i] = Icone.IconeVide();
+            }
 
-                foreach (int key in icones.Keys)
+                //vérification : la page demandée existe-t-elle ?
+                if (numGrille < this.nbPagesGrille())
                 {
-                    if (key >= indexMin && key <= indexMax)
+                    // index min et max de la page numPage
+                    int indexMin = numGrille * this.nbCasesGrille();
+                    int indexMax = indexMin + this.nbCasesGrille() - 1;
+
+                    foreach (int key in icones.Keys)
                     {
-                        pageGrille[key%nbCasesGrille()] = this.icones[key];
+                        if (key >= indexMin && key <= indexMax)
+                        {
+                            pageGrille[key % nbCasesGrille()] = this.icones[key];
+                        }
                     }
                 }
-            }
 
             return pageGrille;
         }
