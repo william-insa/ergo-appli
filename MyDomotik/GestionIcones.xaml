@@ -64,22 +64,17 @@
             <Button x:Name="icon3" Grid.Row="0" Grid.Column="2" Height="236" Margin="6,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}"/>
             <Button x:Name="icon3_Copy" Grid.Row="0" Grid.Column="1" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}"/>
             <Button x:Name="icon3_Copy1" Grid.Row="0" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Click="goToIcones"/>
-            <TextBlock Height="37" TextWrapping="Wrap" Width="254" Margin="38,190,45,23" Foreground="#FF0C0606" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center">
-            	
-        		<Run Text="Cuisine"/>
-            </TextBlock>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/diningroom_0.png"/>
-
             <Button x:Name="icon3_Copy2" Grid.Row="1" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Grid.Column="1"/>
-            <Button x:Name="icon3_Copy3" Grid.Row="1" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Click="choixPositionIcone" DoubleTapped="enleverIcone"/>
+            <Button x:Name="icon3_Copy3" Grid.Row="1" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Click="choixPositionIcone" />
             <Button x:Name="icon3_Copy4" Grid.Row="1" Height="236" Margin="6,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Grid.Column="2"/>
             <Button x:Name="icon3_Copy5" Grid.Row="0" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Grid.Column="3">
 
             </Button>
             <Button x:Name="icon3_Copy6" Grid.Row="1" Height="236" Margin="6,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Grid.Column="3"/>
-            <Rectangle x:Name="messageBox" Grid.ColumnSpan="2" Grid.Column="1" Fill="#FF7E7E83" HorizontalAlignment="Left" Height="88" Margin="42,205,0,0" Grid.RowSpan="2" Stroke="#FF0A0909" VerticalAlignment="Top" Width="591" Visibility="Collapsed"/>
-            <TextBlock x:Name="message" Height="88" TextWrapping="Wrap" Width="591" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FF060606" FontSize="24" FontWeight="Bold" Margin="42,205,0,0" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Column="1">
-            </TextBlock>
+            <Rectangle x:Name="messageBox" Grid.ColumnSpan="2" Grid.Column="1" Fill="#FF7E7E83" HorizontalAlignment="Left" Height="55" Margin="42,224,0,0" Grid.RowSpan="2" Stroke="#FF0A0909" VerticalAlignment="Top" Width="591" Visibility="Collapsed"/>
+            <TextBox x:Name="nomIcone" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="42" Margin="115,31,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="446" Grid.Column="1" Grid.Row="1" Background="#FFA49090" FontSize="24" FontWeight="Bold" Visibility="Collapsed"/>
+            <Button x:Name="Valider" Content="VALIDER" Height="52" Width="234" Grid.ColumnSpan="2" Grid.Column="1" Margin="226,73,0,125" Grid.Row="1" Background="#FF7E7E83" FontSize="20" Click="Validation" BorderBrush="#FF7C7272" Visibility="Collapsed"/>
+            <TextBlock x:Name="message" Height="53" TextWrapping="Wrap" Width="591" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FF060606" FontSize="24" FontWeight="Bold" Margin="42,228,0,0" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Column="1"/>
 
 
 
@@ -96,19 +91,18 @@
 
 
         </Grid>
-        <GridView x:Name="ItemGridView"  BorderBrush="LightGray" VerticalAlignment="Top" BorderThickness="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionMode="None" Margin="31,24,19,0" Height="130" Grid.Row="2">
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bathroom_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/livingroom_0.png" />
+        <GridView x:Name="BarIconePiece"  BorderBrush="LightGray" VerticalAlignment="Top" BorderThickness="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionMode="None" Margin="31,24,19,0" Height="130" Grid.Row="2">
+            <Image x:Name="bathroom_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bathroom_0.png" DoubleTapped="choixImage"/>
+            <Image x:Name="livingroom_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/livingroom_0.png" DoubleTapped="choixImage" />
             <Image x:Name="house1_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/house1_0.png" DoubleTapped="choixImage" />
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/house2_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedroom_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/kitchen_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/garage_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/garden_0.png"/>
-
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/diningroom_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/office_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/patio_0.png"/>
+            <Image x:Name="house2_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/house2_0.png" DoubleTapped="choixImage"/>
+            <Image x:Name="bedroom_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedroom_0.png" DoubleTapped="choixImage"/>
+            <Image x:Name="kitchen_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/kitchen_0.png" DoubleTapped="choixImage"/>
+            <Image x:Name="garage_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/garage_0.png" DoubleTapped="choixImage"/>
+            <Image x:Name="garden_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/garden_0.png" DoubleTapped="choixImage"/>
+            <Image x:Name="diningroom_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/diningroom_0.png" DoubleTapped="choixImage"/>
+            <Image x:Name="office_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/office_0.png" DoubleTapped="choixImage"/>
+            <Image x:Name="patio_0éng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/patio_0.png" DoubleTapped="choixImage"/>
 
         </GridView>
 

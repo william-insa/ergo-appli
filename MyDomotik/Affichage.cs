@@ -198,6 +198,10 @@ namespace MyDomotik
 
             image.SetValue(Grid.RowProperty, 0);
             labelIcone.SetValue(Grid.RowProperty, 1);
+            //grilleBouton.Visibility = Visibility.Visible;
+            grilleBouton.Children.Add(image);
+            grilleBouton.Children.Add(labelIcone);
+            bouton.Content = grilleBouton;
 
           /*  switch (choix) //(tentavie pour enlever une icone de la grille)
             {
