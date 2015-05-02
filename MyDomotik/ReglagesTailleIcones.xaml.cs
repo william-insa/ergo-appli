@@ -39,17 +39,17 @@ namespace MyDomotik
 
         private void choixPetit(object sender, RoutedEventArgs e)
         {
-
+            MainPage.Affichage.Grille.setFormat(Format.PETIT);
         }
 
         private void choixMoyen(object sender, RoutedEventArgs e)
         {
-
+            MainPage.Affichage.Grille.setFormat(Format.MOYEN);
         }
 
         private void choixGrand(object sender, RoutedEventArgs e)
         {
-
+            MainPage.Affichage.Grille.setFormat(Format.GRAND);
         }
     }
 }

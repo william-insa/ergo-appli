@@ -44,7 +44,7 @@ namespace MyDomotik
 
         private void accesPageThemes(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ReglageCouleur));
+            this.Frame.Navigate(typeof(ReglagesCouleur));
         }
 
         private void accesPageTailleIcones(object sender, RoutedEventArgs e)

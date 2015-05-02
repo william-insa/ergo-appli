@@ -20,12 +20,13 @@ namespace MyDomotik
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class ReglageCouleur : Page
+    public sealed partial class ReglagesCouleur : Page
     {
-        public ReglageCouleur()
+        public ReglagesCouleur()
         {
             this.InitializeComponent();
         }
+
 
         private void exitAdmin(object sender, RoutedEventArgs e)
         {
@@ -39,18 +40,52 @@ namespace MyDomotik
 
         private void choixTheme1(object sender, RoutedEventArgs e)
         {
-            
+           MainPage.Configuration.theme.Couleur = new Couleur();
         }
 
         private void choixTheme2(object sender, RoutedEventArgs e)
         {
-           
+            MainPage.Configuration.theme.Couleur = new Couleur(1);
         }
 
         private void choixTheme3(object sender, RoutedEventArgs e)
         {
-            
+            MainPage.Configuration.theme.Couleur = new Couleur(2);
         }
-   
+
+        private void choixTheme4(object sender, RoutedEventArgs e)
+        {
+            MainPage.Configuration.theme.Couleur = new Couleur(3);
+        }
+
+        private void choixTheme5(object sender, RoutedEventArgs e)
+        {
+            MainPage.Configuration.theme.Couleur = new Couleur(4);
+        }
+
+        private void choixTheme6(object sender, RoutedEventArgs e)
+        {
+            MainPage.Configuration.theme.Couleur = new Couleur(5);
+        }
+
+        private void choixTheme7(object sender, RoutedEventArgs e)
+        {
+            MainPage.Configuration.theme.Couleur = new Couleur(6);
+        }
+
+        private void choixTheme8(object sender, RoutedEventArgs e)
+        {
+            MainPage.Configuration.theme.Couleur = new Couleur(7);
+        }
+
+        private void choixTheme9(object sender, RoutedEventArgs e)
+        {
+            MainPage.Configuration.theme.Couleur = new Couleur(8);
+        }
+
+         private void choixTheme10(object sender, RoutedEventArgs e)
+        {
+            MainPage.Configuration.theme.Couleur = new Couleur(9);
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace MyDomotik
     public sealed partial class MainPage : Page
     {
         // Numéro de page de la grille : modifié lors d'une interaction avec la barre de navigation
-        private Affichage affichage;
+        private static Affichage affichage;
         private Grille grille;
         private List<Button> listeBoutons;
 
@@ -47,6 +47,12 @@ namespace MyDomotik
             afficherPage();
         }
 
+        internal static Affichage Affichage
+        {
+            get { return affichage; }
+            set { affichage = value; }
+        }
+
         /** affichage de la page courante : 
          * - crée la grille de boutons correspondant à la page courante et l'affiche.
          * - 
@@ -55,11 +61,11 @@ namespace MyDomotik
         {
             // création de la grille d'affichage des icones
             this.grille = configuration.arbre.PageCourante.Grille;
-            this.affichage = new Affichage(this.grille, configuration.theme);
-            this.affichage.creerGrille(cadre);
+            affichage = new Affichage(this.grille, configuration.theme);
+            affichage.creerGrille(cadre);
 
             // création et affichage de la liste des boutons et des Icones associées
-            this.listeBoutons = this.affichage.afficheGrille(cadre);
+            this.listeBoutons = affichage.afficheGrille(cadre);
             this.attribueHandler();
 
             // affichage du cadre supérieur de la page
@@ -67,7 +73,7 @@ namespace MyDomotik
             this.displayTime();
 
             // affichage des couleurs
-            this.affichage.afficheCouleur(barreMenu, cadre, accueil, precedent, suivant);
+            affichage.afficheCouleur(barreMenu, cadre, accueil, precedent, suivant);
         }
 
 
@@ -89,8 +95,8 @@ namespace MyDomotik
         {
             if (!configuration.theme.ModeDefilement && this.grille.pagePrecedente())
             {
-                this.affichage.nettoieGrille(cadre);
-                this.listeBoutons = this.affichage.afficheGrille(cadre);
+                affichage.nettoieGrille(cadre);
+                this.listeBoutons = affichage.afficheGrille(cadre);
                 this.attribueHandler();
             }
 
@@ -101,8 +107,8 @@ namespace MyDomotik
         {
             if (!configuration.theme.ModeDefilement && this.grille.pageSuivante())
             {
-                this.affichage.nettoieGrille(cadre);
-                this.listeBoutons = this.affichage.afficheGrille(cadre);
+                affichage.nettoieGrille(cadre);
+                this.listeBoutons = affichage.afficheGrille(cadre);
                 this.attribueHandler();
             }
         }

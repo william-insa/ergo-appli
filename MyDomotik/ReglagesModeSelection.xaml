@@ -48,8 +48,8 @@
 
 
         <Canvas HorizontalAlignment="Center" Height="663" Margin="9,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1357" ManipulationMode="All">
-            <RadioButton x:Name="SelectionClic" Content="     Sélection par clic/tap" Canvas.Left="358" Canvas.Top="183" Height="40" Width="589" Checked="Selection" FontSize="24"/>
-            <RadioButton x:Name="SelectionDefil" Content="     Sélection par défilement" Canvas.Left="358" Canvas.Top="280" Height="40" Width="589" Checked="Selection" FontSize="24"/>
+            <RadioButton x:Name="SelectionClic" Content="     Sélection par clic/tap" Canvas.Left="358" Canvas.Top="183" Height="40" Width="589" Checked="Selection" FontSize="24" Click="SelectionClic_Click"/>
+            <RadioButton x:Name="SelectionDefil" Content="     Sélection par défilement" Canvas.Left="358" Canvas.Top="280" Height="40" Width="589" Checked="Selection" FontSize="24" Click="SelectionParDefilement"/>
             <Slider Height="50" Canvas.Left="451" Canvas.Top="403" Width="412" TickPlacement="None" Tag="Vitesse" LargeChange="8" FontSize="20" IsThumbToolTipEnabled="true"/>
             <TextBlock Height="41" Canvas.Left="439" TextWrapping="Wrap" Text="Vitesse (Nombre de secondes par item)" Canvas.Top="326" Width="381" Foreground="White" FontSize="20" />
         </Canvas>
