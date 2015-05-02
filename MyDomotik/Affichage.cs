@@ -102,7 +102,7 @@ namespace MyDomotik
          * **/
         public List<Button> afficheGrille(Grid cadre)
         {
-            //couleur boutons  
+            //couleur boutons
             Brush boutonVide = new SolidColorBrush(theme.Couleur.CouleurBoutonVide);
 
             // icones : tableau contenant les icones à afficher
@@ -122,13 +122,12 @@ namespace MyDomotik
 
                     if (cpt < icones.Length)
                     {
-                        if (icones[cpt] != null)
+                        if (!(icones[cpt].EstVide()))
                         {
                             afficherIcone(icones[cpt], bouton);
                             bouton.Tag = cpt;
-
                         }
-
+                        else { bouton.Tag = -1; }
                         cadre.Children.Add(bouton);
                         
                         listeBoutons.Add(bouton);
@@ -148,8 +147,7 @@ namespace MyDomotik
          * Button bouton : bouton où l'afficher
          * **/
         public void afficherIcone(Icone icone, Button bouton)
-        {
-           
+        {      
             Image image = creerImage(icone, bouton);
             TextBlock labelIcone = creerLabel(icone);
             ajouterImageBouton(bouton, image, labelIcone); 
@@ -157,6 +155,7 @@ namespace MyDomotik
             Brush boutonActif = new SolidColorBrush(theme.Couleur.CouleurBoutonActif);
             bouton.SetValue(Button.BackgroundProperty, boutonActif);
         }
+        
 
         /**A partir de l'icone, crée l'image adapté à la taille du Bouton**/
         public Image creerImage(Icone icone, Button bouton)

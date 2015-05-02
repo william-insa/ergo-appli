@@ -117,16 +117,9 @@
     <Compile Include="Modalite.cs" />
     <Compile Include="Navigation.cs" />
     <Compile Include="Piece.cs" />
-    <Compile Include="ReglagesCouleur.xaml.cs">
-      <DependentUpon>ReglagesCouleur.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ReglagesTailleIcones.xaml.cs">
-      <DependentUpon>ReglagesTailleIcones.xaml</DependentUpon>
-    </Compile>
     <Compile Include="reglReseau.cs" />
     <Compile Include="Theme.cs" />
     <Compile Include="Vue.cs" />
-    <Compile Include="Device.cs" />
     <Compile Include="Format.cs" />
     <Compile Include="GestionIcones.xaml.cs">
       <DependentUpon>GestionIcones.xaml</DependentUpon>
@@ -187,10 +180,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ReglagesCouleur.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ReglagesModeSelection.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -198,10 +187,6 @@
     <Page Include="ReglagesReseau.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ReglagesTailleIcones.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -2824,7 +2809,6 @@
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\suivant.PNG" />
-    <Content Include="System.Drawing.dll" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

@@ -130,15 +130,18 @@ namespace MyDomotik
             return page.getIcone(index);
         }
 
-        public void ajouterPiece(Vue pagePiece, Icone icone, int index, Piece piece)
+        public void ajouterPiece(Icone icone, int index, int numPage)
         {
+            Piece piece = new Piece(icone.NomIcone);
+            Vue pagePiece = new Vue(icone.NomIcone);
+
             // ajoute une page (associée à la piece) à l'arbre
-            Arbre a = Arbre.arbreVue(pagePiece);
-            a.Fils.Add(new Arbre(pagePiece));
+            arbre.ajouterVue(arbre.Racine, pagePiece);
 
             // ajoute une icone (associee à la pièce) à la grille de la mainPage + à la liste Configuration.pieces
-            mainPage.ajouterIcone(icone, index);
+            arbre.Racine.ajouterIcone(icone, index, numPage);
             Pieces.Add(piece);
+
         }
 
         public void ajouterEquipement(Vue pagePiece, Vue pageEquip, Piece piece, Equipement equipmt, Icone icone, int index)

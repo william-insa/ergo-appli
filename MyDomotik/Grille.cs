@@ -99,12 +99,27 @@ namespace MyDomotik
             this.icones.Add(index, icone);
         }
 
+        // Insère l'Icone icone à la case index de la page numPage
+        public void addIcone(Icone icone, int index, int numPage)
+        {
+            int i = nbCasesGrille() * numPage + index;
+
+            this.icones.Add(i, icone);
+        }
+
         // Enlève l'Icone à la case index.
         public void removeIcone(int index)
         {
             this.icones.Remove(index);
         }
 
+        // Insère l'Icone icone à la case index de la page numPage
+        public void removeIcone(int index, int numPage)
+        {
+            int i = nbCasesGrille() * numPage + index;
+
+            this.icones.Remove(i);
+        }
      // calcule le nombre de pages nécessaires pour afficher la grille
         public int nbPagesGrille()
         {
@@ -129,7 +144,7 @@ namespace MyDomotik
             Icone[] pageGrille = new Icone[this.nbCasesGrille()];
             for (int i = 0; i < this.nbCasesGrille(); i++)
             {
-                pageGrille[i] = (Icone)null;
+                pageGrille[i] = Icone.IconeVide();
             }
 
                 //vérification : la page demandée existe-t-elle ?
