@@ -13,14 +13,14 @@ namespace MyDomotik
         public Theme theme;
         public Arbre arbre;
 
-        public static readonly Vue mainPage;
+        public static Vue mainPage;
         private List<Action> actions;
-        private List<Equipement> equipements;
+        private static List<Equipement> equipements;
+        private static List<Piece> pieces;
         private List<Modalite> modalites;
-        private List<Piece> pieces;
 
         //getters et setters
-        public List<Piece> Pieces
+        public static List<Piece> Pieces
         {
             get { return pieces; }
             set { pieces = value; }
@@ -30,7 +30,7 @@ namespace MyDomotik
             get { return modalites; }
             set { modalites = value; }
         }
-        public List<Equipement> Equipements
+        public static List<Equipement> Equipements
         {
             get { return equipements; }
             set { equipements = value; }
@@ -61,14 +61,14 @@ namespace MyDomotik
             Navigation nav2 = new Navigation(pageHome);
             //fin test
 
-            this.mainPage = pageHome;
-            this.actions = new List<Action>();
-            this.equipements = new List<Equipement>();
-            this.pieces = new List<Piece>();
-            this.modalites = new List<Modalite>();
+            Configuration.mainPage = pageHome;
+            this.Actions = new List<Action>();
+            Configuration.Equipements = new List<Equipement>();
+            Configuration.Pieces = new List<Piece>();
+            this.Modalites = new List<Modalite>();
 
             this.theme = new Theme();
-            this.arbre = new Arbre(this.mainPage);
+            this.arbre = new Arbre(Configuration.mainPage);
 
             //test
             Icone icone1 = new Icone("icone1", "bathroom_0.png", 64, nav1);
@@ -110,7 +110,6 @@ namespace MyDomotik
             // à compléter (William)
 
             return configXML;
-
         }
 
         // ajouter une icone à la grille de la page
