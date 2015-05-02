@@ -33,12 +33,14 @@ namespace MyDomotik
        //private static Grille g = new Grille(Format.MOYEN); 
       // private Affichage affich = new Affichage(g, new Theme());
        private Icone icone;
-       public String nom ;
+
        public Button b ;
+       private Icone iconePosition;
+       private int indexNouvelleIcone;
      
 
        public String source;
-       private  Grille g;
+       private Grille g;
        private Affichage affich;
        private Boolean choixPosition = false;
 
@@ -100,60 +102,41 @@ namespace MyDomotik
         //affiche l'icone double clickée sur le bouton
         private void choixPositionIcone(object sender, RoutedEventArgs e)
         {
-            b = sender as Button;
-            nom = image.Name.Replace("é", ".");
+            Button boutonClick = sender as Button;
 
-            icone = new Icone("h", nom , 64, new Navigation(new Vue("pageIcones")));
-            affich.afficherIcone(icone, b);
+            // icone : icone correspondant au bouton cliqué
+            this.indexNouvelleIcone = (int)boutonClick.Tag;
+            this.iconePosition = g.pageGrille()[this.indexNouvelleIcone];
+
             message.Text = "Veuillez attribuer un nom à l'icone";
             nomIcone.Visibility = Visibility.Visible;
             Valider.Visibility = Visibility.Visible;
-            
+
         }
 
         private void Validation(object sender, RoutedEventArgs e)
         {
-            icone = new Icone(nomIcone.Text, nom, 64, new Navigation(new Vue("pageIcones")));
+            this.iconePosition = new Icone(nomIcone.Text, "", 64, new Navigation(new Vue("")));
             affich.afficherIcone(icone, b);
             message.Text = "";
             messageBox.Visibility = Visibility.Collapsed;
             nomIcone.Visibility = Visibility.Collapsed;
             Valider.Visibility = Visibility.Collapsed;
+            ajouterIcone(message.Text);
         }
             
 
-     /*   private void enleverIcone(object sender, DoubleTappedRoutedEventArgs e)
+       private void ajouterIcone(String nomChoisi){
 
-            if (this.choixPosition == true) { 
-
-            Button boutonClick = sender as Button;
-            message.Text = "vous avez clické sur une case : c'est bien.";
-            messageBox.Visibility = Visibility.Visible;
-            /*
-            // création d'une nouvelle icone à l'index du bouton
-            int indexClick = (int)boutonClick.Tag;
-            Icone nouvelleIcone = new Icone(this.image);
-            g.pageGrille()[indexClick] = nouvelleIcone;
+             this.iconePosition.NomIcone = nomChoisi;
 
             //création de la page associée à l'icone
-            MainPage.Configuration.ajouterPiece(new Vue(""),nouvelleIcone,indexClick,new Piece("")); // nom à définir
+             MainPage.Configuration.ajouterPiece(icone, indexNouvelleIcone, this.g.NumGrille); 
 
-            //String nom = image.Name.Replace("é", ".");
-            
-           affich.afficherIcone(nouvelleIcone, boutonClick);
-            message.Text = " ";
             messageBox.Visibility = Visibility.Collapsed;
-
 
             this.Frame.Navigate(typeof(GestionIcones));
         }
-
-            this.Frame.Navigate(typeof(GestionIcones));
-
-            this.choixPosition = false;
-            }
-            
-        }*/
 
 
         private void enleverIcone(object sender, DoubleTappedRoutedEventArgs e)
@@ -161,7 +144,6 @@ namespace MyDomotik
             if (!this.choixPosition)
             {
              Button boutonClick = sender as Button;
-             message.Text = "double-click";
              messageBox.Visibility = Visibility.Visible;
                 
             // icone : icone correspondant au bouton cliqué
@@ -170,7 +152,6 @@ namespace MyDomotik
 
             if (!(icone.EstVide()))
             {
-                message.Text += ": icone enlevée";
                 messageBox.Visibility = Visibility.Visible;
 
                // retire l'icone de la grille et la remplace par une icone vide
@@ -178,14 +159,8 @@ namespace MyDomotik
                MainPage.Configuration.arbre.Racine.Grille.removeIcone(indexClick, this.g.NumGrille);
                this.Frame.Navigate(typeof(GestionIcones));
             }
-            else { message.Text += ": icone pas enlevée"; }
-
-
-               
+             
             }
-
-            
-
         }
 
         private void attribueHandler()
