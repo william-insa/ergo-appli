@@ -35,15 +35,29 @@
             </Button>
 
         </Grid>
-        <Button Content="Paramètres interface" HorizontalAlignment="Left" Height="84" Margin="302,65,0,0" Grid.Row="1" VerticalAlignment="Top" Width="802" Background="#FFFFA200" FontSize="36" Click="accesParamInterface"/>
-
-        <Button Content="Gestion icones" HorizontalAlignment="Left" Height="84" Margin="302,213,0,0" Grid.Row="1" VerticalAlignment="Top" Width="802" Background="#FFFFA200" FontSize="36" Click="gestionIcones" />
 
 
-        <Button x:Name="configButton1" Content="Réglages réseau" HorizontalAlignment="Left" Height="84" Margin="302,353,0,0" Grid.Row="1" VerticalAlignment="Top" Width="802" Background="#FFFFA200" FontSize="36" Click="accesPageReseau" />
+        <Grid x:Name="admin_buttons_grid" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="130"/>
+                <RowDefinition Height="130"/>
+                <RowDefinition Height="130"/>
+                <RowDefinition Height="130"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="admin_button_1"  Content="Paramètres interface" HorizontalAlignment="Left" Height="84" Grid.Row="0" VerticalAlignment="Top" Width="802" Background="#FFFFA200" FontSize="36" Click="accesParamInterface"/>
+
+            <Button x:Name="admin_button_2" Content="Gestion des icones" HorizontalAlignment="Left" Height="84" Grid.Row="1" VerticalAlignment="Top" Width="802" Background="#FFFFA200" FontSize="36" Click="gestionIcones"/>
+
+            <Button x:Name="admin_button_3" Content="Réglages réseau" HorizontalAlignment="Left" Height="84" Grid.Row="2" VerticalAlignment="Top" Width="802" Background="#FFFFA200" FontSize="36" Click="accesPageReseau"/>
+
+            <Button x:Name="admin_button_4" Content="Autres" HorizontalAlignment="Left" Height="84" Grid.Row="3" VerticalAlignment="Top" Width="802" Background="#FFFFA200" FontSize="36"/>
+
+        </Grid>
 
 
-        <Button Content="Autres" HorizontalAlignment="Left" Height="84" Margin="302,493,0,0" Grid.Row="1" VerticalAlignment="Top" Width="802" Background="#FFFFA200" FontSize="36"/>
+
 
     </Grid>
 </Page>
