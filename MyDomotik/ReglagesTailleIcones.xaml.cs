@@ -20,9 +20,9 @@ namespace MyDomotik
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class ParamInterface : Page
+    public sealed partial class ReglagesTailleIcones : Page
     {
-        public ParamInterface()
+        public ReglagesTailleIcones()
         {
             this.InitializeComponent();
         }
@@ -34,22 +34,22 @@ namespace MyDomotik
 
         private void menuAdmin(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AdminPage));
+            this.Frame.Navigate(typeof(ParamInterface));
         }
 
-        private void accesPageModeSelect(object sender, RoutedEventArgs e)
+        private void choixPetit(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ReglagesModeSelection));
+
         }
 
-        private void accesPageThemes(object sender, RoutedEventArgs e)
+        private void choixMoyen(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ReglageCouleur));
+
         }
 
-        private void accesPageTailleIcones(object sender, RoutedEventArgs e)
+        private void choixGrand(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ReglagesTailleIcones));
+
         }
     }
 }

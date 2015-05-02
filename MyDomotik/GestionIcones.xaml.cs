@@ -103,7 +103,7 @@ namespace MyDomotik
             b = sender as Button;
             nom = image.Name.Replace("é", ".");
 
-            icone = new Icone("h", nom , 64, new Navigation(new Vue("pageIcones")));
+            icone = new Icone("", nom , 64, new Navigation(new Vue("sans nom")));
             affich.afficherIcone(icone, b);
             message.Text = "Veuillez attribuer un nom à l'icone";
             nomIcone.Visibility = Visibility.Visible;
@@ -113,7 +113,7 @@ namespace MyDomotik
 
         private void Validation(object sender, RoutedEventArgs e)
         {
-            icone = new Icone(nomIcone.Text, nom, 64, new Navigation(new Vue("pageIcones")));
+            icone = new Icone(nomIcone.Text, nom, 64, new Navigation(new Vue("sans nom")));
             affich.afficherIcone(icone, b);
             message.Text = "";
             messageBox.Visibility = Visibility.Collapsed;
