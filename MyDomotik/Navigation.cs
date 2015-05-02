@@ -22,15 +22,5 @@ namespace MyDomotik
         {
             this.PageFils = pageFils;
         }
-
-        // méthodes
-        public void goToChild() // déplace le "curseur" PageCourante de l'arbre global vers la vue Fils correspondante
-        {
-            Arbre a = Configuration.Arbre.arbreVue(PageFils);
-            if (a != null)
-                Configuration.Arbre.PageCourante = a.Racine;
-            else
-                throw new Exception();
-        }
     }
 }

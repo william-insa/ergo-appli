@@ -16,12 +16,11 @@ using System.Windows;
 //﻿using InstanceFactory.MessageBoxSample.UI.Popups;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
+
 using System.Text;
 using Windows.UI;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Shapes;
-//using System.Object;
-//using System.Drawing;
 
 // Pour en savoir plus sur le modèle d'élément Page vierge, consultez la page http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -33,57 +32,41 @@ namespace MyDomotik
     public sealed partial class GestionIcones : Page
     {
        public Image image;
-       private static Grille g = new Grille(Format.MOYEN); 
-       private Affichage affich = new Affichage(g, new Theme());
+
+       //private static Grille g = new Grille(Format.MOYEN); 
+      // private Affichage affich = new Affichage(g, new Theme());
        private Icone icone;
        public String nom ;
        public Button b ;
      
 
+       public String source;
+       private  Grille g;
+       private Affichage affich;
 
-     /*  public List<System.Drawing.Image> listeIconesPiece = new List<System.Drawing.Image>();
-       private List<BitmapImage> listeIconesEquip = new List<BitmapImage>();
-      
-        System.Drawing.Image bathroom =  System.Drawing.Image.FromFile("Assets/ICONS_MDTOUCH/size_64x64/bathroom_0.png");
-        BitmapImage livingroom = new BitmapImage();
-        BitmapImage house1 = new BitmapImage();
-        BitmapImage house2 = new BitmapImage();
-        BitmapImage bedroom = new BitmapImage();
-        BitmapImage kitchen = new BitmapImage();
-        BitmapImage garage = new BitmapImage();
-        BitmapImage garden = new BitmapImage();
-        BitmapImage diningroom = new BitmapImage();
-        BitmapImage office = new BitmapImage();
-        BitmapImage patio = new BitmapImage();
-
-       */
+       private List<Button> listeBoutons;
 
         public GestionIcones()
         {
             this.InitializeComponent();
-          /*  bathroom.UriSource = new Uri("ms-appx:///Assets/ICONS_MDTOUCH/size_64x64/bathroom_0.png", UriKind.Absolute);
-            livingroom.UriSource = new Uri("ms-appx:///Assets/ICONS_MDTOUCH/size_64x64/livingroom_0.png", UriKind.Absolute);
-            house1.UriSource = new Uri("ms-appx:///Assets/ICONS_MDTOUCH/size_64x64/house1_0.png", UriKind.Absolute);
-            house2.UriSource = new Uri("ms-appx:///Assets/ICONS_MDTOUCH/size_64x64/house2_0.png", UriKind.Absolute);
-            bedroom.UriSource = new Uri("ms-appx:///Assets/ICONS_MDTOUCH/size_64x64/bedroom_0.png", UriKind.Absolute);
-            kitchen.UriSource = new Uri("ms-appx:///Assets/ICONS_MDTOUCH/size_64x64/kitchen_0.png", UriKind.Absolute);
-            garage.UriSource = new Uri("ms-appx:///Assets/ICONS_MDTOUCH/size_64x64/garage_0.png", UriKind.Absolute);
-            garden.UriSource = new Uri("ms-appx:///Assets/ICONS_MDTOUCH/size_64x64/garden_0.png", UriKind.Absolute);
-            diningroom.UriSource = new Uri("ms-appx:///Assets/ICONS_MDTOUCH/size_64x64/diningroom_0.png", UriKind.Absolute);
-            office.UriSource = new Uri("ms-appx:///Assets/ICONS_MDTOUCH/size_64x64/office_0.png", UriKind.Absolute);
-            patio.UriSource = new Uri("ms-appx:///Assets/ICONS_MDTOUCH/size_64x64/patio_0.png", UriKind.Absolute);
+            afficherPage();
+        }
 
-            listeIconesPiece.Add(bathroom); listeIconesPiece.Add(livingroom); listeIconesPiece.Add(house1); listeIconesPiece.Add(house2);
-            listeIconesPiece.Add(bedroom); listeIconesPiece.Add(kitchen); listeIconesPiece.Add(garage); listeIconesPiece.Add(garden);
-            listeIconesPiece.Add(diningroom); listeIconesPiece.Add(office); listeIconesPiece.Add(patio);
-            
+        public void afficherPage()
+        {
+            // création de la grille d'affichage des icones
+            this.g = MainPage.Configuration.arbre.Racine.Grille;
+            this.affich = new Affichage(this.g, MainPage.Configuration.theme);
+            this.affich.creerGrille(cadre);
 
-            listeIconesPiece.Add(bathroom);
-            BarIconePiece.ItemsSource = listeIconesPiece;*/
+            // création et affichage de la liste des boutons et des Icones associées
+            this.listeBoutons = this.affich.afficheGrille(cadre);
+            this.attribueHandler();
         }
 
         public void exitAdmin(object sender, RoutedEventArgs e)
         {
+            // il faut mémoriser la grille dans config avant de quitter
             this.Frame.Navigate(typeof(MainPage));
         }
 
@@ -102,12 +85,12 @@ namespace MyDomotik
         //affiche un mesage pour le choix de l'emplacement de l'icone dans la grille et récupère les informations sur l'icone
         private void choixImage(object sender, DoubleTappedRoutedEventArgs e)
         {
-            messageBox.Visibility = Visibility.Visible;
-            message.Text = "Veuillez clicker sur l'endroit où vous souhaitez inserer l'icone";
+            messageBox.Visibility = Visibility.Visible; // Pourquoi ne pas créer un nouveau textBox dynamiquement ?
+            message.Text = "Veuillez cliquer sur l'endroit où vous souhaitez inserer l'icone";
+
 
             image = sender as Image;
-          
-            
+            this.image = sender as Image;         
         }
 
         //événement qui gère le click sur un bouton
@@ -136,15 +119,51 @@ namespace MyDomotik
         }
             
 
-      /*  private void enleverIcone(object sender, DoubleTappedRoutedEventArgs e)
+     /*   private void enleverIcone(object sender, DoubleTappedRoutedEventArgs e)
+
+            Button boutonClick = sender as Button;
+
+            // création d'une nouvelle icone à l'index du bouton
+            int indexClick = (int)boutonClick.Tag;
+            Icone nouvelleIcone = new Icone(this.image);
+            g.pageGrille()[indexClick] = nouvelleIcone;
+
+            //création de la page associée à l'icone
+            MainPage.Configuration.ajouterPiece(new Vue("sans nom"),nouvelleIcone,indexClick,new Piece("sans nom")); // nom à définir
+
+            //String nom = image.Name.Replace("é", ".");
+            
+           affich.afficherIcone(nouvelleIcone, boutonClick);
+            message.Text = " ";
+            messageBox.Visibility = Visibility.Collapsed;
+
+            this.Frame.Navigate(typeof(GestionIcones));
+        }*/
+
+        private void enleverIcone(object sender, DoubleTappedRoutedEventArgs e)
         {
-            Button b = sender as Button;
-            String nom = image.Name.Replace("é", ".");
-            Icone icone = new Icone("house", nom, 64, new Navigation(new Vue("page")));
-            affich.cacherIcone(icone, b);
+            Button boutonClick = sender as Button;
+            // indexClick correspond au bouton cliqué
+            int indexClick = (int)boutonClick.Tag;
+
+            // retire l'icone de la grille en le rendant null
+            g.pageGrille()[indexClick] = null;
+            this.Frame.Navigate(typeof(GestionIcones));
+
         }
 
-       */
+        private void attribueHandler()
+
+        {
+            foreach (Button bouton in this.listeBoutons)
+            {
+                bouton.DoubleTapped += enleverIcone;
+                bouton.Click += choixPositionIcone;
+
+            }
+        }
+
+       
 
     }
 }

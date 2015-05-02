@@ -7,6 +7,7 @@ using System.IO;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml;
 
 
 namespace MyDomotik
@@ -68,6 +69,38 @@ namespace MyDomotik
             this.navigation = navigation;
             this.action = null;
         }
+
+        public Icone(Image image) {
+            this.image = image;
+            this.action = null;
+            this.navigation = null;
+        } //TO DO
+
+        // copie d'une icone
+        public Icone(Icone icone)
+        {
+            this.nomIcone = icone.nomIcone;
+            this.Image = icone.Image;
+            this.Uri = icone.Uri;
+
+            this.taille = icone.taille;
+            this.chaineSource = icone.chaineSource;
+
+            this.Action = icone.action;
+            this.navigation = icone.navigation;
+
+            this.bouton = icone.bouton;
+
+        }
+
+
+        /*public void setHandler(RoutedEventHandler handler)
+        {
+            if (this.Navigation != null)
+            {
+                this.Bouton.Click += handler;
+            }
+        }*/
 
         //navigation ou action ?
       private Boolean navigue(int index)

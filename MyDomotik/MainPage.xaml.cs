@@ -21,67 +21,49 @@ using Windows.UI.Xaml.Navigation;
 
 namespace MyDomotik
 {
+    
     public sealed partial class MainPage : Page
     {
         // Numéro de page de la grille : modifié lors d'une interaction avec la barre de navigation
         private Affichage affichage;
-        private Arbre arbre;
-        private Theme theme;
         private Grille grille;
+        private List<Button> listeBoutons;
 
-        public MainPage()
+        // L'attribut configuration de mainPage garde en mémoire toutes les informations concernant la configuration personnalisée de l'application
+        // (equipements, pieces de la maison, formats et couleurs d'affichage, etc ...) ainsi que l'arborescence des pages.
+
+        private static Configuration configuration = new Configuration();
+        internal static Configuration Configuration
         {
-          // Initialisation
-            Configuration configuration = new Configuration();
-            this.arbre = configuration.arbre;
-            this.theme = configuration.theme;
-          
-            InitializeComponent();
-          
-          // affichage de la grille
-            Vue pageSuiv = new Vue("the big page");
-            Navigation nav = new Navigation(pageSuiv);
-
-            // test affichage de la grille
-            Icone icone1 = new Icone("icone1", "bathroom_0.png", 64, nav);
-            Icone icone2 = new Icone("icone2", "bedroom_0.png", 64, (Action)null);
-            Icone icone3 = new Icone("icone3", "battery_0.png", 64, (Action)null);
-            Icone icone4 = new Icone("icone4", "bathroom_0.png", 64, (Action)null);
-            configuration.ajouterIcone(arbre.PageCourante, icone1, 0);
-            configuration.ajouterIcone(arbre.PageCourante, icone3, 2);
-            configuration.ajouterIcone(arbre.PageCourante, icone4, 4);
-            configuration.ajouterIcone(arbre.PageCourante, icone2, 6);
-            configuration.ajouterIcone(arbre.PageCourante, icone2, 8);
-            configuration.ajouterIcone(arbre.PageCourante, icone1, 10);
-            configuration.ajouterIcone(arbre.PageCourante, icone1, 12);
-            configuration.ajouterIcone(arbre.PageCourante, icone1, 13);
-            configuration.ajouterIcone(arbre.PageCourante, icone2, 16);
-            configuration.ajouterIcone(arbre.PageCourante, icone1, 17);
-            configuration.ajouterIcone(arbre.PageCourante, icone1, 24);
-            configuration.ajouterIcone(arbre.PageCourante, icone2, 25);
-            //fin test
-
-            afficherPage();
-
-//premierAffichage = false;
-
-            // premierAffichage = false;  // Erreur : premierAffichage non défini (commenté par William)
-
-
+            get { return MainPage.configuration; }
+            set { MainPage.configuration = value; }
         }
 
-        // affichage de la page courante
+        // Méthode principale appelée lors de l'ouverture de l'application : initialisation et affichage de la page courante de l'arbre.
+        public MainPage()
+        {
+            InitializeComponent();
+
+            afficherPage();
+        }
+
+        /** affichage de la page courante : 
+         * - crée la grille de boutons correspondant à la page courante et l'affiche.
+         * - 
+        **/ 
         public void afficherPage()
         {
-            page_title.Text = this.arbre.PageCourante.Nom;
-            this.grille = this.arbre.PageCourante.Grille;
-            this.affichage = new Affichage(this.grille, this.theme);
-
+            // création de la grille d'affichage des icones
+            this.grille = configuration.arbre.PageCourante.Grille;
+            this.affichage = new Affichage(this.grille, configuration.theme);
             this.affichage.creerGrille(cadre);
 
-            this.affichage.afficheGrille(cadre);
+            // création et affichage de la liste des boutons et des Icones associées
+            this.listeBoutons = this.affichage.afficheGrille(cadre);
+            this.attribueHandler();
 
-            // affichage de l'heure
+            // affichage du cadre supérieur de la page
+            page_title.Text = configuration.arbre.PageCourante.Nom;
             this.displayTime();
 
             // affichage des couleurs
@@ -94,8 +76,8 @@ namespace MyDomotik
         {
             TimeBox.Text = DateTime.Now.Hour + ":" + DateTime.Now.Minute;
         }
-     
-       
+
+
         // accès au mode configuration
         private void adminSelect(object sender, DoubleTappedRoutedEventArgs e)
         {
@@ -105,10 +87,11 @@ namespace MyDomotik
         // accès à la page précédente de la grille
         private void PagePrecedente(object sender, RoutedEventArgs e)
         {
-            if (!theme.ModeDefilement && this.grille.pagePrecedente())
+            if (!configuration.theme.ModeDefilement && this.grille.pagePrecedente())
             {
                 this.affichage.nettoieGrille(cadre);
-                this.affichage.afficheGrille(cadre);
+                this.listeBoutons = this.affichage.afficheGrille(cadre);
+                this.attribueHandler();
             }
 
         }
@@ -116,48 +99,50 @@ namespace MyDomotik
         // accès à la page suivante de la grille
         private void PageSuivante(object sender, RoutedEventArgs e)
         {
-            if (!this.theme.ModeDefilement && this.grille.pageSuivante())
+            if (!configuration.theme.ModeDefilement && this.grille.pageSuivante())
             {
                 this.affichage.nettoieGrille(cadre);
-                this.affichage.afficheGrille(cadre);
+                this.listeBoutons = this.affichage.afficheGrille(cadre);
+                this.attribueHandler();
             }
         }
 
-        // accès à la page d'accueil : TO DO
+        // accès à la page d'accueil
         private void PageAccueil(object sender, RoutedEventArgs e)
         {
-                this.arbre.PageCourante = this.arbre.Racine;
-                this.Frame.Navigate(typeof(MainPage));
+            configuration.arbre.retourAccueil();
+            this.Frame.Navigate(typeof(MainPage));
         }
 
-      
 
-        // actions
+
+        // Attribue le gestionnaire d'évenement IconeClick à tous les boutons de la grille
         private void attribueHandler()
         {
-            Icone[] icones = grille.pageGrille();
-            for(int i=0; i<icones.Length; i++)
+            foreach (Button bouton in this.listeBoutons)
             {
-                icones[i].Bouton.Click += IconeClick;  // ça suffit pas !  
+                bouton.Click += IconeClick;
             }
         }
 
+        //
         private void IconeClick(object sender, RoutedEventArgs e)
         {
             Button boutonClick = sender as Button;
-            // test handler
-            accueil.Background = new SolidColorBrush(Colors.White);
 
+            // icone : icone correspondant au bouton cliqué
             int indexClick = (int)boutonClick.Tag;
             Icone icone = grille.pageGrille()[indexClick];
 
-            // si icone de navigation : changement de page
+            // Si icone de navigation : changement de page
             if (icone.Navigation != null)
             {
-                this.arbre.PageCourante = icone.Navigation.PageFils;
+                configuration.arbre.PageCourante = icone.Navigation.PageFils;
                 this.Frame.Navigate(typeof(MainPage));
             }
+            if (icone.Action != null) { }
         }
+}
 
-    }
+  
 }

@@ -15,29 +15,34 @@ namespace MyDomotik
 {
     class Affichage
     {
+        //champs
         private Grille grille;
         private Theme theme;
 
         // getters et setters
-        internal Grille Grille
+        public Grille Grille
         {
             get { return grille; }
             set { grille = value; }
         }
 
-        internal Theme Theme
+        public Theme Theme
         {
             get { return theme; }
             set { theme = value; }
         }
-        // constructeur
+
+        /** constructeur 
+         * Grille grille : grille à afficher
+         * Theme theme : theme de l'application 
+         * **/
         public Affichage(Grille grille, Theme theme)
         {
             this.grille = grille;
             this.theme = theme;
         }
 
-        // constructeur de bouton correspondant au format de la grille
+        // constructeur de bouton correspondant au format de la grille (taille)
         public Button formatBouton(Brush couleur, Grid grid)
         {
             Button bouton = new Button();
@@ -54,6 +59,8 @@ namespace MyDomotik
 
         }
 
+        //méthodes
+
         //Affiche les couleurs de la grille, la barre de menu et ses boutons en fonction du thème de couleurs passé en paramètre
         public void afficheCouleur(Rectangle barreMenu, Grid cadre, Button accueil, Button precedent, Button suivant)
         {
@@ -68,6 +75,7 @@ namespace MyDomotik
             suivant.Background = boutons;
         }
 
+        // création de la grid dans la page xaml
         public void creerGrille(Grid cadre)
         {
             // création de la grid
@@ -81,14 +89,18 @@ namespace MyDomotik
             }
 
         }
+
+        // Enlève tous les éléments présents dans la grid de la page xaml
         public void nettoieGrille(Grid cadre)
         {
             cadre.Children.Clear();
         }
 
 
-        /*---------- Affiche la grille avec le bon format et les icones correspondant au numéro de Page de la grille numGrille----------*/
-        public void afficheGrille(Grid cadre)
+        /** Affiche la grille avec le bon format et les icones correspondant au numéro de Page de la grille numGrille et retourne la liste des boutons créer
+         * Grid cadre : grid de la page xaml concernée par l'affichage
+         * **/
+        public List<Button> afficheGrille(Grid cadre)
         {
             //couleur boutons
             Brush boutonActif = new SolidColorBrush(theme.Couleur.CouleurBoutonActif);
@@ -96,6 +108,7 @@ namespace MyDomotik
 
             // icones : tableau contenant les icones à afficher
             Icone[] icones = this.grille.pageGrille();
+            List<Button> listeBoutons = new List<Button>();
 
             // ajout des boutons et de leurs icones dans la grille
             int cpt = 0;
@@ -112,25 +125,31 @@ namespace MyDomotik
                     {
                         if (icones[cpt] != null)
                         {
-
-
-                            afficherIcone(icones[cpt], bouton);
-
                             afficherIcone(icones[cpt], bouton);
 
                             bouton.SetValue(Button.BackgroundProperty, boutonActif);
                             bouton.Tag = cpt;
 
                         }
+
+                        cadre.Children.Add(bouton);
+                        
+                        listeBoutons.Add(bouton);
+
+                        cpt++;
                     }
-                    cadre.Children.Add(bouton);
-                    cpt++;
                 }
+                
             }
+            
+            return listeBoutons;
         }
 
 
-        /*------------------------------affichage de l'icone dans la grille grid------------------------------*/
+        /**affichage de l'icone dans la grille grid
+         * Icone icone : icone à afficher
+         * Button bouton : bouton où l'afficher
+         * **/
         public void afficherIcone(Icone icone, Button bouton)
         {
             Image image = creerImage(icone, bouton);
@@ -138,7 +157,7 @@ namespace MyDomotik
             ajouterImageBouton(bouton, image, labelIcone);
         }
 
-        /*----------crée l'image associée à l'icone----------*/
+        /**A partir de l'icone, crée l'image adapté à la taille du Bouton**/
         public Image creerImage(Icone icone, Button bouton)
         {
             // creation de l'image 
@@ -146,8 +165,6 @@ namespace MyDomotik
             BitmapImage SourceBi = new BitmapImage();
             SourceBi.UriSource = icone.Uri;
             image.Source = SourceBi;
-
-            //bouton.Content = image;
 
             // empeche l'icone de depasser du contour du bouton
 
@@ -160,7 +177,7 @@ namespace MyDomotik
             return image;
 
         }
-        /*----------crée le label associée à l'icone----------*/
+        /** crée le label associée à l'icone (nom de l'icone) **/
         public TextBlock creerLabel(Icone icone)
         {
             // création label : nom de l'icone
@@ -189,7 +206,7 @@ namespace MyDomotik
             return labelIcone;
         }
 
-        /*----------ajout de l'image et du label sur le bouton----------*/
+        /**ajout de l'image et du label sur le bouton**/
         public void ajouterImageBouton(Button bouton, Image image, TextBlock labelIcone)
         {
             Grid grilleBouton = new Grid();
@@ -198,35 +215,13 @@ namespace MyDomotik
 
             image.SetValue(Grid.RowProperty, 0);
             labelIcone.SetValue(Grid.RowProperty, 1);
-            //grilleBouton.Visibility = Visibility.Visible;
+          
             grilleBouton.Children.Add(image);
             grilleBouton.Children.Add(labelIcone);
             bouton.Content = grilleBouton;
 
-          /*  switch (choix) //(tentavie pour enlever une icone de la grille)
-            {
-                case 0:
-                   grilleBouton.Visibility = Visibility.Visible;
-                   grilleBouton.Children.Add(image);
-                   grilleBouton.Children.Add(labelIcone);
-                   bouton.Content = grilleBouton;
-                break;
-
-                case 1:
-                   grilleBouton.Visibility = Visibility.Collapsed;
-
-                break;
-
-            }
-         */
         }
 
-      /* public void cacherIcone(Icone icone, Button bouton)
-        {      
-            Image image = creerImage(icone, bouton);
 
-            TextBlock labelIcone = creerLabel(icone);          
-            ajouterImageBouton(bouton, image, labelIcone, 1);
-        }*/
     }
 }

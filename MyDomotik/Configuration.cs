@@ -13,7 +13,7 @@ namespace MyDomotik
         public Theme theme;
         public Arbre arbre;
 
-        private Vue mainPage;
+        public static Vue mainPage;
         private List<Action> actions;
         private List<Equipement> equipements;
         private List<Modalite> modalites;
@@ -40,28 +40,66 @@ namespace MyDomotik
             get { return actions; }
             set { actions = value; }
         }
-        public static Theme Theme
+        public Theme Theme
         {
-            get { return Theme; }
-            set { Theme = value; }
+            get { return theme; }
+            set { theme = value; }
         }
-        public static Arbre Arbre
+        public Arbre Arbre
         {
-            get { return Arbre; }
-            set { Arbre = value; }
+            get { return arbre; }
+            set { arbre = value; }
         }
 
         //constructeur
         public Configuration()
         {
-            this.mainPage = new Vue("Pièces de la Maison");
+            // test affichage de la grille
+            Vue pageHome = new Vue("Home");
+            Vue pageSuiv = new Vue("Bravo !");
+            Navigation nav1 = new Navigation(pageSuiv);
+            Navigation nav2 = new Navigation(pageHome);
+            //fin test
+
             this.actions = new List<Action>();
             this.equipements = new List<Equipement>();
             this.pieces = new List<Piece>();
             this.modalites = new List<Modalite>();
 
             this.theme = new Theme();
-            this.arbre = new Arbre(this.mainPage);
+            this.arbre = new Arbre(pageHome);
+
+            //test
+            Icone icone1 = new Icone("icone1", "bathroom_0.png", 64, nav1);
+            Icone icone2 = new Icone("icone2", "bedroom_0.png", 64, nav2);
+            Icone icone3 = new Icone("icone3", "battery_0.png", 64, (Action)null);
+            Icone icone4 = new Icone("icone4", "bathroom_0.png", 64, (Action)null);
+            this.ajouterIcone(pageHome, icone1, 0);
+            this.ajouterIcone(pageHome, icone3, 2);
+            this.ajouterIcone(pageHome, icone4, 4);
+            this.ajouterIcone(pageHome, icone2, 6);
+            this.ajouterIcone(pageHome, icone2, 8);
+            this.ajouterIcone(pageHome, icone1, 10);
+            this.ajouterIcone(pageHome, icone1, 12);
+            this.ajouterIcone(pageHome, icone1, 13);
+            this.ajouterIcone(pageHome, icone2, 16);
+            this.ajouterIcone(pageHome, icone1, 17);
+            this.ajouterIcone(pageHome, icone1, 24);
+            this.ajouterIcone(pageHome, icone2, 25);
+
+            this.ajouterIcone(pageSuiv, icone1, 1);
+            this.ajouterIcone(pageSuiv, icone3, 3);
+            this.ajouterIcone(pageSuiv, icone4, 4);
+            this.ajouterIcone(pageSuiv, icone2, 5);
+            this.ajouterIcone(pageSuiv, icone2, 6);
+            this.ajouterIcone(pageSuiv, icone1, 10);
+            this.ajouterIcone(pageSuiv, icone1, 11);
+            this.ajouterIcone(pageSuiv, icone1, 13);
+            this.ajouterIcone(pageSuiv, icone2, 16);
+            this.ajouterIcone(pageSuiv, icone1, 17);
+            this.ajouterIcone(pageSuiv, icone1, 24);
+            this.ajouterIcone(pageSuiv, icone2, 25);
+            //fin test
         }
 
         public string toStringXML()
@@ -129,3 +167,4 @@ namespace MyDomotik
     }
 
 }
+

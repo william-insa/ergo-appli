@@ -10,7 +10,7 @@ namespace MyDomotik
     {
         // champs
         private Vue racine;
-        private List<Arbre> fils = null;
+        private List<Arbre> fils;
         private Vue pageCourante;
         
         // propriétés
@@ -29,14 +29,16 @@ namespace MyDomotik
         public Vue PageCourante
         {
             get { return pageCourante; }
-            set { pageCourante = value; }
+            set
+            { pageCourante = value; }
         }
 
         // constructeur
         public Arbre(Vue v)
         {
             Racine = v;
-            this.pageCourante = v;
+            Fils = null;
+            pageCourante = v;
         }
 
         // méthodes
@@ -47,7 +49,7 @@ namespace MyDomotik
 
         public static void ajouterVue(Vue vuePere, Vue vueFils)   //  dans l'arbre GLOBAL, ajoute la vueFils dans la liste des fils de la vuePere
         {
-            Arbre aPere = Configuration.Arbre.arbreVue(vuePere);
+            Arbre aPere = MainPage.Configuration.Arbre.arbreVue(vuePere);
             Arbre aFils = new Arbre(vueFils);
             aPere.ajouterArbre(aFils);
         }
@@ -56,32 +58,68 @@ namespace MyDomotik
            PageCourante = v;
         }
 
-       /* public List<string> cheminPageCourante()
+        public List<Vue> cheminPageCour()   //la liste de vues est classée par ordre "décroissant", çad la pageCourante est en premier et la mainPage en dernier. On remonte l'arborescence en parcourant la liste de l'indice 0 à cheminPageCourante.Lenght-1
         {
-            
-        }*/
+            List<Vue> list = new List<Vue>();
+            Arbre aTemp = this;
 
+            do{
+                list.Add(aTemp.PageCourante);
+                aTemp = arbreVuePere(list.ElementAt<Vue>(list.Count));
+            } while(aTemp != null);
 
-        public void retourAccueil()
-        {
-           // throw new NotImplementedException();
+            return list;   
         }
 
-        public Arbre arbreVue(Vue v) // retourne le sous-arbre associé à la Vue v dans l'arbre courant
+        public Arbre arbreVuePere(Vue v)
         {
-            if(this.Racine.Nom == v.Nom) {
-                return this;
-            }
-            else if (this.Fils != null)
+            if (this.Fils != null)
             {
-                foreach (Arbre arbre in this.Fils)
+                foreach (Arbre a in this.Fils)
                 {
-                    Arbre aTemp = arbre.arbreVue(v);
+                    if (a.Racine.Nom == v.Nom)
+                        return this;
+                }
+            }
+            else
+            {
+                foreach (Arbre a in this.Fils)
+                {
+                    Arbre aTemp = a.arbreVuePere(v);
                     if (aTemp != null)
                         return aTemp;
                 }
             }
             return null;
+        }
+
+        public Arbre arbreVue(Vue v) // retourne le sous-arbre associé à la Vue v dans l'arbre courant
+        {
+            Arbre aTemp = arbreVuePere(v);
+            if(aTemp.Racine.Nom == null){
+                if (v.Nom != Configuration.mainPage.Nom)
+                {
+                    return this;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                foreach (Arbre a in Fils)
+                {
+                    if (a.Racine.Nom == v.Nom)
+                        return a;
+               }
+            }
+            return null;
+        }
+
+        public void retourAccueil()
+        {
+            pageCourante = Racine;
         }
     }
 }
