@@ -13,7 +13,7 @@ namespace MyDomotik
         public Theme theme;
         public Arbre arbre;
 
-        private Vue mainPage;
+        public static readonly Vue mainPage;
         private List<Action> actions;
         private List<Equipement> equipements;
         private List<Modalite> modalites;

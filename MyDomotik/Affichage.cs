@@ -15,21 +15,23 @@ namespace MyDomotik
 {
     class Affichage
     {
+        //champs
         private Grille grille;
         private Theme theme;
 
         // getters et setters
-        internal Grille Grille
+        public Grille Grille
         {
             get { return grille; }
             set { grille = value; }
         }
 
-        internal Theme Theme
+        public Theme Theme
         {
             get { return theme; }
             set { theme = value; }
         }
+
         // constructeur
         public Affichage(Grille grille, Theme theme)
         {
@@ -53,6 +55,8 @@ namespace MyDomotik
             return bouton;
 
         }
+
+        //méthodes
 
         //Affiche les couleurs de la grille, la barre de menu et ses boutons en fonction du thème de couleurs passé en paramètre
         public void afficheCouleur(Rectangle barreMenu, Grid cadre, Button accueil, Button precedent, Button suivant)
@@ -112,8 +116,6 @@ namespace MyDomotik
                     {
                         if (icones[cpt] != null)
                         {
-
-
                             afficherIcone(icones[cpt], bouton);
 
                             afficherIcone(icones[cpt], bouton);
@@ -201,12 +203,12 @@ namespace MyDomotik
 
           /*  switch (choix) //(tentavie pour enlever une icone de la grille)
             {
-                case 0:
+                case 0: */
                    grilleBouton.Visibility = Visibility.Visible;
                    grilleBouton.Children.Add(image);
                    grilleBouton.Children.Add(labelIcone);
                    bouton.Content = grilleBouton;
-                break;
+             /* break;
 
                 case 1:
                    grilleBouton.Visibility = Visibility.Collapsed;

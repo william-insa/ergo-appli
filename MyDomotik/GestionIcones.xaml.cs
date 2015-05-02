@@ -27,7 +27,6 @@ namespace MyDomotik
     /// </summary>
     public sealed partial class GestionIcones : Page
     {
-
        public Image image;
        public String source;
        //public TextBlock message;
@@ -60,7 +59,7 @@ namespace MyDomotik
         private void choixImage(object sender, DoubleTappedRoutedEventArgs e)
         {
             messageBox.Visibility = Visibility.Visible;
-            message.Text = "Veuillez clicker sur l'endroit où vous souhaitez inserer l'icone";
+            message.Text = "Veuillez cliquer sur l'endroit où vous souhaitez inserer l'icone";
 
             image = sender as Image;
            // source = image.Source.ToString();
@@ -77,7 +76,6 @@ namespace MyDomotik
             affich.afficherIcone(icone, b);
             message.Text = " ";
             messageBox.Visibility = Visibility.Collapsed;
-            
         }
 
       /*  private void enleverIcone(object sender, DoubleTappedRoutedEventArgs e)
