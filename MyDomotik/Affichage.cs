@@ -91,8 +91,8 @@ namespace MyDomotik
         }
 
 
-        /*---------- Affiche la grille avec le bon format et les icones correspondant au numéro de Page de la grille numGrille----------*/
-        public void afficheGrille(Grid cadre)
+        /*---------- Affiche la grille avec le bon format et les icones correspondant au numéro de Page de la grille numGrille et retourne la liste des boutons créer----------*/
+        public List<Button> afficheGrille(Grid cadre)
         {
             //couleur boutons
             Brush boutonActif = new SolidColorBrush(theme.Couleur.CouleurBoutonActif);
@@ -100,6 +100,7 @@ namespace MyDomotik
 
             // icones : tableau contenant les icones à afficher
             Icone[] icones = this.grille.pageGrille();
+            List<Button> listeBoutons = new List<Button>();
 
             // ajout des boutons et de leurs icones dans la grille
             int cpt = 0;
@@ -118,17 +119,22 @@ namespace MyDomotik
                         {
                             afficherIcone(icones[cpt], bouton);
 
-                            afficherIcone(icones[cpt], bouton);
-
                             bouton.SetValue(Button.BackgroundProperty, boutonActif);
                             bouton.Tag = cpt;
 
                         }
+
+                        cadre.Children.Add(bouton);
+                        
+                        listeBoutons.Add(bouton);
+
+                        cpt++;
                     }
-                    cadre.Children.Add(bouton);
-                    cpt++;
                 }
+                
             }
+            
+            return listeBoutons;
         }
 
 
@@ -140,7 +146,7 @@ namespace MyDomotik
             ajouterImageBouton(bouton, image, labelIcone);
         }
 
-        /*----------crée l'image associée à l'icone----------*/
+        /*----------crée l'image adapté à la taille du Bouton----------*/
         public Image creerImage(Icone icone, Button bouton)
         {
             // creation de l'image 
