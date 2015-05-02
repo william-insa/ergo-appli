@@ -44,12 +44,12 @@ namespace MyDomotik
 
         private void accesPageThemes(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ReglageCouleur));
+            // this.Frame.Navigate(typeof(ReglageCouleur));
         }
 
         private void accesPageTailleIcones(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ReglagesTailleIcones));
+            // this.Frame.Navigate(typeof(ReglagesTailleIcones));
         }
     }
 }

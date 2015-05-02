@@ -18,6 +18,7 @@ namespace MyDomotik
         private List<Equipement> equipements;
         private List<Modalite> modalites;
         private List<Piece> pieces;
+        private ReglReseau reglagesReseau;
 
         //getters et setters
         public List<Piece> Pieces
@@ -50,6 +51,12 @@ namespace MyDomotik
             get { return arbre; }
             set { arbre = value; }
         }
+        public ReglReseau ReglagesReseau
+        {
+            get { return reglagesReseau; }
+            set { reglagesReseau = value; }
+        }
+
 
         //constructeur
         public Configuration()
@@ -65,6 +72,7 @@ namespace MyDomotik
             this.equipements = new List<Equipement>();
             this.pieces = new List<Piece>();
             this.modalites = new List<Modalite>();
+            this.reglagesReseau = new ReglReseau();
 
             this.theme = new Theme();
             this.arbre = new Arbre(pageHome);
