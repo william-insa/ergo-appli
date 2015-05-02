@@ -24,7 +24,7 @@ namespace MyDomotik
     {
         public ReglagesCouleur()
         {
-            this.InitializeComponent();
+            this.InitializeComponent(); 
         }
 
 

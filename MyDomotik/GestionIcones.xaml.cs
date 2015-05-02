@@ -35,11 +35,9 @@ namespace MyDomotik
        private Icone icone;
 
        public Button b ;
-       private Icone iconePosition;
        private int indexNouvelleIcone;
-     
 
-       public String source;
+       public String nom;
        private Grille g;
        private Affichage affich;
        private Boolean choixPosition = false;
@@ -85,67 +83,101 @@ namespace MyDomotik
         //affiche un mesage pour le choix de l'emplacement de l'icone dans la grille et récupère les informations sur l'icone
         private void choixImage(object sender, DoubleTappedRoutedEventArgs e)
         {
+            // Message 
             messageBox.Visibility = Visibility.Visible;
             message.Text = "Veuillez cliquer sur l'endroit où vous souhaitez inserer l'icone";
 
-
-
-            image = sender as Image;
-            this.image = sender as Image;         
-
             this.choixPosition = true;
-            this.image = sender as Image;        
 
+            // mémorise l'image cliquée
+            this.image = sender as Image;         
         }
 
         //événement qui gère le click sur un bouton
         //affiche l'icone double clickée sur le bouton
         private void choixPositionIcone(object sender, RoutedEventArgs e)
         {
-            Button boutonClick = sender as Button;
+            if (choixPosition == true) // si l'utilisateur est en train d'ajouter une nouvelle icone
+            {
+            // mémorise le bouton et le nom de fichier de l'image sélectionnée
+            b = sender as Button;
+            nom = image.Name.Replace("é", ".");
 
-            // icone : icone correspondant au bouton cliqué
-            this.indexNouvelleIcone = (int)boutonClick.Tag;
-            this.iconePosition = g.pageGrille()[this.indexNouvelleIcone];
+            // mémorise l'index de l'icone à créer (ou changer de nom)
+            this.indexNouvelleIcone = (int)b.Tag;
+            // iconeClick : icone correspondant au bouton cliqué
+            Icone iconeClick = g.pageGrille()[this.indexNouvelleIcone];
 
-            message.Text = "Veuillez attribuer un nom à l'icone";
-            nomIcone.Visibility = Visibility.Visible;
-            Valider.Visibility = Visibility.Visible;
+                if (iconeClick.EstVide()) // click sur icone vide : l'icone peut être ajoutée
+                {
+                    // mémorise une nouvelle icone dans la grille temporaire
+                    g.pageGrille()[this.indexNouvelleIcone] = new Icone("", nom, 64, new Navigation(new Vue("")));
 
+                    // Message
+                    message.Text = "Veuillez attribuer un nom à l'icone.";
+                    nomIcone.Visibility = Visibility.Visible;
+                    Valider.Visibility = Visibility.Visible;
+
+                }
+                else // click sur icone existante : l'icone ne peut pas être ajoutée
+                {
+                    // Message
+                    message.Text = "Il y a déjà une icône sur cet emplacement. Veuillez choisir un emplacement libre.";
+                    messageBox.Visibility = Visibility.Visible;
+                }
+            }
         }
 
         private void Validation(object sender, RoutedEventArgs e)
         {
-            this.iconePosition = new Icone(nomIcone.Text, "", 64, new Navigation(new Vue("")));
-
-            affich.afficherIcone(icone, b);
-            message.Text = "";
-            messageBox.Visibility = Visibility.Collapsed;
-            nomIcone.Visibility = Visibility.Collapsed;
-            Valider.Visibility = Visibility.Collapsed;
-            ajouterIcone(message.Text);
+            if (this.choixPosition)
+            {
+                // efface message
+                message.Text = "";
+                messageBox.Visibility = Visibility.Collapsed;
+                nomIcone.Visibility = Visibility.Collapsed;
+                Valider.Visibility = Visibility.Collapsed;
+                // attribution du nom à l'icone mémorisée et ajout de la nouvelle icone à la configuration
+                icone.NomIcone = message.Text;
+                ajouterIcone();
+            }
+            else // Changement du nom de l'icone : mémorisation dans la configuration
+            {
+                MainPage.Configuration.arbre.Racine.Grille.setNomIcone(indexNouvelleIcone, g.NumGrille, message.Text);
+                this.Frame.Navigate(typeof(GestionIcones));
+            }
         }
             
 
-       private void ajouterIcone(String nomChoisi){
-
-             this.iconePosition.NomIcone = nomChoisi;
+       private void ajouterIcone(){
 
             //création de la page associée à l'icone
-             MainPage.Configuration.ajouterPiece(icone, indexNouvelleIcone, this.g.NumGrille); 
-
-            messageBox.Visibility = Visibility.Collapsed;
-
+            MainPage.Configuration.arbre.Racine.Grille.addIcone(this.icone, indexNouvelleIcone, this.g.NumGrille);
+            // MainPage.Configuration.ajouterPiece(icone, indexNouvelleIcone, this.g.NumGrille); 
+            this.choixPosition = false;
             this.Frame.Navigate(typeof(GestionIcones));
+     
         }
 
+       private void Menu(object sender, RoutedEventArgs e)
+       {
+           if (!this.choixPosition)
+           {
+               Options.Visibility = Visibility.Visible;
+               Supprimer.IsEnabled = true;
+               ChangerNom.IsEnabled = true;
+           }
+       } 
 
-        private void enleverIcone(object sender, DoubleTappedRoutedEventArgs e)
+        private void enleverIcone(object sender, RoutedEventArgs e)
         {
+            Options.Visibility = Visibility.Collapsed;
+            Supprimer.IsEnabled = false;
+            ChangerNom.IsEnabled = false;
+
             if (!this.choixPosition)
             {
              Button boutonClick = sender as Button;
-             messageBox.Visibility = Visibility.Visible;
                 
             // icone : icone correspondant au bouton cliqué
             int indexClick = (int)boutonClick.Tag;
@@ -154,13 +186,44 @@ namespace MyDomotik
             if (!(icone.EstVide()))
             {
                 messageBox.Visibility = Visibility.Visible;
-
-               // retire l'icone de la grille et la remplace par une icone vide
-               g.pageGrille()[indexClick] = Icone.IconeVide();
-               MainPage.Configuration.arbre.Racine.Grille.removeIcone(indexClick, this.g.NumGrille);
-               this.Frame.Navigate(typeof(GestionIcones));
+                message.Text = "Enlever icone : ok";
+                
+                // retire l'icone de la grille et la remplace par une icone vide
+                g.pageGrille()[indexClick] = Icone.IconeVide();
+                MainPage.Configuration.arbre.Racine.Grille.removeIcone(indexClick, this.g.NumGrille);
+                this.Frame.Navigate(typeof(GestionIcones));
+            }
+            else
+            {
+                messageBox.Visibility = Visibility.Visible;
+                message.Text = "Enlever icone : pas ok. Bah ya pas d'icone ici hein !";
             }
              
+            }
+        }
+        private void changerNomIcone(object sender, RoutedEventArgs e)
+        {
+            Options.Visibility = Visibility.Collapsed;
+           Supprimer.IsEnabled = false;
+           ChangerNom.IsEnabled = false;
+
+            messageBox.Visibility = Visibility.Visible;
+            message.Text = "Changement du nom de l'icone";
+            
+            // mémorise le bouton et le nom de fichier de l'image sélectionnée
+            b = sender as Button;
+            nom = image.Name.Replace("é", ".");
+
+            // mémorise l'index de l'icone à créer (ou changer de nom)
+            this.indexNouvelleIcone = (int)b.Tag;
+            // iconeClick : icone correspondant au bouton cliqué
+            Icone iconeClick = g.pageGrille()[this.indexNouvelleIcone];
+            if (!iconeClick.EstVide()) // click sur icone existante : on peut changer son nom
+            {
+                // Message
+                message.Text = "Veuillez attribuer un nom à l'icone.";
+                nomIcone.Visibility = Visibility.Visible;
+                Valider.Visibility = Visibility.Visible;
             }
         }
 
@@ -171,12 +234,14 @@ namespace MyDomotik
             {
                 if ((int)bouton.Tag >= 0)
                 {
-                bouton.DoubleTapped += enleverIcone;
+                bouton.Click += Menu;
                 bouton.Click += choixPositionIcone;
                 }
               
             }
         }
+
+
 
        
 
