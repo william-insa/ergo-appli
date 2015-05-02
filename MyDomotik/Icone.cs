@@ -70,6 +70,12 @@ namespace MyDomotik
             this.action = null;
         }
 
+        public Icone(Image image) {
+            this.image = image;
+            this.action = null;
+            this.navigation = null;
+        } //TO DO
+
         // copie d'une icone
         public Icone(Icone icone)
         {

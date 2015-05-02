@@ -13,7 +13,7 @@ namespace MyDomotik
         public Theme theme;
         public Arbre arbre;
 
-        public static readonly Vue mainPage;
+        public static Vue mainPage;
         private List<Action> actions;
         private List<Equipement> equipements;
         private List<Modalite> modalites;
@@ -40,15 +40,15 @@ namespace MyDomotik
             get { return actions; }
             set { actions = value; }
         }
-        public static Theme Theme
+        public Theme Theme
         {
-            get { return Theme; }
-            set { Theme = value; }
+            get { return theme; }
+            set { theme = value; }
         }
-        public static Arbre Arbre
+        public Arbre Arbre
         {
-            get { return Arbre; }
-            set { Arbre = value; }
+            get { return arbre; }
+            set { arbre = value; }
         }
 
         //constructeur
