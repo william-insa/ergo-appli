@@ -80,7 +80,7 @@
 
         </Grid>
 
-        <Rectangle x:Name="messageBox" Grid.Row="1" Fill="#FF7E7E83" HorizontalAlignment="Center" Height="88" Stroke="#FF0A0909" VerticalAlignment="Center" Width="591" Visibility="Visible"/>
+        <Rectangle x:Name="messageBox" Grid.Row="1" Fill="#FF7E7E83" HorizontalAlignment="Center" Height="88" Stroke="#FF0A0909" VerticalAlignment="Center" Width="591" Visibility="Collapsed"/>
         <TextBlock x:Name="message" Text="" Height="88" TextWrapping="Wrap" Width="591" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FF060606" FontSize="24" FontWeight="Bold" Margin="388,211,0,0" Grid.Row="1" TextAlignment="Center"/>
 
         <Grid HorizontalAlignment="Center" Height="153" Grid.Row="2" VerticalAlignment="Center" Width="1346">

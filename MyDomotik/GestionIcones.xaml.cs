@@ -21,9 +21,6 @@ using Windows.UI.Popups;
 
 namespace MyDomotik
 {
-    /// <summary>
-    /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
-    /// </summary>
     public sealed partial class GestionIcones : Page
     {
        public Image image;
@@ -31,6 +28,7 @@ namespace MyDomotik
        //public TextBlock message;
        private  Grille g;
        private Affichage affich;
+       private Boolean choixPosition = false;
 
        private List<Button> listeBoutons;
 
@@ -76,27 +74,28 @@ namespace MyDomotik
         //affiche un mesage pour le choix de l'emplacement de l'icone dans la grille et récupère les informations sur l'icone
         private void choixImage(object sender, DoubleTappedRoutedEventArgs e)
         {
-            messageBox.Visibility = Visibility.Visible; // Pourquoi ne pas créer un nouveau textBox dynamiquement ?
+            messageBox.Visibility = Visibility.Visible;
             message.Text = "Veuillez cliquer sur l'endroit où vous souhaitez inserer l'icone";
-
-            this.image = sender as Image;
-           // source = image.Source.ToString();
-            
+            this.choixPosition = true;
+            this.image = sender as Image;        
         }
 
         //événement qui gère le click sur un bouton
         //affiche l'icone double clickée sur le bouton
         private void choixPositionIcone(object sender, RoutedEventArgs e)
         {
+            if (this.choixPosition == true) { 
             Button boutonClick = sender as Button;
-
+            message.Text = "vous avez clické sur une case : c'est bien.";
+            messageBox.Visibility = Visibility.Visible;
+            /*
             // création d'une nouvelle icone à l'index du bouton
             int indexClick = (int)boutonClick.Tag;
             Icone nouvelleIcone = new Icone(this.image);
             g.pageGrille()[indexClick] = nouvelleIcone;
 
             //création de la page associée à l'icone
-            MainPage.Configuration.ajouterPiece(new Vue("sans nom"),nouvelleIcone,indexClick,new Piece("sans nom")); // nom à définir
+            MainPage.Configuration.ajouterPiece(new Vue(""),nouvelleIcone,indexClick,new Piece("")); // nom à définir
 
             //String nom = image.Name.Replace("é", ".");
             
@@ -104,18 +103,44 @@ namespace MyDomotik
             message.Text = " ";
             messageBox.Visibility = Visibility.Collapsed;
 
-            this.Frame.Navigate(typeof(GestionIcones));
+            this.Frame.Navigate(typeof(GestionIcones));*/
+
+            this.choixPosition = false;
+            }
+            
         }
 
         private void enleverIcone(object sender, DoubleTappedRoutedEventArgs e)
         {
-            Button boutonClick = sender as Button;
-            // indexClick correspond au bouton cliqué
+            if (!this.choixPosition)
+            {
+             Button boutonClick = sender as Button;
+             message.Text = "double-click : il faut enlever l'icone";
+             messageBox.Visibility = Visibility.Visible;
+                
+            // icone : icone correspondant au bouton cliqué
             int indexClick = (int)boutonClick.Tag;
+            Icone icone = g.pageGrille()[indexClick];
 
-            // retire l'icone de la grille en le rendant null
-            g.pageGrille()[indexClick] = null;
-            this.Frame.Navigate(typeof(GestionIcones));
+            if (icone != null)
+            {
+                message.Text += ": icone enlevée";
+                messageBox.Visibility = Visibility.Visible;
+                /*
+               // indexClick correspond au bouton cliqué
+               int indexClick = (int)boutonClick.Tag;
+
+               // retire l'icone de la grille en le rendant null
+               g.pageGrille()[indexClick] = null;
+               this.Frame.Navigate(typeof(GestionIcones)); */
+            }
+            else { message.Text += ": icone pas enlevée"; }
+
+
+               
+            }
+
+            
 
         }
 

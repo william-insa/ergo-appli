@@ -127,22 +127,26 @@ namespace MyDomotik
         public Icone[] pageGrille()
         {
             Icone[] pageGrille = new Icone[this.nbCasesGrille()];
-
-            //vérification : la page demandée existe-t-elle ?
-            if (numGrille < this.nbPagesGrille())
+            for (int i = 0; i < this.nbCasesGrille(); i++)
             {
-                // index min et max de la page numPage
-                int indexMin = numGrille*this.nbCasesGrille();
-                int indexMax = indexMin + this.nbCasesGrille() - 1;
+                pageGrille[i] = (Icone)null;
+            }
 
-                foreach (int key in icones.Keys)
+                //vérification : la page demandée existe-t-elle ?
+                if (numGrille < this.nbPagesGrille())
                 {
-                    if (key >= indexMin && key <= indexMax)
+                    // index min et max de la page numPage
+                    int indexMin = numGrille * this.nbCasesGrille();
+                    int indexMax = indexMin + this.nbCasesGrille() - 1;
+
+                    foreach (int key in icones.Keys)
                     {
-                        pageGrille[key%nbCasesGrille()] = this.icones[key];
+                        if (key >= indexMin && key <= indexMax)
+                        {
+                            pageGrille[key % nbCasesGrille()] = this.icones[key];
+                        }
                     }
                 }
-            }
 
             return pageGrille;
         }
