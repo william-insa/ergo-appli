@@ -121,7 +121,10 @@ namespace MyDomotik
         {
             foreach (Button bouton in this.listeBoutons)
             {
-                bouton.Click += IconeClick;
+                if ((int)bouton.Tag >= 0)
+                {
+                    bouton.Click += IconeClick;
+                }
             }
         }
 

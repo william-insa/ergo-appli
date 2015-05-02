@@ -70,11 +70,12 @@ namespace MyDomotik
             this.action = null;
         }
 
-        public Icone(Image image) {
+        public Icone(Image image, String nomIcone) {
             this.image = image;
+            this.nomIcone = nomIcone;
             this.action = null;
             this.navigation = null;
-        } //TO DO
+        } 
 
         // copie d'une icone
         public Icone(Icone icone)
@@ -93,15 +94,15 @@ namespace MyDomotik
 
         }
 
-
-        /*public void setHandler(RoutedEventHandler handler)
+        public static Icone IconeVide()
         {
-            if (this.Navigation != null)
-            {
-                this.Bouton.Click += handler;
-            }
-        }*/
+            return new Icone((Image)null,"");
+        }
 
+        public Boolean EstVide()
+        {
+            return this.image == null;
+        }
         //navigation ou action ?
       private Boolean navigue(int index)
       {

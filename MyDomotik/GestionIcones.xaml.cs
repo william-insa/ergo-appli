@@ -161,24 +161,22 @@ namespace MyDomotik
             if (!this.choixPosition)
             {
              Button boutonClick = sender as Button;
-             message.Text = "double-click : il faut enlever l'icone";
+             message.Text = "double-click";
              messageBox.Visibility = Visibility.Visible;
                 
             // icone : icone correspondant au bouton cliqué
             int indexClick = (int)boutonClick.Tag;
             Icone icone = g.pageGrille()[indexClick];
 
-            if (icone != null)
+            if (!(icone.EstVide()))
             {
                 message.Text += ": icone enlevée";
                 messageBox.Visibility = Visibility.Visible;
-                /*
-               // indexClick correspond au bouton cliqué
-               int indexClick = (int)boutonClick.Tag;
 
-               // retire l'icone de la grille en le rendant null
-               g.pageGrille()[indexClick] = null;
-               this.Frame.Navigate(typeof(GestionIcones)); */
+               // retire l'icone de la grille et la remplace par une icone vide
+               g.pageGrille()[indexClick] = Icone.IconeVide();
+               MainPage.Configuration.arbre.Racine.Grille.removeIcone(indexClick, this.g.NumGrille);
+               this.Frame.Navigate(typeof(GestionIcones));
             }
             else { message.Text += ": icone pas enlevée"; }
 
@@ -195,9 +193,12 @@ namespace MyDomotik
         {
             foreach (Button bouton in this.listeBoutons)
             {
+                if ((int)bouton.Tag >= 0)
+                {
                 bouton.DoubleTapped += enleverIcone;
                 bouton.Click += choixPositionIcone;
-
+                }
+              
             }
         }
 
