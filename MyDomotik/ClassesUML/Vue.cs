@@ -10,13 +10,21 @@ namespace MyDomotik
     {
         private String nom;
         private Grille grille;
+        private Vue pere;
 
-
-        // constructeur à partir du nom et du format de la grille
+   
+        // constructeur de vue sans pere (racine)
         public Vue(String nom, Format formatGrille)
         {
             this.nom = nom;
             this.grille = new Grille(formatGrille);
+            this.pere = null;
+        }
+        // constructeur à partir du nom et du format de la grille
+        public Vue(String nom, Vue pere)
+        {
+            this.nom = nom;
+            this.pere = pere;
         }
 
         // constructeur à partir du nom et du "format par défaut"
@@ -39,6 +47,12 @@ namespace MyDomotik
             get { return grille; }
             set { grille = value; }
         }
+        internal Vue Pere
+        {
+            get { return pere; }
+            set { pere = value; }
+        }
+
         public void setFormatGrille(Format format)
         {
             this.grille.setFormat(format);

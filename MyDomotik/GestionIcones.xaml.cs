@@ -64,11 +64,12 @@ namespace MyDomotik
             this.attribueHandler();
         }
 
-        public void exitAdmin(object sender, RoutedEventArgs e)
+        private void exitAdmin(object sender, RoutedEventArgs e)
         {
-            // il faut mémoriser la grille dans config avant de quitter
+            MainPage.Configuration.arbre.retourAccueil();
             this.Frame.Navigate(typeof(MainPage));
         }
+
 
         public void menuAdmin(object sender, RoutedEventArgs e)
         {

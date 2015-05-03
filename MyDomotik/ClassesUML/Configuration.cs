@@ -156,7 +156,7 @@ namespace MyDomotik
            // Piece piece = new Piece(icone.NomIcone);
 
             // on associe une nouvelle page à l'icone et on l'ajoute à l'arbre
-            Vue pagePiece = new Vue(icone.NomIcone);
+            Vue pagePiece = new Vue(icone.NomIcone, arbre.Racine);
 
             icone.Navigation = new Navigation(pagePiece);
             icone.Action = (Action)null;
@@ -172,7 +172,7 @@ namespace MyDomotik
         public void ajouterEquipement(Vue pagePiece, Icone icone, int index, int numPage)
         {
            // Equipement equip = new Equipement(icone.nomIcone);
-            Vue pageEquip = new Vue(icone.NomIcone);
+            Vue pageEquip = new Vue(icone.NomIcone, pagePiece);
             // ajoute une page (associée à l'équipement)  à l'arbre
            // Arbre a = Arbre.arbreVue(pagePiece);  // on trouve la pièce dans l'arbre global grâce à la Vue pagePiece de la pièce dans laquelle on souhaite mettre l'équipement
             //a.Fils.Add(new Arbre(pageEquip));  // on ajoute l'équipement à la liste des fils de la Vue pagePiece

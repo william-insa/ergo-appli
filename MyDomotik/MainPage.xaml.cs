@@ -72,23 +72,26 @@ namespace MyDomotik
 
         public void affichePageGrille()
         {
+            affichage.nettoieGrille(cadre);
             // création et affichage de la liste des boutons et des Icones associées
             this.listeBoutons = affichage.afficheGrille(cadre);
             this.attribueHandler();
 
             // affichage du cadre supérieur de la page
             page_title.Text = configuration.arbre.PageCourante.Nom + "(" + (configuration.arbre.PageCourante.Grille.NumGrille + 1) + "/" + configuration.arbre.PageCourante.Grille.nbPagesGrille() + ")";
-            this.displayTime();
-
         }
 
 
-        // affichage de l'heure : TO DO
-        public void displayTime()
+        // retour à la page précédente
+        public void retourPere(object sender, RoutedEventArgs e)
         {
-            TimeBox.Text = DateTime.Now.Hour + ":" + DateTime.Now.Minute;
+            if (configuration.Arbre.PageCourante.Pere != null)
+            {
+                configuration.Arbre.PageCourante = configuration.Arbre.PageCourante.Pere;
+                affichePageGrille();
+            }
+            
         }
-
 
         // accès au mode configuration
         private void adminSelect(object sender, DoubleTappedRoutedEventArgs e)
@@ -102,7 +105,6 @@ namespace MyDomotik
         {
             if (!configuration.theme.ModeDefilement && this.grille.pagePrecedente())
             {
-                affichage.nettoieGrille(cadre);
                 affichePageGrille();
             }
 
@@ -113,7 +115,6 @@ namespace MyDomotik
         {
             if (!configuration.theme.ModeDefilement && this.grille.pageSuivante())
             {
-                affichage.nettoieGrille(cadre);
                 affichePageGrille();
             }
         }
@@ -159,6 +160,8 @@ namespace MyDomotik
             }
             if (icone.Action != null) { }
         }
+
+
 }
 
   
