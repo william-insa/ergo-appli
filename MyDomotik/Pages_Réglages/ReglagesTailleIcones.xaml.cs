@@ -34,22 +34,22 @@ namespace MyDomotik
 
         private void menuAdmin(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ParamInterface));
+            this.Frame.Navigate(typeof(AdminPage));
         }
 
         private void choixPetit(object sender, RoutedEventArgs e)
         {
-
+            MainPage.Affichage.Grille.setFormat(Format.PETIT);
         }
 
         private void choixMoyen(object sender, RoutedEventArgs e)
         {
-
+            MainPage.Affichage.Grille.setFormat(Format.MOYEN);
         }
 
         private void choixGrand(object sender, RoutedEventArgs e)
         {
-
+            MainPage.Affichage.Grille.setFormat(Format.GRAND);
         }
     }
 }

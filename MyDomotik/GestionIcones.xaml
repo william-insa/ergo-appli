@@ -46,16 +46,25 @@
 
         </Grid>
 
-        <Grid x:Name="cadre" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF0D1F91"  Width="1346" Height="500" Grid.Row="1">
+        <Grid x:Name="cadre" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF0D1F91"  Width="1346" Height="500" Grid.Row="1" Margin="10,0,10,10">
+           
 
         </Grid>
-
+        <TextBox x:Name="nomIcone" HorizontalAlignment="Left" Height="42" Margin="465,260,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="446" Grid.Row="1" Background="#FFA49090" FontSize="24" FontWeight="Bold" Visibility="Collapsed"/>
 
         <Rectangle x:Name="messageBox" Grid.Row="1" Fill="#FF7E7E83" HorizontalAlignment="Center" Height="50" Stroke="#FF0A0909" VerticalAlignment="Center" Width="705" Margin="332,205,329,255" Visibility="Collapsed"/>
         <TextBlock x:Name="message" Text="" Height="50" TextWrapping="Wrap" Width="705" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FF060606" FontSize="24" FontWeight="Bold" Margin="332,205,0,0" Grid.Row="1" TextAlignment="Center"/>
-        <TextBox x:Name="nomIcone" HorizontalAlignment="Left" Height="42" Margin="465,260,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="446" Grid.Row="1" Background="#FFA49090" FontSize="24" FontWeight="Bold" Visibility="Collapsed"/>
         <Button x:Name="Valider" Content="VALIDER" Height="52" Width="234" Margin="578,304,0,154" Grid.Row="1" Background="#FF7E7E83" FontSize="20" Click="Validation" BorderBrush="#FF7C7272" Visibility="Collapsed"/>
+        <Grid x:Name="Options" Grid.Row="1" Background="#FF7E7E83" HorizontalAlignment="Center" Height="75"  VerticalAlignment="Center" Width="385" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
+            <Button x:Name ="Supprimer" Content="Supprimer l'icône" HorizontalAlignment="Center" Grid.Row="0" Width="391" Foreground="Black" Click = "enleverIcone" IsEnabled="True"/>
+
+            <Button x:Name="ChangerNom" Content="Modifier le nom de l'icône" HorizontalAlignment="Center" Grid.Row="1" Width="391" Height="40" Foreground="Black" Click = "changerNomIcone" IsEnabled="True"/>
+        </Grid>
 
         <Grid HorizontalAlignment="Center" Height="153" Grid.Row="2" VerticalAlignment="Center" Width="1346">
             <Grid.ColumnDefinitions>
@@ -78,6 +87,8 @@
             <Image x:Name="office_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/office_0.png" DoubleTapped="choixImage"/>
             <Image x:Name="patio_0éng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/patio_0.png" DoubleTapped="choixImage"/>
 
+            
+            
         </GridView>
 
     </Grid>
