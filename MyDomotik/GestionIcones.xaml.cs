@@ -232,8 +232,18 @@ namespace MyDomotik
 
         private void ajouterEquip(object sender, RoutedEventArgs e)
         {
+            Button b = sender as Button;
 
+            int indexClick = (int)b.Tag;
+            Icone icone = g.pageGrille()[indexClick];
+
+            if (icone.Navigation != null)
+            {
+
+                MainPage.Configuration.arbre.PageCourante = icone.Navigation.PageFils;
                 this.Frame.Navigate(typeof(GestionIcones2));
+            }
+          
         }
 
         private void attribueHandler()
