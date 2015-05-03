@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
+//﻿using InstanceFactory.MessageBoxSample.UI.Popups;
+using System.Threading.Tasks;
+using System.Windows;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using System.Windows;
-//﻿using InstanceFactory.MessageBoxSample.UI.Popups;
-using System.Threading.Tasks;
-using Windows.UI.Popups;
-
-using System.Text;
-using Windows.UI;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Shapes;
 
 // Pour en savoir plus sur le modèle d'élément Page vierge, consultez la page http://go.microsoft.com/fwlink/?LinkId=234238
@@ -228,7 +227,6 @@ namespace MyDomotik
         }
 
         private void attribueHandler()
-
         {
             foreach (Button bouton in this.listeBoutons)
             {
@@ -244,9 +242,27 @@ namespace MyDomotik
             }
         }
 
+        private void pagePrecedente(object sender, RoutedEventArgs e)
+        {
+            if (!MainPage.Configuration.theme.ModeDefilement && this.g.pagePrecedente())
+            {
+                affich.nettoieGrille(cadre);
+                this.listeBoutons = affich.afficheGrille(cadre);
+                this.attribueHandler();
+            }
 
+        }
 
-       
+        // accès à la page suivante de la grille
+        private void pageSuivante(object sender, RoutedEventArgs e)
+        {
+            if (!MainPage.Configuration.theme.ModeDefilement && this.g.pageSuivante())
+            {
+                affich.nettoieGrille(cadre);
+                this.listeBoutons = affich.afficheGrille(cadre);
+                this.attribueHandler();
+            }
+        }
 
     }
 }
