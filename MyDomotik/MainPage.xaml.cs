@@ -83,7 +83,7 @@ namespace MyDomotik
 
         public void afficheHeure()
         {
-            retour.Content = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
+            TimeBox.Text = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
         }
         // retour à la page précédente
         public void retourPere(object sender, RoutedEventArgs e)
