@@ -84,11 +84,11 @@ namespace MyDomotik
 
         private void accesParamCouleur(object sender, RoutedEventArgs e)
         {
-            // Frame.Navigate(typeof(ReglagesCouleurs));
+             Frame.Navigate(typeof(ReglageCouleur));
         }
         private void accesParamTaille(object sender, RoutedEventArgs e)
         {
-           // Frame.Navigate(typeof(ReglagesTailleIcones));
+            Frame.Navigate(typeof(ReglagesTailleIcones));
 
         }
         private void accesParamDefil(object sender, RoutedEventArgs e)

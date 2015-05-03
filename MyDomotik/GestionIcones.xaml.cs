@@ -175,8 +175,6 @@ namespace MyDomotik
             Supprimer.IsEnabled = false;
             ChangerNom.IsEnabled = false;
 
-            if (!this.choixPosition)
-            {
              Button boutonClick = sender as Button;
                 
             // icone : icone correspondant au bouton cliqué
@@ -198,8 +196,7 @@ namespace MyDomotik
                 messageBox.Visibility = Visibility.Visible;
                 message.Text = "Enlever icone : pas ok. Bah ya pas d'icone ici hein !";
             }
-             
-            }
+
         }
         private void changerNomIcone(object sender, RoutedEventArgs e)
         {
