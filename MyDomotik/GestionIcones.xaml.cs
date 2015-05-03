@@ -146,6 +146,7 @@ namespace MyDomotik
                 // attribution du nom à l'icone mémorisée et ajout de la nouvelle icone à la configuration
                
                 ajouterIcone(nomIcone.Text);
+
             }
             else // Changement du nom de l'icone : mémorisation dans la configuration
             {
@@ -177,6 +178,7 @@ namespace MyDomotik
                Options.Visibility = Visibility.Visible;
                Supprimer.IsEnabled = true;
                ChangerNom.IsEnabled = true;
+               AjouterEquipements.IsEnabled = true;
            }
        } 
 
@@ -187,6 +189,7 @@ namespace MyDomotik
                 Options.Visibility = Visibility.Collapsed;
                 Supprimer.IsEnabled = false;
                 ChangerNom.IsEnabled = false;
+                AjouterEquipements.IsEnabled = false;
 
                 // icone : icone correspondant au bouton cliqué
                 this.indexNouvelleIcone = (int)b.Tag;
@@ -210,6 +213,7 @@ namespace MyDomotik
                 Options.Visibility = Visibility.Collapsed;
                 Supprimer.IsEnabled = false;
                 ChangerNom.IsEnabled = false;
+                AjouterEquipements.IsEnabled = false;
 
                 // mémorise l'index de l'icone à créer (ou changer de nom)
                 this.indexNouvelleIcone = (int)b.Tag;
@@ -224,6 +228,12 @@ namespace MyDomotik
                 }
             }
 
+        }
+
+        private void ajouterEquip(object sender, RoutedEventArgs e)
+        {
+
+                this.Frame.Navigate(typeof(GestionIcones2));
         }
 
         private void attribueHandler()

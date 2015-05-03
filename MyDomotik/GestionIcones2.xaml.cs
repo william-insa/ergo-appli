@@ -25,6 +25,7 @@ namespace MyDomotik
         public GestionIcones2()
         {
             this.InitializeComponent();
+         
         }
 
         public void exitAdmin(object sender, RoutedEventArgs e)
