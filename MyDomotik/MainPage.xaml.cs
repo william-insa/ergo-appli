@@ -81,22 +81,21 @@ namespace MyDomotik
             page_title.Text = configuration.arbre.PageCourante.Nom + "(" + (configuration.arbre.PageCourante.Grille.NumGrille + 1) + "/" + configuration.arbre.PageCourante.Grille.nbPagesGrille() + ")";
         }
 
-
+        public void afficheHeure()
+        {
+            retour.Content = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString();
+        }
         // retour à la page précédente
         public void retourPere(object sender, RoutedEventArgs e)
         {
-            if (configuration.Arbre.PageCourante.Pere != null)
-            {
-                configuration.Arbre.PageCourante = configuration.Arbre.PageCourante.Pere;
-                affichePageGrille();
-            }
-            
+                //configuration.Arbre.retourPere();
+                //affichePageGrille();
         }
 
         // accès au mode configuration
         private void adminSelect(object sender, DoubleTappedRoutedEventArgs e)
         {
-            configuration.arbre.retourAccueil();
+            configuration.Arbre.PageCourante.Grille.NumGrille = 0;
             this.Frame.Navigate(typeof(AdminPage));
         }
 

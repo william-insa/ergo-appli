@@ -32,7 +32,7 @@
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="65" Grid.Row="0" Grid.Column="2" Stroke="Black" VerticalAlignment="Center" Width="241"/>
 
             <TextBlock x:Name="page_title2" HorizontalAlignment="Center" Height="48" TextWrapping="Wrap" VerticalAlignment="Center" FontWeight="Bold"  Width="832" FontSize="30" TextAlignment="Center" FontFamily="Segoe UI" Grid.Row="0" Grid.Column="1" >
-    			<Run Foreground="Black" Text="Pièces"/>
+    			<Run Foreground="#FF060606" Text="" FontWeight="Normal"/>
             </TextBlock>
 
             <Button x:Name="quitterAdmin2"  Height="71" Width="247" BorderBrush="{x:Null}" Background="#FFE04214" Foreground="#FFF7EEEE" Grid.Column="2" FontSize="18" Click="exitAdmin2" Margin="2,7,0,6">
@@ -41,7 +41,7 @@
                 </TextBlock>
             </Button>
 
-            <Button Content="Menu" HorizontalAlignment="Center" Height="53" Margin="19,16,15,16" VerticalAlignment="Center" Width="236" FontSize="30" Foreground="#FF060606" FontWeight="Bold" Click="menuAdmin2"/>
+            <Button Content="Retour" HorizontalAlignment="Center" Height="53" Margin="19,16,15,16" VerticalAlignment="Center" Width="236" FontSize="30" Foreground="#FF060606" FontWeight="Bold" Click="menuAdmin2"/>
         </Grid>
 
         <!-- Boutons Précédent & Suivant -->
@@ -92,7 +92,7 @@
             <Image x:Name="agenda_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/agenda_0.png" DoubleTapped="choixImage2"/>
             <Image x:Name="airco_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/airco_0.png" DoubleTapped="choixImage2"/>
             <Image x:Name="backlight_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/backlight_0.png" DoubleTapped="choixImage2"/>
-            <Image x:Name="___bbq_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bbq_0.png" DoubleTapped="choixImage2"/>
+            <Image x:Name="bbq_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bbq_0.png" DoubleTapped="choixImage2"/>
             <Image x:Name="bedfeetup_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedfeetup_0.png" DoubleTapped="choixImage2" />
             <Image x:Name="bedheaddown_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedheaddown_0.png" DoubleTapped="choixImage2"/>
             <Image x:Name="bedheadup_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedheadup_0.png" DoubleTapped="choixImage2"/>

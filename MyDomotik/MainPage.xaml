@@ -36,25 +36,21 @@
 
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="65" Grid.Row="0" Grid.Column="2" Stroke="Black" VerticalAlignment="Center" Width="241"/>
 
-
+            <TextBlock x:Name="TimeBox" HorizontalAlignment="Center" Height="65" TextWrapping="Wrap" VerticalAlignment="Center" Width="252" FontSize="24" FontWeight="Bold" TextAlignment="Center" FontFamily="Segoe UI" Grid.Row="0" Grid.Column="0" Foreground="Black" Margin="9,19,9,1"/>
 
             <TextBlock x:Name="page_title" HorizontalAlignment="Center" FontWeight="Bold" Height="48" TextWrapping="Wrap" VerticalAlignment="Center" Width="832" FontSize="30" TextAlignment="Center" FontFamily="Segoe UI" Grid.Row="0" Grid.Column="1" Margin="7,21,6,16" Foreground="Black" Text="Pièces de la maison"/>
 
             <Button x:Name="configButton"  Height="64" Width="238" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{x:Null}" Grid.Column="2" FontSize="18" DoubleTapped="adminSelect" Margin="7,11,0,10">
                 <TextBlock TextWrapping="Wrap" Text="Configuration" FontWeight="Bold" Foreground="Black" FontSize="24"/>
             </Button>
-            <Button x:Name="retour" Grid.Row="0" Grid.Column ="0"  Width="256" HorizontalAlignment="Center" VerticalAlignment="Center" Click="retourPere" Margin="7" Height="71">
-                <Image Source="\Assets\ICONS_MDTOUCH\size_64x64\moveleft_0.png"/>
-            </Button>
-
-
+            
         </Grid>
-
-
+        
+        
         <!--Grille des icones -->
         <Grid x:Name="cadre" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF0D1F91"  Width="1346" Height="500" Grid.Row="1">
 
-            <!--   affichage dynamique grâce au x:Name="cadre"
+           <!--   affichage dynamique grâce au x:Name="cadre"
 
             
             <Grid.ColumnDefinitions>
@@ -87,7 +83,7 @@
             -->
 
         </Grid>
-
+        
         <!--Barre de navigation -->
         <Grid HorizontalAlignment="Center" Height="153" Grid.Row="2" VerticalAlignment="Center" Width="1346">
 
@@ -113,7 +109,7 @@
             <Button x:Name="suivant" Grid.Column="2" Height="139" Margin="7" Width="434" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF47CB16" Click="PageSuivante">
                 <Image Height="119" Width="292" Source="Assets/suivant.PNG"/>
             </Button>
-
+            
         </Grid>
 
     </Grid>

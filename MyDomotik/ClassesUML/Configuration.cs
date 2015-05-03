@@ -60,12 +60,7 @@ namespace MyDomotik
         //constructeur
         public Configuration()
         {
-            // test affichage de la grille
-            Vue pageHome = new Vue("Home");
-            Vue pageSuiv = new Vue("Bravo !");
-            Navigation nav1 = new Navigation(pageSuiv);
-            Navigation nav2 = new Navigation(pageHome);
-            //fin test
+            Vue pageHome = new Vue("Pièces de la maison");
 
             this.actions = new List<Action>();
             this.equipements = new List<Equipement>();
@@ -75,38 +70,6 @@ namespace MyDomotik
 
             this.theme = new Theme();
             this.arbre = new Arbre(pageHome);
-
-           /* //test
-            Icone icone1 = new Icone("icone1", "bathroom_0.png", 64, nav1);
-            Icone icone2 = new Icone("icone2", "bedroom_0.png", 64, nav2);
-            Icone icone3 = new Icone("icone3", "battery_0.png", 64, (Action)null);
-            Icone icone4 = new Icone("icone4", "bathroom_0.png", 64, (Action)null);
-            this.ajouterIcone(pageHome, icone1, 0);
-            this.ajouterIcone(pageHome, icone3, 2);
-            this.ajouterIcone(pageHome, icone4, 4);
-            this.ajouterIcone(pageHome, icone2, 6);
-            this.ajouterIcone(pageHome, icone2, 8);
-            this.ajouterIcone(pageHome, icone1, 10);
-            this.ajouterIcone(pageHome, icone1, 12);
-            this.ajouterIcone(pageHome, icone1, 13);
-            this.ajouterIcone(pageHome, icone2, 16);
-            this.ajouterIcone(pageHome, icone1, 17);
-            this.ajouterIcone(pageHome, icone1, 24);
-            this.ajouterIcone(pageHome, icone2, 25);
-
-            this.ajouterIcone(pageSuiv, icone1, 1);
-            this.ajouterIcone(pageSuiv, icone3, 3);
-            this.ajouterIcone(pageSuiv, icone4, 4);
-            this.ajouterIcone(pageSuiv, icone2, 5);
-            this.ajouterIcone(pageSuiv, icone2, 6);
-            this.ajouterIcone(pageSuiv, icone1, 10);
-            this.ajouterIcone(pageSuiv, icone1, 11);
-            this.ajouterIcone(pageSuiv, icone1, 13);
-            this.ajouterIcone(pageSuiv, icone2, 16);
-            this.ajouterIcone(pageSuiv, icone1, 17);
-            this.ajouterIcone(pageSuiv, icone1, 24);
-            this.ajouterIcone(pageSuiv, icone2, 25);
-            //fin test*/
         }
 
         public string toStringXML()
@@ -153,15 +116,23 @@ namespace MyDomotik
 
         public void ajouterPiece(Icone icone, int index, int numPage)
         {
+
            // Piece piece = new Piece(icone.NomIcone);
 
+            //Piece piece = new Piece(icone.NomIcone);
+
+
             // on associe une nouvelle page à l'icone et on l'ajoute à l'arbre
-            Vue pagePiece = new Vue(icone.NomIcone, arbre.Racine);
+            Vue pagePiece = new Vue(icone.NomIcone);
 
             icone.Navigation = new Navigation(pagePiece);
             icone.Action = (Action)null;
 
+
            // arbre.ajouterVue(arbre.Racine, pagePiece);
+
+            //arbre.ajouterVue(arbre.Racine, pagePiece);
+
 
             // ajoute une icone (associee à la pièce) à la grille de la page d'accueil + à la liste Configuration.pieces
             ajouterIcone(arbre.Racine, icone, index, numPage);
@@ -172,9 +143,15 @@ namespace MyDomotik
         public void ajouterEquipement(Vue pagePiece, Icone icone, int index, int numPage)
         {
            // Equipement equip = new Equipement(icone.nomIcone);
-            Vue pageEquip = new Vue(icone.NomIcone, pagePiece);
+           Vue pageEquip = new Vue(icone.NomIcone);
+
             // ajoute une page (associée à l'équipement)  à l'arbre
            // Arbre a = Arbre.arbreVue(pagePiece);  // on trouve la pièce dans l'arbre global grâce à la Vue pagePiece de la pièce dans laquelle on souhaite mettre l'équipement
+
+
+           // ajoute une page (associée à l'équipement)  à l'arbre
+            //Arbre a = Arbre.arbreVue(pagePiece);  // on trouve la pièce dans l'arbre global grâce à la Vue pagePiece de la pièce dans laquelle on souhaite mettre l'équipement
+
             //a.Fils.Add(new Arbre(pageEquip));  // on ajoute l'équipement à la liste des fils de la Vue pagePiece
             
 
@@ -183,7 +160,7 @@ namespace MyDomotik
             //Equipements.Add(equipmt);  // on ajoute l'équipement à la liste globale des équipements
 
             // ajoute l'équipement à la liste des équipements de la pièce associée
-            //piece.addDevice(equipmt);
+           // piece.addDevice(equipmt);
         }
 
         public void ajouterAction(Vue pageEquip, Vue pageAction, Equipement equipmt, Action action, Icone icone, int index)

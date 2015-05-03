@@ -50,6 +50,11 @@ namespace MyDomotik
             this.InitializeComponent();
 
             afficherPage();
+
+            page_title2.Text = GestionIcones.nomPiece;
+            Brush brush = new SolidColorBrush(Colors.Black);
+            page_title2.Foreground = brush;
+
         }
 
         public void afficherPage()
@@ -68,14 +73,15 @@ namespace MyDomotik
 
         private void exitAdmin2(object sender, RoutedEventArgs e)
         {
-            MainPage.Configuration.arbre.retourAccueil();
+            MainPage.Configuration.Arbre.PageCourante.Grille.NumGrille = 0;
             this.Frame.Navigate(typeof(MainPage));
+
         }
         
 
         public void menuAdmin2(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AdminPage));
+            this.Frame.Navigate(typeof(GestionIcones));
 
         }
 
@@ -149,11 +155,12 @@ namespace MyDomotik
                 // attribution du nom à l'icone mémorisée et ajout de la nouvelle icone à la configuration
 
                 ajouterIcone(nomIcone2.Text);
+                this.Frame.Navigate(typeof(GestionIcones2));
             }
             else // Changement du nom de l'icone : mémorisation dans la configuration
             {
                 MainPage.Configuration.arbre.Racine.Grille.setNomIcone(indexNouvelleIcone, g.NumGrille, nomIcone2.Text);
-                this.Frame.Navigate(typeof(GestionIcones));
+                this.Frame.Navigate(typeof(GestionIcones2));
             }
         }
 
