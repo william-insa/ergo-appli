@@ -69,7 +69,7 @@ namespace MyDomotik
             this.attribueHandler();
 
             // affichage du cadre supérieur de la page
-            page_title.Text = configuration.arbre.PageCourante.Nom;
+            page_title.Text = configuration.arbre.PageCourante.Nom + "(" + configuration.arbre.PageCourante.Grille.NumGrille + "/" + configuration.arbre.PageCourante.Grille.nbPagesGrille()+")";
             this.displayTime();
 
             // affichage des couleurs
@@ -87,6 +87,7 @@ namespace MyDomotik
         // accès au mode configuration
         private void adminSelect(object sender, DoubleTappedRoutedEventArgs e)
         {
+            configuration.arbre.retourAccueil();
             this.Frame.Navigate(typeof(AdminPage));
         }
 
