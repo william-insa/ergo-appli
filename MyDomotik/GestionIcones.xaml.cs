@@ -196,7 +196,7 @@ namespace MyDomotik
                 {
                     // retire l'icone de la grille et la remplace par une icone vide
                      g.pageGrille()[this.indexNouvelleIcone] = Icone.IconeVide();
-                     MainPage.Configuration.arbre.Racine.Grille.removeIcone(this.indexNouvelleIcone, this.g.NumGrille);
+                     MainPage.Configuration.enleverPiece(this.pageAccueil, indexNouvelleIcone, this.g.NumGrille);
                      this.Frame.Navigate(typeof(GestionIcones));
                 }
             }

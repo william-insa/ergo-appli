@@ -13,7 +13,6 @@ namespace MyDomotik
         public Theme theme;
         public Arbre arbre;
 
-        public static Vue mainPage;
         private List<Action> actions;
         private List<Equipement> equipements;
         private List<Modalite> modalites;
@@ -77,7 +76,7 @@ namespace MyDomotik
             this.theme = new Theme();
             this.arbre = new Arbre(pageHome);
 
-            //test
+           /* //test
             Icone icone1 = new Icone("icone1", "bathroom_0.png", 64, nav1);
             Icone icone2 = new Icone("icone2", "bedroom_0.png", 64, nav2);
             Icone icone3 = new Icone("icone3", "battery_0.png", 64, (Action)null);
@@ -107,7 +106,7 @@ namespace MyDomotik
             this.ajouterIcone(pageSuiv, icone1, 17);
             this.ajouterIcone(pageSuiv, icone1, 24);
             this.ajouterIcone(pageSuiv, icone2, 25);
-            //fin test
+            //fin test*/
         }
 
         public string toStringXML()
@@ -120,44 +119,46 @@ namespace MyDomotik
 
         }
 
-        // ajouter une icone à la grille de la page
-        public void ajouterIcone(Vue page, Icone icone, int index)
+        //retire l'icone situé à l'index index de la grille numPage de la Vue page
+        public void enleverIcone(Vue page, int index, int numPage)
         {
-            page.ajouterIcone(icone, index);
+            page.enleverIcone(index, numPage);
         }
-
         // ajouter une icone à la grille de la page à partir de l'index et le numéro de page de la grille
         public void ajouterIcone(Vue page, Icone icone, int index, int numPage)
         {
             page.ajouterIcone(icone, index, numPage);
         }
 
-        // enlever l'icone à l'index index
-        public void enleverIcone(Vue page, int index)
-        {
-            page.enleverIcone(index);
-        }
 
-        // retourne l'icone située à l'index demandé
+        // retourne l'icone située à l'index demandé : TO DO !
         public Icone getIcone(Vue page, int index)
         {
             return page.getIcone(index);
         }
 
+        public void enleverPiece(Vue page, int index, int numPage){
+
+            // ajoute une icone (associee à la pièce) à la grille de la mainPage + à la liste Configuration.pieces
+            enleverIcone(page, index, numPage);
+            // Pieces.Remove(); // Comment savoir quelle pièce retirer ?
+
+        }
         public void ajouterPiece(Icone icone, int index, int numPage)
         {
-            Piece piece = new Piece(icone.NomIcone);
+            /*Piece piece = new Piece(icone.NomIcone);
+
+            // on associe une nouvelle page à l'icone et on l'ajoute à l'arbre
             Vue pagePiece = new Vue(icone.NomIcone);
 
             icone.Navigation = new Navigation(pagePiece);
             icone.Action = (Action)null;
 
-            // ajoute une page (associée à la piece) à l'arbre
-            arbre.ajouterVue(arbre.Racine, pagePiece);
+            arbre.ajouterVue(arbre.Racine, pagePiece);*/
 
-            // ajoute une icone (associee à la pièce) à la grille de la mainPage + à la liste Configuration.pieces
+            // ajoute une icone (associee à la pièce) à la grille de la page d'accueil + à la liste Configuration.pieces
             ajouterIcone(arbre.Racine, icone, index, numPage);
-            Pieces.Add(piece);
+            //Pieces.Add(piece);
 
         }
 
