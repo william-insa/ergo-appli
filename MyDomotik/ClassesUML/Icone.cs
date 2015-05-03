@@ -35,6 +35,25 @@ namespace MyDomotik
             this.chaineSource = "ms-appx:///Assets/ICONS_MDTOUCH/size_" + this.taille + "x" + this.taille + "/" + nomFichier; // spécifie le dossier adéquat en fonction de la taille de l'image
             this.Uri = new Uri(this.chaineSource, UriKind.Absolute);          
         }
+
+        // Création d'une nouvelle icone à partir du nom
+        public Icone(String nom, String nomFichier, int taille)
+        {
+            this.vide = false;
+            this.taille = taille;
+
+            // création de la source
+            this.SourceImage(nomFichier);
+
+            // création de l'image à partir de la source
+            this.image = new Image();
+            //this.image.Source = this.sourceBi;
+
+            this.nomIcone = nom;
+
+            this.navigation = null;
+            this.action = null;
+        }
         public Icone(){
             this.image = null;
             this.nomIcone = null;

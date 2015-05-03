@@ -126,6 +126,12 @@ namespace MyDomotik
             page.ajouterIcone(icone, index);
         }
 
+        // ajouter une icone à la grille de la page à partir de l'index et le numéro de page de la grille
+        public void ajouterIcone(Vue page, Icone icone, int index, int numPage)
+        {
+            page.ajouterIcone(icone, index, numPage);
+        }
+
         // enlever l'icone à l'index index
         public void enleverIcone(Vue page, int index)
         {
@@ -143,11 +149,14 @@ namespace MyDomotik
             Piece piece = new Piece(icone.NomIcone);
             Vue pagePiece = new Vue(icone.NomIcone);
 
+            icone.Navigation = new Navigation(pagePiece);
+            icone.Action = (Action)null;
+
             // ajoute une page (associée à la piece) à l'arbre
             arbre.ajouterVue(arbre.Racine, pagePiece);
 
             // ajoute une icone (associee à la pièce) à la grille de la mainPage + à la liste Configuration.pieces
-            arbre.Racine.ajouterIcone(icone, index, numPage);
+            ajouterIcone(arbre.Racine, icone, index, numPage);
             Pieces.Add(piece);
 
         }
