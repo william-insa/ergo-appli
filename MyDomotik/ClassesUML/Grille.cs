@@ -185,6 +185,17 @@ namespace MyDomotik
                 return false;
         }
 
+        public void CreepageSuivante()
+        {
+            numGrille++;
+            if (this.numGrille == this.nbPagesGrille() - 1)
+            {
+                int ind = this.numGrille*nbCasesGrille() +1;
+                this.addIcone(Icone.IconeVide(), ind);
+            }
+
+        }
+
 
 
         // si possible decremente le numero de la page de la grille et return vrai, retourne faux sinon

@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <Grid x:Name="MainGrid" Background="{ThemeResource SearchBoxForegroundThemeBrush}">
+
+    <Grid x:Name="MainGrid2" Background="{ThemeResource SearchBoxForegroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="85*"/>
             <RowDefinition Height="510*"/>
@@ -30,44 +31,21 @@
 
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="65" Grid.Row="0" Grid.Column="2" Stroke="Black" VerticalAlignment="Center" Width="241"/>
 
-            <TextBlock x:Name="page_title" HorizontalAlignment="Center" FontWeight="Bold"  Height="48" TextWrapping="Wrap" VerticalAlignment="Center" Width="832" FontSize="30" TextAlignment="Center" FontFamily="Segoe UI" Grid.Row="0" Grid.Column="1" >
-    			<Run Foreground="Black" Text="Icones"/>
+            <TextBlock x:Name="page_title2" HorizontalAlignment="Center" Height="48" TextWrapping="Wrap" VerticalAlignment="Center" FontWeight="Bold"  Width="832" FontSize="30" TextAlignment="Center" FontFamily="Segoe UI" Grid.Row="0" Grid.Column="1" >
+    			<Run Foreground="Black" Text="Pièces"/>
             </TextBlock>
 
-            <Button x:Name="quitterAdmin"  Height="71" Width="247" BorderBrush="{x:Null}" Background="#FFE04214" Foreground="#FFF7EEEE" Grid.Column="2" FontSize="18" Click="exitAdmin" Margin="2,7,0,6">
+            <Button x:Name="quitterAdmin2"  Height="71" Width="247" BorderBrush="{x:Null}" Background="#FFE04214" Foreground="#FFF7EEEE" Grid.Column="2" FontSize="18" Click="exitAdmin2" Margin="2,7,0,6">
                 <TextBlock TextWrapping="Wrap"  Foreground="Black" FontSize="24" FontWeight="Bold">
                 	<Run FontSize="30" Text="Quitter"/>
                 </TextBlock>
             </Button>
 
-            <Button Content="Retour" HorizontalAlignment="Center" Height="53" Margin="19,16,15,16" VerticalAlignment="Center" Width="236" FontSize="30" Foreground="#FF060606" FontWeight="Bold" Click="retourPieces"/>
+            <Button Content="Menu" HorizontalAlignment="Center" Height="53" Margin="19,16,15,16" VerticalAlignment="Center" Width="236" FontSize="30" Foreground="#FF060606" FontWeight="Bold" Click="menuAdmin2"/>
         </Grid>
 
-        <!-- Grille des icônes -->
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF0D1F91"  Width="1346" Height="500" Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-                <Button x:Name="icon3" Grid.Row="0" Grid.Column="2" Height="236" Margin="6,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}"/>
-                <Button x:Name="icon3_Copy" Grid.Row="0" Grid.Column="1" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}"/>
-                <Button x:Name="icon3_Copy1" Grid.Row="0" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}"/>
-                <Button x:Name="icon3_Copy2" Grid.Row="1" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Grid.Column="1"/>
-                <Button x:Name="icon3_Copy3" Grid.Row="1" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}"/>
-                <Button x:Name="icon3_Copy4" Grid.Row="1" Height="236" Margin="6,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Grid.Column="2"/>
-                <Button x:Name="icon3_Copy5" Grid.Row="0" Height="236" Margin="7,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Grid.Column="3"/>
-                <Button x:Name="icon3_Copy6" Grid.Row="1" Height="236" Margin="6,7,0,7" Width="323" Background="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" Grid.Column="3"/>
-        </Grid>
-
-        <!-- Boutons Précédent & Suivant 
-        <Button x:Name="previous" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FF47CB16" BorderBrush="{x:Null}" Height="59" Width="79" Click="pagePrecedente" Margin="0,222,0,229">
+        <!-- Boutons Précédent & Suivant -->
+        <Button x:Name="previous2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FF47CB16" BorderBrush="{x:Null}" Height="59" Width="79" Click="pagePrecedente2" Margin="0,222,0,229">
             <Grid>
                 <Rectangle Fill="#FF47CB16" Margin="-9,-2"/>
                 <Image Source="Assets/suivant.PNG" Width="52" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -78,67 +56,77 @@
             </Grid>
         </Button>
 
-        <Button x:Name="next" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" BorderBrush="{x:Null}" Background="#FF47CB16" Height="59" Width="79" Click="pageSuivante" Margin="0,222,0,229">
+        <Button x:Name="next2" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" BorderBrush="{x:Null}" Background="#FF47CB16" Height="59" Width="79" Click="pageSuivante2" Margin="0,222,0,229">
             <Grid>
                 <Rectangle Fill="#FF47CB16" Margin="-9,-2"/>
                 <Image Source="Assets/suivant.PNG" Width="52" HorizontalAlignment="Center" VerticalAlignment="Center" />
             </Grid>
         </Button>
-        -->
-        
-        <!-- Barre de choix des icônes-->
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal"/>
-            <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal"/>
+
+
+        <!-- Popup pour donner un nom à une icône -->
+        <Grid x:Name="cadre2" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF0D1F91"  Width="1346" Height="500" Grid.Row="1" Margin="10,0,10,10"/>
+        <TextBox x:Name="nomIcone2" HorizontalAlignment="Left" Height="42" Margin="465,260,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="446" Grid.Row="1" Background="#FFA49090" FontSize="24" FontWeight="Bold" Visibility="Collapsed"/>
+
+        <!-- Popup supprimer/renommer icône -->
+        <Rectangle x:Name="messageBox2" Grid.Row="1" Fill="#FF7E7E83" HorizontalAlignment="Center" Height="50" Stroke="#FF0A0909" VerticalAlignment="Center" Width="705" Margin="332,205,329,255" Visibility="Collapsed"/>
+        <TextBlock x:Name="message2" Text="" Height="50" TextWrapping="Wrap" Width="705" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FF060606" FontSize="24" FontWeight="Bold" Margin="332,205,0,0" Grid.Row="1" TextAlignment="Center"/>
+        <Button x:Name="Valider2" Content="VALIDER" Height="52" Width="234" Margin="578,304,0,154" Grid.Row="1" Background="#FF7E7E83" FontSize="20" Click="Validation2" BorderBrush="#FF7C7272" Visibility="Collapsed"/>
+
+        <!-- Popup supprimer/renommer icône -->
+        <Grid x:Name="Options2" Grid.Row="1" Background="#FF7E7E83" HorizontalAlignment="Center" Height="75"  VerticalAlignment="Center" Width="385" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name ="Supprimer2" Content="Supprimer l'icône" HorizontalAlignment="Center" Grid.Row="0" Width="391" Foreground="Black" Click = "enleverIcone2" IsEnabled="True"/>
+
+            <Button x:Name="ChangerNom2" Content="Modifier le nom de l'icône" HorizontalAlignment="Center" Grid.Row="1" Width="391" Height="40" Foreground="Black" Click = "changerNomIcone2" IsEnabled="True"/>
         </Grid>
-        
-        <GridView x:Name="ItemGridView"  BorderBrush="LightGray" VerticalAlignment="Top" BorderThickness="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionMode="None" Margin="31,24,19,0" Height="130" Grid.Row="2">
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/agenda_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/airco_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/backlight_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bbq_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedfeetup_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedheaddown_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedheadup_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedup_0.png"/>
 
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/blinds_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bluetooth_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/clock_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/contacts_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/door_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/easyphone_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/eject_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/games_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/lamp_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/lampexternal_0.png"/>
 
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/lights_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/lock_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No0_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No1_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No2_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No3_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No4_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/numberone_0.png"/>
+        <GridView x:Name="ItemGridView2"  BorderBrush="LightGray" VerticalAlignment="Top" BorderThickness="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionMode="None" Margin="31,24,19,0" Height="130" Grid.Row="2">
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/agenda_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/airco_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/backlight_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bbq_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedfeetup_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedheaddown_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedheadup_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedup_0.png" DoubleTapped="choixImage2"/>
 
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/numberseven_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/pc_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/play_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/pool_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/previous_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/remote_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/security_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/shop_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/stereo_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/tv1_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/wheelchair_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/window_0.png"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/blinds_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bluetooth_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/clock_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/contacts_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/door_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/easyphone_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/eject_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/games_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/lamp_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/lampexternal_0.png" DoubleTapped="choixImage2"/>
+
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/lights_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/lock_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No0_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No1_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No2_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No3_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No4_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/numberone_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/numberseven_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/pc_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/play_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/pool_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/previous_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/remote_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/security_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/shop_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/stereo_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/tv1_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/wheelchair_0.png" DoubleTapped="choixImage2"/>
+            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/window_0.png" DoubleTapped="choixImage2"/>
         </GridView>
-        
     </Grid>
-</Page>
+    </Page>

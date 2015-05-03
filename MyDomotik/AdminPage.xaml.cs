@@ -21,6 +21,7 @@ namespace MyDomotik
 
         private void exitAdmin(object sender, RoutedEventArgs e)
         {
+            configuration.arbre.retourAccueil();
             this.Frame.Navigate(typeof(MainPage));
         }
 

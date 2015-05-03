@@ -144,6 +144,13 @@ namespace MyDomotik
             // Pieces.Remove(); // Comment savoir quelle pièce retirer ?
 
         }
+        public void enleverEquip(Vue page, int index, int numPage){
+
+            // ajoute une icone (associee à la pièce) à la grille de la mainPage + à la liste Configuration.pieces
+            enleverIcone(page, index, numPage);
+            // equipements.Remove(); // Comment savoir quelle pièce retirer ?
+        }
+
         public void ajouterPiece(Icone icone, int index, int numPage)
         {
             /*Piece piece = new Piece(icone.NomIcone);
@@ -162,18 +169,21 @@ namespace MyDomotik
 
         }
 
-        public void ajouterEquipement(Vue pagePiece, Vue pageEquip, Piece piece, Equipement equipmt, Icone icone, int index)
+        public void ajouterEquipement(Vue pagePiece, Icone icone, int index, int numPage)
         {
-            // ajoute une page (associée à l'équipement)  à l'arbre
+            //Equipement equip = new Equipement(icone.nomIcone);
+            Vue pageEquip = new Vue(icone.NomIcone);
+           /* // ajoute une page (associée à l'équipement)  à l'arbre
             Arbre a = Arbre.arbreVue(pagePiece);  // on trouve la pièce dans l'arbre global grâce à la Vue pagePiece de la pièce dans laquelle on souhaite mettre l'équipement
             a.Fils.Add(new Arbre(pageEquip));  // on ajoute l'équipement à la liste des fils de la Vue pagePiece
+            */
 
             // ajoute une icone (associee à l'equipement) a la grille de la page de la piece + à la liste Configuration.equipements
-            pagePiece.ajouterIcone(icone, index);  // on ajoute l'icone à la grille de la Vue de la pièce
-            Equipements.Add(equipmt);  // on ajoute l'équipement à la liste globale des équipements
+            pagePiece.ajouterIcone(icone, index, numPage);  // on ajoute l'icone à la grille de la Vue de la pièce
+            //Equipements.Add(equipmt);  // on ajoute l'équipement à la liste globale des équipements
 
             // ajoute l'équipement à la liste des équipements de la pièce associée
-            piece.addDevice(equipmt);
+            //piece.addDevice(equipmt);
         }
 
         public void ajouterAction(Vue pageEquip, Vue pageAction, Equipement equipmt, Action action, Icone icone, int index)

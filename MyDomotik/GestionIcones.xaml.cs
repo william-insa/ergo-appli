@@ -256,12 +256,11 @@ namespace MyDomotik
         // accès à la page suivante de la grille
         private void pageSuivante(object sender, RoutedEventArgs e)
         {
-            if (!MainPage.Configuration.theme.ModeDefilement && this.g.pageSuivante())
-            {
-                affich.nettoieGrille(cadre);
-                this.listeBoutons = affich.afficheGrille(cadre);
-                this.attribueHandler();
-            }
+            g.CreepageSuivante();
+            affich.nettoieGrille(cadre);
+            this.listeBoutons = affich.afficheGrille(cadre);
+            this.attribueHandler();
+
         }
 
     }
