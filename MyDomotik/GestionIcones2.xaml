@@ -97,47 +97,47 @@
         </Grid>
         
         <GridView x:Name="ItemGridView"  BorderBrush="LightGray" VerticalAlignment="Top" BorderThickness="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionMode="None" Margin="31,24,19,0" Height="130" Grid.Row="2">
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/agenda_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/airco_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/backlight_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bbq_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedfeetup_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedheaddown_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedheadup_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedup_0.png"/>
+            <Image x:Name="agenda_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/agenda_0.png"/>
+            <Image x:Name="airco_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/airco_0.png"/>
+            <Image x:Name="backlight_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/backlight_0.png"/>
+            <Image x:Name="___bbq_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bbq_0.png"/>
+            <Image x:Name="bedfeetup_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedfeetup_0.png"/>
+            <Image x:Name="bedheaddown_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedheaddown_0.png"/>
+            <Image x:Name="bedheadup_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedheadup_0.png"/>
+            <Image x:Name="bedup_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bedup_0.png"/>
 
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/blinds_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bluetooth_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/clock_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/contacts_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/door_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/easyphone_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/eject_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/games_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/lamp_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/lampexternal_0.png"/>
+            <Image x:Name="blinds_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/blinds_0.png"/>
+            <Image x:Name="bluetooth_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/bluetooth_0.png"/>
+            <Image x:Name="clock_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/clock_0.png"/>
+            <Image x:Name="contacts_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/contacts_0.png"/>
+            <Image x:Name="door_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/door_0.png"/>
+            <Image x:Name="easyphone_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/easyphone_0.png"/>
+            <Image x:Name="eject_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/eject_0.png"/>
+            <Image x:Name="games_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/games_0.png"/>
+            <Image x:Name="lamp_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/lamp_0.png"/>
+            <Image x:Name="lampexternal_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/lampexternal_0.png"/>
 
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/lights_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/lock_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No0_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No1_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No2_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No3_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No4_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/numberone_0.png"/>
+            <Image x:Name="lights_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/lights_0.png"/>
+            <Image x:Name="lock_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/lock_0.png"/>
+            <Image x:Name="No0_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No0_0.png"/>
+            <Image x:Name="No1_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No1_0.png"/>
+            <Image x:Name="No2_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No2_0.png"/>
+            <Image x:Name="No3_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No3_0.png"/>
+            <Image x:Name="No4_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/No4_0.png"/>
+            <Image x:Name="numberone_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/numberone_0.png"/>
 
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/numberseven_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/pc_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/play_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/pool_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/previous_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/remote_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/security_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/shop_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/stereo_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/tv1_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/wheelchair_0.png"/>
-            <Image Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/window_0.png"/>
+            <Image x:Name="numberseven_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/numberseven_0.png"/>
+            <Image x:Name="pc_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/pc_0.png"/>
+            <Image x:Name="play_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/play_0.png"/>
+            <Image x:Name="pool_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/pool_0.png"/>
+            <Image x:Name="previous_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/previous_0.png"/>
+            <Image x:Name="remote_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/remote_0.png"/>
+            <Image x:Name="security_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/security_0.png"/>
+            <Image x:Name="shop_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/shop_0.png"/>
+            <Image x:Name="stereo_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/stereo_0.png"/>
+            <Image x:Name="tv1_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/tv1_0.png"/>
+            <Image x:Name="wheelchair_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/wheelchair_0.png"/>
+            <Image x:Name="window_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/window_0.png"/>
         </GridView>
         
     </Grid>
