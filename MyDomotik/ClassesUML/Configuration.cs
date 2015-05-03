@@ -153,7 +153,7 @@ namespace MyDomotik
 
         public void ajouterPiece(Icone icone, int index, int numPage)
         {
-            /*Piece piece = new Piece(icone.NomIcone);
+           // Piece piece = new Piece(icone.NomIcone);
 
             // on associe une nouvelle page à l'icone et on l'ajoute à l'arbre
             Vue pagePiece = new Vue(icone.NomIcone);
@@ -161,7 +161,7 @@ namespace MyDomotik
             icone.Navigation = new Navigation(pagePiece);
             icone.Action = (Action)null;
 
-            arbre.ajouterVue(arbre.Racine, pagePiece);*/
+           // arbre.ajouterVue(arbre.Racine, pagePiece);
 
             // ajoute une icone (associee à la pièce) à la grille de la page d'accueil + à la liste Configuration.pieces
             ajouterIcone(arbre.Racine, icone, index, numPage);
@@ -171,12 +171,12 @@ namespace MyDomotik
 
         public void ajouterEquipement(Vue pagePiece, Icone icone, int index, int numPage)
         {
-            //Equipement equip = new Equipement(icone.nomIcone);
+           // Equipement equip = new Equipement(icone.nomIcone);
             Vue pageEquip = new Vue(icone.NomIcone);
-           /* // ajoute une page (associée à l'équipement)  à l'arbre
-            Arbre a = Arbre.arbreVue(pagePiece);  // on trouve la pièce dans l'arbre global grâce à la Vue pagePiece de la pièce dans laquelle on souhaite mettre l'équipement
-            a.Fils.Add(new Arbre(pageEquip));  // on ajoute l'équipement à la liste des fils de la Vue pagePiece
-            */
+            // ajoute une page (associée à l'équipement)  à l'arbre
+           // Arbre a = Arbre.arbreVue(pagePiece);  // on trouve la pièce dans l'arbre global grâce à la Vue pagePiece de la pièce dans laquelle on souhaite mettre l'équipement
+            //a.Fils.Add(new Arbre(pageEquip));  // on ajoute l'équipement à la liste des fils de la Vue pagePiece
+            
 
             // ajoute une icone (associee à l'equipement) a la grille de la page de la piece + à la liste Configuration.equipements
             pagePiece.ajouterIcone(icone, index, numPage);  // on ajoute l'icone à la grille de la Vue de la pièce
