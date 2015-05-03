@@ -102,7 +102,7 @@
             <Image x:Name="garden_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/garden_0.png" DoubleTapped="choixImage"/>
             <Image x:Name="diningroom_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/diningroom_0.png" DoubleTapped="choixImage"/>
             <Image x:Name="office_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/office_0.png" DoubleTapped="choixImage"/>
-            <Image x:Name="patio_0éng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/patio_0.png" DoubleTapped="choixImage"/>
+            <Image x:Name="patio_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/patio_0.png" DoubleTapped="choixImage"/>
         </GridView>
 
     </Grid>
