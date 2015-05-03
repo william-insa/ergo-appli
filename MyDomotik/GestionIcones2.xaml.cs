@@ -36,5 +36,30 @@ namespace MyDomotik
         {
             this.Frame.GoBack();
         }
+
+/*
+        // accès à la page précédente de la grille
+        private void pagePrecedente(object sender, RoutedEventArgs e)
+        {
+            if (!MainPage.Configuration.theme.ModeDefilement && this.g.pagePrecedente())
+            {
+                affich.nettoieGrille(cadre);
+                this.listeBoutons = affich.afficheGrille(cadre);
+                this.attribueHandler();
+            }
+
+        }
+
+        // accès à la page suivante de la grille
+        private void pageSuivante(object sender, RoutedEventArgs e)
+        {
+            if (!MainPage.Configuration.theme.ModeDefilement && this.g.pageSuivante())
+            {
+                affich.nettoieGrille(cadre);
+                this.listeBoutons = affich.afficheGrille(cadre);
+                this.attribueHandler();
+            }
+        }
+ */
     }
 }
