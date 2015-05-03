@@ -20,37 +20,37 @@ namespace MyDomotik
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class ReglageCouleur : Page
+    public sealed partial class ReglagesModeSelection : Page
     {
-        public ReglageCouleur()
+        public ReglagesModeSelection()
         {
             this.InitializeComponent();
         }
 
-        private void exitAdmin(object sender, RoutedEventArgs e)
+        private void retourAdminPage(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(MainPage));
+            Frame.Navigate(typeof(AdminPage));
         }
 
-        private void menuAdmin(object sender, RoutedEventArgs e)
+        private void Selection(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ParamInterface));
+
         }
 
-        private void choixTheme1(object sender, RoutedEventArgs e)
+        public void exitAdmin(object sender, RoutedEventArgs e)
         {
-            
+            Frame.Navigate(typeof(MainPage));
         }
 
-        private void choixTheme2(object sender, RoutedEventArgs e)
+        private void SelectionClic_Click(object sender, RoutedEventArgs e)
         {
-           
+            MainPage.Configuration.theme.ModeDefilement = false;
         }
 
-        private void choixTheme3(object sender, RoutedEventArgs e)
+        private void SelectionParDefilement(object sender, RoutedEventArgs e)
         {
-            
+            MainPage.Configuration.theme.ModeDefilement = true;
         }
-   
+
     }
 }

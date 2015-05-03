@@ -24,7 +24,9 @@ namespace MyDomotik
 
         private readonly Color[] listeCouleurs = new Color[]
    {Colors.Blue, Colors.Violet, Colors.Lime, Colors.Red, Colors.White,
-    Colors.Red , Colors.Yellow, Colors.White, Colors.Yellow, Colors.White
+     Colors.Turquoise, Colors.Yellow, Colors.White, Colors.Beige, Colors.Cyan,
+    Colors.Plum , Colors.Pink, Colors.Coral, Colors.OrangeRed, Colors.Plum, 
+    Colors.Violet, Colors.Purple, Colors.Yellow
    }; 
         
         public Color CouleurBoutonVide
@@ -65,11 +67,20 @@ namespace MyDomotik
         {
             if(i < listeCouleurs.Length)
             {
+
+                CouleurGrille = ListeCouleurs[i];
+                CouleurBarre = ListeCouleurs[i + 1];
+                CouleurBoutons = ListeCouleurs[i + 2];
+                CouleurBoutonActif = ListeCouleurs[i + 3];
+                CouleurBoutonVide = ListeCouleurs[i + 4];
+
+                /*
                 CouleurGrille = ListeCouleurs[5 * i];
                 CouleurBarre = ListeCouleurs[5 * i + 1];
                 CouleurBoutons = ListeCouleurs[5 * i + 2];
                 CouleurBoutonActif = ListeCouleurs[5 * i + 3];
-                CouleurBoutonVide = ListeCouleurs[5 * i + 4];
+                CouleurBoutonVide = ListeCouleurs[5 * i + 4];*/
+
             }
             else
             {

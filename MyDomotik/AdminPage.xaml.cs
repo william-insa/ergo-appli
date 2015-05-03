@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+﻿using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+
 
 // Pour en savoir plus sur le modèle d'élément Page vierge, consultez la page http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -38,7 +29,7 @@ namespace MyDomotik
             this.Frame.Navigate(typeof(AdminPage));
         }
 
-        private void gestionIcones(object sender, RoutedEventArgs e)  // ramplace les boutons du menu Menu par le menu Gestion icônes
+        private void gestionIcones(object sender, RoutedEventArgs e)  // remplace les boutons du menu Menu par le menu Gestion icônes
         {
             admin_buttons_grid.Children.RemoveAt(3);
             admin_buttons_grid.Children.RemoveAt(2);
@@ -58,8 +49,15 @@ namespace MyDomotik
 
             admin_button_3.Click -= accesParamInterface;
             admin_button_3.Click += accesPageReseau;
-        }
 
+            page_title.Text = "Gestion des icônes";
+
+            TextBlock t = new TextBlock();
+            t.Foreground = new SolidColorBrush(Colors.Black);
+            t.Text = "Menu";
+            retourMenuAdmin.Content = t;
+            retourMenuAdmin.IsEnabled = true;
+        }
 
         private void accesParamInterface(object sender, RoutedEventArgs e)
         {
@@ -79,18 +77,28 @@ namespace MyDomotik
             admin_button_2.Click += accesParamTaille;
 
             admin_button_3.Click -= accesParamInterface;
-            admin_button_3.Click += accesPageReseau;
+            admin_button_3.Click += accesParamDefil;
+
+            page_title.Text = "Paramètres de l'interface";
+            
+            TextBlock t = new TextBlock();
+            t.Foreground = new SolidColorBrush(Colors.Black);
+            t.Text = "Menu";
+            retourMenuAdmin.Content = t;
+            retourMenuAdmin.IsEnabled = true;
         }
 
         private void accesParamCouleur(object sender, RoutedEventArgs e)
         {
-             Frame.Navigate(typeof(ReglageCouleur));
+            Frame.Navigate(typeof(ReglagesCouleur));
         }
+
         private void accesParamTaille(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(ReglagesTailleIcones));
 
         }
+
         private void accesParamDefil(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(ReglagesModeSelection));
