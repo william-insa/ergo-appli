@@ -64,16 +64,22 @@ namespace MyDomotik
             affichage = new Affichage(this.grille, configuration.theme);
             affichage.creerGrille(cadre);
 
+            // affichage des couleurs
+            affichage.afficheCouleur(barreMenu, cadre, accueil, precedent, suivant);
+
+            affichePageGrille();
+        }
+
+        public void affichePageGrille()
+        {
             // création et affichage de la liste des boutons et des Icones associées
             this.listeBoutons = affichage.afficheGrille(cadre);
             this.attribueHandler();
 
             // affichage du cadre supérieur de la page
-            page_title.Text = configuration.arbre.PageCourante.Nom + "(" + (configuration.arbre.PageCourante.Grille.NumGrille+1) + "/" + configuration.arbre.PageCourante.Grille.nbPagesGrille()+")";
+            page_title.Text = configuration.arbre.PageCourante.Nom + "(" + (configuration.arbre.PageCourante.Grille.NumGrille + 1) + "/" + configuration.arbre.PageCourante.Grille.nbPagesGrille() + ")";
             this.displayTime();
 
-            // affichage des couleurs
-            affichage.afficheCouleur(barreMenu, cadre, accueil, precedent, suivant);
         }
 
 
@@ -97,8 +103,7 @@ namespace MyDomotik
             if (!configuration.theme.ModeDefilement && this.grille.pagePrecedente())
             {
                 affichage.nettoieGrille(cadre);
-                this.listeBoutons = affichage.afficheGrille(cadre);
-                this.attribueHandler();
+                affichePageGrille();
             }
 
         }
@@ -109,8 +114,7 @@ namespace MyDomotik
             if (!configuration.theme.ModeDefilement && this.grille.pageSuivante())
             {
                 affichage.nettoieGrille(cadre);
-                this.listeBoutons = affichage.afficheGrille(cadre);
-                this.attribueHandler();
+                affichePageGrille();
             }
         }
 
