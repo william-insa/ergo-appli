@@ -38,6 +38,8 @@ namespace MyDomotik
        public Button b ;
        private int indexNouvelleIcone;
 
+       public static String nomPiece;
+
       
        private Grille g;
        private Affichage affich;
@@ -67,6 +69,7 @@ namespace MyDomotik
         public void exitAdmin(object sender, RoutedEventArgs e)
         {
             // il faut mémoriser la grille dans config avant de quitter
+            MainPage.Configuration.arbre.retourAccueil();
             this.Frame.Navigate(typeof(MainPage));
         }
 
@@ -146,12 +149,14 @@ namespace MyDomotik
                 // attribution du nom à l'icone mémorisée et ajout de la nouvelle icone à la configuration
                
                 ajouterIcone(nomIcone.Text);
+                nomPiece = nomIcone.Text;
 
             }
             else // Changement du nom de l'icone : mémorisation dans la configuration
             {
                 MainPage.Configuration.arbre.Racine.Grille.setNomIcone(indexNouvelleIcone, g.NumGrille, nomIcone.Text);
                 this.Frame.Navigate(typeof(GestionIcones));
+                nomPiece = nomIcone.Text;
             }
         }
             

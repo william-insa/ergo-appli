@@ -56,8 +56,8 @@ namespace MyDomotik
             TextBlock t = new TextBlock();
             t.Foreground = new SolidColorBrush(Colors.Black);
             t.Text = "Menu";
-            retourMenuAdmin.Content = t;
-            retourMenuAdmin.IsEnabled = true;
+          //  retourMenuAdmin.Content = t;
+          //  retourMenuAdmin.IsEnabled = true;
         }
 
         private void accesParamInterface(object sender, RoutedEventArgs e)
@@ -85,8 +85,8 @@ namespace MyDomotik
             TextBlock t = new TextBlock();
             t.Foreground = new SolidColorBrush(Colors.Black);
             t.Text = "Menu";
-            retourMenuAdmin.Content = t;
-            retourMenuAdmin.IsEnabled = true;
+            //retourMenuAdmin.Content = t;
+            //retourMenuAdmin.IsEnabled = true;
         }
 
         private void accesParamCouleur(object sender, RoutedEventArgs e)
