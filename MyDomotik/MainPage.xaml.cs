@@ -128,7 +128,10 @@ namespace MyDomotik
         {
             foreach (Button bouton in this.listeBoutons)
             {
-                if ((int)bouton.Tag >= 0)
+                int indexClick = (int)bouton.Tag;
+                Icone icone = grille.pageGrille()[indexClick];
+
+                if (!(icone.EstVide()))
                 {
                     bouton.Click += IconeClick;
                 }

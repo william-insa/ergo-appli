@@ -120,18 +120,19 @@ namespace MyDomotik
                     bouton.SetValue(Grid.ColumnProperty, j);
                     bouton.SetValue(Grid.RowProperty, i);
 
+                    bouton.Tag = cpt;
+
                     if (cpt < icones.Length)
                     {
                         if (!(icones[cpt].EstVide()))
                         {
                             afficherIcone(icones[cpt], bouton);
-                            bouton.Tag = cpt;
-                        }
-                        else { bouton.Tag = -1; }
-                        cadre.Children.Add(bouton);
-                        
-                        listeBoutons.Add(bouton);
 
+                        }
+
+                        cadre.Children.Add(bouton);
+                        listeBoutons.Add(bouton);
+                       
                         cpt++;
                     }
                 }
