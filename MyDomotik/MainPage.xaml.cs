@@ -69,7 +69,7 @@ namespace MyDomotik
             this.attribueHandler();
 
             // affichage du cadre supérieur de la page
-            page_title.Text = configuration.arbre.PageCourante.Nom + "(" + configuration.arbre.PageCourante.Grille.NumGrille + "/" + configuration.arbre.PageCourante.Grille.nbPagesGrille()+")";
+            page_title.Text = configuration.arbre.PageCourante.Nom + "(" + (configuration.arbre.PageCourante.Grille.NumGrille+1) + "/" + configuration.arbre.PageCourante.Grille.nbPagesGrille()+")";
             this.displayTime();
 
             // affichage des couleurs

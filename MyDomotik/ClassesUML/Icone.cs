@@ -25,6 +25,8 @@ namespace MyDomotik
         private Navigation navigation;
 
         private Button bouton;
+
+        private Boolean vide;
        
         
         // source du fichier créé par rapport à la taille de l'icone
@@ -33,7 +35,12 @@ namespace MyDomotik
             this.chaineSource = "ms-appx:///Assets/ICONS_MDTOUCH/size_" + this.taille + "x" + this.taille + "/" + nomFichier; // spécifie le dossier adéquat en fonction de la taille de l'image
             this.Uri = new Uri(this.chaineSource, UriKind.Absolute);          
         }
-
+        public Icone(){
+            this.image = null;
+            this.nomIcone = null;
+            this.action = null;
+            this.navigation = null;
+        }
         // constructeur d'icone associée à une action
         public Icone(String nom, String nomFichier, int taille, Action action)
         { 
@@ -55,6 +62,7 @@ namespace MyDomotik
         // constructeur d'icone associée à une navigation (icone menant à une nouvelle page)
         public Icone(String nom, String nomFichier, int taille, Navigation navigation)
         {
+            this.vide = false;
             this.taille = taille;
 
             // création de la source
@@ -71,37 +79,24 @@ namespace MyDomotik
         }
 
         public Icone(Image image, String nomIcone) {
+            this.vide = false;
             this.image = image;
             this.nomIcone = nomIcone;
             this.action = null;
             this.navigation = null;
         } 
 
-        // copie d'une icone
-        public Icone(Icone icone)
-        {
-            this.nomIcone = icone.nomIcone;
-            this.Image = icone.Image;
-            this.Uri = icone.Uri;
-
-            this.taille = icone.taille;
-            this.chaineSource = icone.chaineSource;
-
-            this.Action = icone.action;
-            this.navigation = icone.navigation;
-
-            this.bouton = icone.bouton;
-
-        }
 
         public static Icone IconeVide()
         {
-            return new Icone((Image)null,"");
+            Icone icone = new Icone();
+            icone.vide = true;
+            return icone;
         }
 
         public Boolean EstVide()
         {
-            return this.image == null;
+            return this.vide;
         }
         //navigation ou action ?
       private Boolean navigue(int index)
