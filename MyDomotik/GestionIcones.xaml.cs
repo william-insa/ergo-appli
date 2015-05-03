@@ -157,10 +157,7 @@ namespace MyDomotik
             }
         }
             
-<<<<<<< HEAD
-=======
         // ajout de l'icone (attribut de classe) dans la grille de la page d'accueil
->>>>>>> origin/master
        private void ajouterIcone(){
 
             //création de la page associée à l'icone
