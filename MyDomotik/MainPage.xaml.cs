@@ -87,6 +87,7 @@ namespace MyDomotik
         // accès au mode configuration
         private void adminSelect(object sender, DoubleTappedRoutedEventArgs e)
         {
+            configuration.arbre.retourAccueil();
             this.Frame.Navigate(typeof(AdminPage));
         }
 
