@@ -100,6 +100,10 @@ namespace MyDomotik
         // Insère l'Icone icone à la case index 
         public void addIcone(Icone icone, int index)
         {
+            if (this.icones.ContainsKey(index))
+            {
+                this.icones.Remove(index);
+            }
             this.icones.Add(index, icone);
         }
 
@@ -108,7 +112,7 @@ namespace MyDomotik
         {
             int i = nbCasesGrille() * numPage + index;
 
-            this.icones.Add(i, icone);
+            this.addIcone(icone, i);
         }
 
         // Enlève l'Icone à la case index.
@@ -179,6 +183,17 @@ namespace MyDomotik
                     return true;
                 }
                 return false;
+        }
+
+        public void CreepageSuivante()
+        {
+            numGrille++;
+            if (this.numGrille == this.nbPagesGrille() - 1)
+            {
+                int ind = this.numGrille*nbCasesGrille() +1;
+                this.addIcone(Icone.IconeVide(), ind);
+            }
+
         }
 
 

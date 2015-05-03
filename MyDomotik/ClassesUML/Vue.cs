@@ -61,6 +61,11 @@ namespace MyDomotik
             this.grille.removeIcone(index);
         }
 
+        public void enleverIcone(int index, int numPage)
+        {
+            this.grille.removeIcone(index, numPage);
+        }
+
         // retourne l'icone située à l'index demandé
         public Icone getIcone(int index)
         {

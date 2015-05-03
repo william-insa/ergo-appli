@@ -10,6 +10,7 @@ namespace MyDomotik
     {
         // champs
         private Vue racine;
+        private Vue mainPage;
         private List<Arbre> fils;
         private Vue pageCourante;
         
@@ -97,7 +98,7 @@ namespace MyDomotik
         {
             Arbre aTemp = arbreVuePere(v);
             if(aTemp.Racine.Nom == null){
-                if (v.Nom != Configuration.mainPage.Nom)
+                if (v.Nom != mainPage.Nom)
                 {
                     return this;
                 }
