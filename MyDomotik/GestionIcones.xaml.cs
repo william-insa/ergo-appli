@@ -81,6 +81,9 @@ namespace MyDomotik
 
         private void goToTailleIcone(object sender, RoutedEventArgs e)
         {
+            // il faut mémoriser la grille dans config avant de quitter
+            MainPage.Configuration.arbre.retourAccueil();
+
             Frame.Navigate(typeof(ReglagesTailleIcones));
         }
 
@@ -285,8 +288,16 @@ namespace MyDomotik
                 affich.nettoieGrille(cadre);
                 this.listeBoutons = affich.afficheGrille(cadre);
                 this.attribueHandler();
+                /*
+                if (g.NumGrille == 0)
+                {
+                    previous.IsEnabled = false;
+                    previous.Visibility = Visibility.Collapsed;
+                } else {
+                    previous.IsEnabled = true;
+                    previous.Visibility = Visibility.Visible;
+                }*/
             }
-
         }
 
         // accès à la page suivante de la grille
@@ -296,8 +307,15 @@ namespace MyDomotik
             affich.nettoieGrille(cadre);
             this.listeBoutons = affich.afficheGrille(cadre);
             this.attribueHandler();
-
+            /*
+            if (g.NumGrille == g.nbPagesGrille())
+            {
+                next.IsEnabled = false;
+                next.Visibility = Visibility.Collapsed;
+            } else {
+                next.IsEnabled = true;
+                next.Visibility = Visibility.Visible;
+            }*/
         }
-
     }
 }
