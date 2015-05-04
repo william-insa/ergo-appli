@@ -41,7 +41,12 @@
                 </TextBlock>
             </Button>
 
-            <Button Content="Retour" HorizontalAlignment="Center" Height="53" Margin="19,16,15,16" VerticalAlignment="Center" Width="236" FontSize="30" Foreground="#FF060606" FontWeight="Bold" Click="menuAdmin2"/>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center"  BorderBrush="{x:Null}"  Foreground="#FF060606" FontWeight="Bold" Grid.Row="0" Grid.Column="0" FontSize="30" Height="71" Margin="6,7,6,6" Width="258" Background="#FFF8FF61" Click="menuAdmin2">
+                <TextBlock TextWrapping="Wrap"  Foreground="Black" FontSize="24" FontWeight="Bold">
+                	<Run FontSize="30" Text="Retour"/>
+                </TextBlock>
+            </Button>
+            
         </Grid>
 
         <!-- Boutons Précédent & Suivant -->
@@ -64,7 +69,7 @@
         </Button>
 
 
-        <!-- Popup pour donner un nom à une icône -->
+        <!-- Grille des icônes -->
         <Grid x:Name="cadre2" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF0D1F91"  Width="1346" Height="500" Grid.Row="1" Margin="10,0,10,10"/>
         <TextBox x:Name="nomIcone2" HorizontalAlignment="Left" Height="42" Margin="465,260,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="446" Grid.Row="1" Background="#FFA49090" FontSize="24" FontWeight="Bold" Visibility="Collapsed"/>
 

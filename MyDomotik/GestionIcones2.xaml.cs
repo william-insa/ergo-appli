@@ -71,13 +71,16 @@ namespace MyDomotik
 
         }
 
-        public void exitAdmin2(object sender, RoutedEventArgs e)
+        private void exitAdmin2(object sender, RoutedEventArgs e)
         {
+
             // il faut mémoriser la grille dans config avant de quitter
             MainPage.Configuration.arbre.PageCourante.Grille.NumGrille = 0;
             MainPage.Configuration.arbre.retourAccueil();
             this.Frame.Navigate(typeof(MainPage));     
+
         }
+        
 
         public void menuAdmin2(object sender, RoutedEventArgs e)
         {

@@ -143,7 +143,7 @@ namespace MyDomotik
         public void ajouterEquipement(Vue pagePiece, Icone icone, int index, int numPage)
         {
            // Equipement equip = new Equipement(icone.nomIcone);
-            Vue pageEquip = new Vue(icone.NomIcone);
+           Vue pageEquip = new Vue(icone.NomIcone);
 
             // ajoute une page (associée à l'équipement)  à l'arbre
            // Arbre a = Arbre.arbreVue(pagePiece);  // on trouve la pièce dans l'arbre global grâce à la Vue pagePiece de la pièce dans laquelle on souhaite mettre l'équipement

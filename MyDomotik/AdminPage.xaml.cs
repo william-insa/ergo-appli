@@ -21,8 +21,10 @@ namespace MyDomotik
 
         private void exitAdmin(object sender, RoutedEventArgs e)
         {
+
             MainPage.Configuration.arbre.PageCourante.Grille.NumGrille = 0;
             MainPage.Configuration.arbre.retourAccueil();
+
             this.Frame.Navigate(typeof(MainPage));
         }
 
@@ -33,32 +35,7 @@ namespace MyDomotik
 
         private void gestionIcones(object sender, RoutedEventArgs e)  // remplace les boutons du menu Menu par le menu Gestion icônes
         {
-            admin_buttons_grid.Children.RemoveAt(3);
-            admin_buttons_grid.Children.RemoveAt(2);
-
-            RowDefinitionCollection defs = admin_buttons_grid.RowDefinitions;
-            defs.RemoveAt(2);
-            defs.RemoveAt(1);
-
-            admin_button_1.Content = "Gestion des pièces";
-            admin_button_2.Content = "Gestion des équipements";
-
-            admin_button_1.Click -= accesParamInterface;
-            admin_button_1.Click += accesGestionPieces;
-
-            admin_button_2.Click -= gestionIcones;
-            admin_button_2.Click += accesGestionEquip;
-
-            admin_button_3.Click -= accesParamInterface;
-            admin_button_3.Click += accesPageReseau;
-
-            page_title.Text = "Gestion des icônes";
-
-            TextBlock t = new TextBlock();
-            t.Foreground = new SolidColorBrush(Colors.Black);
-            t.Text = "Menu";
-          //  retourMenuAdmin.Content = t;
-          //  retourMenuAdmin.IsEnabled = true;
+            Frame.Navigate(typeof(GestionIcones));
         }
 
         private void accesParamInterface(object sender, RoutedEventArgs e)
@@ -86,8 +63,9 @@ namespace MyDomotik
             TextBlock t = new TextBlock();
             t.Foreground = new SolidColorBrush(Colors.Black);
             t.Text = "Menu";
-            //retourMenuAdmin.Content = t;
-            //retourMenuAdmin.IsEnabled = true;
+
+            retourMenuAdmin.Content = t;
+            retourMenuAdmin.IsEnabled = true;
         }
 
         private void accesParamCouleur(object sender, RoutedEventArgs e)
@@ -104,16 +82,6 @@ namespace MyDomotik
         private void accesParamDefil(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(ReglagesModeSelection));
-        }
-
-        private void accesGestionPieces(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(GestionIcones));
-        }
-
-        private void accesGestionEquip(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(GestionIcones2));
         }
 
         private void accesPageReseau(object sender, RoutedEventArgs e)
