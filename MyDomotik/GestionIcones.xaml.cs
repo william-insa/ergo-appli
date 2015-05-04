@@ -69,6 +69,7 @@ namespace MyDomotik
         public void exitAdmin(object sender, RoutedEventArgs e)
         {
             // il faut mémoriser la grille dans config avant de quitter
+            MainPage.Configuration.arbre.PageCourante.Grille.NumGrille = 0;
             MainPage.Configuration.arbre.retourAccueil();
             this.Frame.Navigate(typeof(MainPage));
         }

@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +14,8 @@ namespace MyDomotik
 {
     class Enregistrement
     {
-        private string config = ""; // configuration à enregistrer
+    
+       /* private string config = ""; // configuration à enregistrer
         private string fileName = "config.xml";
      //   private OutputStream o;
         private FileRandomAccessStream a = new FileRandomAccessStream();
@@ -28,21 +29,22 @@ namespace MyDomotik
 
         private StreamWriter sw = new System.IO.StreamWriter();
         // System.IO.File.WriteAllLines(@"C:\Users\Public\TestFolder\WriteLines.txt", lines);
-
+        */
         public Enregistrement(Configuration c)
         {
-            config = c.toStringXML();
+            //config = c.toStringXML();
         //    o = new OutputStream(fileName);
         //    creerFichierEnr();
+
         }
 
-        public Enregistrement()
+     /*   public Enregistrement()
         {
 
         }
 
 
-        /* public void creerFichierEnr()
+         public void creerFichierEnr()
         {
             string fileeName = "test.txt";
             string textToAdd = "Example text in file";
@@ -51,9 +53,9 @@ namespace MyDomotik
             {
                 o.Write(textToAdd);
             }
-        */
+        
 
-            /*
+            
             System.IO.Stream stream = new System.IO.MemoryStream();
 
             using (Stream fs = File.OpenWrite(path))
@@ -62,9 +64,9 @@ namespace MyDomotik
             {
                 file.Write(config);
             }
-            */
+            
 
-            /*
+            
             string fileeName = "test.txt";
             string textToAdd = "Example text in file";
 
@@ -72,10 +74,9 @@ namespace MyDomotik
             {
                 writer.Write(textToAdd);
             }
-            */
-        /*
+           
+        
 
-        } * /
+        } */
     }
 }
-*/

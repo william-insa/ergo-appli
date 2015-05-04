@@ -93,7 +93,7 @@ namespace MyDomotik
         // accès au mode configuration
         private void adminSelect(object sender, DoubleTappedRoutedEventArgs e)
         {
-            configuration.arbre.retourAccueil();
+            configuration.arbre.PageCourante.Grille.NumGrille = 0 ;
             this.Frame.Navigate(typeof(AdminPage));
         }
 
@@ -159,6 +159,7 @@ namespace MyDomotik
             }
             if (icone.Action != null) { }
         }
+
 }
 
   
