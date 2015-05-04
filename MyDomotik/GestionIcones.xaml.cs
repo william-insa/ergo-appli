@@ -66,6 +66,8 @@ namespace MyDomotik
             this.attribueHandler();
         }
 
+
+        /*
         private void exitAdmin(object sender, RoutedEventArgs e)
         {
 
@@ -75,8 +77,12 @@ namespace MyDomotik
 
 
             this.Frame.Navigate(typeof(MainPage));
-        }
+        }*/
 
+        private void goToTailleIcone(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ReglagesTailleIcones));
+        }
 
         public void menuAdmin(object sender, RoutedEventArgs e)
         {

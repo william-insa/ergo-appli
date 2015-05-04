@@ -40,11 +40,6 @@ namespace MyDomotik
 
         private void accesParamInterface(object sender, RoutedEventArgs e)
         {
-            admin_buttons_grid.Children.RemoveAt(3);
-            
-            RowDefinitionCollection defs = admin_buttons_grid.RowDefinitions;
-            defs.RemoveAt(2);
-
             admin_button_1.Content = "Couleurs";
             admin_button_2.Content = "Tailles icônes";
             admin_button_3.Content = "Mode défilement";

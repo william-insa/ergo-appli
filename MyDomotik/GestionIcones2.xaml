@@ -29,15 +29,16 @@
 
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="65" Grid.Row="0" Grid.Column="0" Stroke="Black" VerticalAlignment="Center" Width="252"/>
 
-            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="65" Grid.Row="0" Grid.Column="2" Stroke="Black" VerticalAlignment="Center" Width="241"/>
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="65" Grid.Row="0" Grid.Column="2" Stroke="Black" VerticalAlignment="Center" Width="236" Margin="5,10,10,10"/>
+
 
             <TextBlock x:Name="page_title2" HorizontalAlignment="Center" Height="48" TextWrapping="Wrap" VerticalAlignment="Center" FontWeight="Bold"  Width="832" FontSize="30" TextAlignment="Center" FontFamily="Segoe UI" Grid.Row="0" Grid.Column="1" >
     			<Run Foreground="#FF060606" Text="" FontWeight="Normal"/>
             </TextBlock>
 
-            <Button x:Name="quitterAdmin2"  Height="71" Width="247" BorderBrush="{x:Null}" Background="#FFE04214" Foreground="#FFF7EEEE" Grid.Column="2" FontSize="18" Click="exitAdmin2" Margin="2,7,0,6">
+            <Button x:Name="accesTailleIcone2" BorderBrush="{x:Null}" Background="#FFB9FF00" Foreground="#FFF7EEEE" FontSize="18" Margin="2,7,0,0" Grid.Row="0" Grid.Column="2" Click="goToTailleIcone2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="242" Height="71">
                 <TextBlock TextWrapping="Wrap"  Foreground="Black" FontSize="24" FontWeight="Bold">
-                	<Run FontSize="30" Text="Quitter"/>
+                	<Run FontSize="30" Text="Tailles icônes"/>
                 </TextBlock>
             </Button>
 
@@ -48,6 +49,10 @@
             </Button>
             
         </Grid>
+
+        <!-- Grille des icônes -->
+        <Grid x:Name="cadre2" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF0D1F91"  Width="1346" Height="500" Grid.Row="1" Margin="10,0,10,10"/>
+        <TextBox x:Name="nomIcone2" HorizontalAlignment="Left" Height="42" Margin="465,260,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="446" Grid.Row="1" Background="#FFA49090" FontSize="24" FontWeight="Bold" Visibility="Collapsed"/>
 
         <!-- Boutons Précédent & Suivant -->
         <Button x:Name="previous2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FF47CB16" BorderBrush="{x:Null}" Height="59" Width="79" Click="pagePrecedente2" Margin="0,222,0,229">
@@ -68,11 +73,6 @@
             </Grid>
         </Button>
 
-
-        <!-- Grille des icônes -->
-        <Grid x:Name="cadre2" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF0D1F91"  Width="1346" Height="500" Grid.Row="1" Margin="10,0,10,10"/>
-        <TextBox x:Name="nomIcone2" HorizontalAlignment="Left" Height="42" Margin="465,260,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="446" Grid.Row="1" Background="#FFA49090" FontSize="24" FontWeight="Bold" Visibility="Collapsed"/>
-
         <!-- Popup supprimer/renommer icône -->
         <Rectangle x:Name="messageBox2" Grid.Row="1" Fill="#FF7E7E83" HorizontalAlignment="Center" Height="50" Stroke="#FF0A0909" VerticalAlignment="Center" Width="705" Margin="332,205,329,255" Visibility="Collapsed"/>
         <TextBlock x:Name="message2" Text="" Height="50" TextWrapping="Wrap" Width="705" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FF060606" FontSize="24" FontWeight="Bold" Margin="332,205,0,0" Grid.Row="1" TextAlignment="Center"/>
@@ -91,8 +91,7 @@
         </Grid>
 
 
-
-
+        <!-- Barre de choix des icônes -->
         <GridView x:Name="ItemGridView"  BorderBrush="LightGray" VerticalAlignment="Top" BorderThickness="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionMode="None" Margin="31,24,19,0" Height="130" Grid.Row="2">
             <Image x:Name="agenda_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/agenda_0.png" DoubleTapped="choixImage2"/>
             <Image x:Name="airco_0épng" Height="100" Width="100" Source="Assets/ICONS_MDTOUCH/size_64x64/airco_0.png" DoubleTapped="choixImage2"/>

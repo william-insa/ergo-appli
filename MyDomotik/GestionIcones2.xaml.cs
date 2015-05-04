@@ -71,6 +71,7 @@ namespace MyDomotik
 
         }
 
+        /*
         private void exitAdmin2(object sender, RoutedEventArgs e)
         {
 
@@ -78,9 +79,13 @@ namespace MyDomotik
             MainPage.Configuration.arbre.PageCourante.Grille.NumGrille = 0;
             MainPage.Configuration.arbre.retourAccueil();
             this.Frame.Navigate(typeof(MainPage));     
-
         }
-        
+         */
+
+        private void goToTailleIcone2(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ReglagesTailleIcones));
+        }
 
         public void menuAdmin2(object sender, RoutedEventArgs e)
         {
