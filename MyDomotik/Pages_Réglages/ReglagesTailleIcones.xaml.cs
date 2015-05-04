@@ -27,12 +27,12 @@ namespace MyDomotik
             this.InitializeComponent();
         }
 
-        private void exitAdmin(object sender, RoutedEventArgs e)
+        private void retourPagePrec(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(MainPage));
+            this.Frame.GoBack();
         }
 
-        private void menuAdmin(object sender, RoutedEventArgs e)
+        private void exitAdmin(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(AdminPage));
         }

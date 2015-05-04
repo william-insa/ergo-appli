@@ -25,23 +25,28 @@
                 <ColumnDefinition Width="251*"/>
             </Grid.ColumnDefinitions>
 
-            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="center" Height="65" Grid.Row="0" Grid.Column="1" Stroke="Black" VerticalAlignment="Center" Width="832"/>
-
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="65" Grid.Row="0" Grid.Column="0" Stroke="Black" VerticalAlignment="Center" Width="252"/>
 
-            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="65" Grid.Row="0" Grid.Column="2" Stroke="Black" VerticalAlignment="Center" Width="241"/>
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="center" Height="65" Grid.Row="0" Grid.Column="1" Stroke="Black" VerticalAlignment="Center" Width="832"/>
 
-            <TextBlock x:Name="page_title" HorizontalAlignment="Center" Height="48" TextWrapping="Wrap" VerticalAlignment="Center" FontWeight="Bold"  Width="832" FontSize="30" TextAlignment="Center" FontFamily="Segoe UI" Grid.Row="0" Grid.Column="1" >
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="65" Grid.Row="0" Grid.Column="2" Stroke="Black" VerticalAlignment="Center" Width="236" Margin="5,10,10,10"/>
+
+
+            <TextBlock x:Name="page_title" HorizontalAlignment="Center" Height="48" TextWrapping="Wrap" VerticalAlignment="Center" Width="832" FontSize="30" TextAlignment="Center" FontFamily="Segoe UI" Foreground="Black" Grid.Row="0" Grid.Column="1" FontWeight="Bold">
     			<Run Foreground="Black" Text="Pièces"/>
             </TextBlock>
 
-            <Button x:Name="quitterAdmin"  Height="71" Width="247" BorderBrush="{x:Null}" Background="#FFE04214" Foreground="#FFF7EEEE" Grid.Column="2" FontSize="18" Click="exitAdmin" Margin="2,7,0,6">
+            <Button x:Name="accesTailleIcone" BorderBrush="{x:Null}" Background="#FFB9FF00" Foreground="#FFF7EEEE" FontSize="18" Margin="2,7,0,0" Grid.Row="0" Grid.Column="2" Click="goToTailleIcone" HorizontalAlignment="Left" VerticalAlignment="Top" Width="242" Height="71">
                 <TextBlock TextWrapping="Wrap"  Foreground="Black" FontSize="24" FontWeight="Bold">
-                	<Run FontSize="30" Text="Quitter"/>
+                	<Run FontSize="30" Text="Tailles icônes"/>
                 </TextBlock>
             </Button>
 
-            <Button Content="Menu" HorizontalAlignment="Center" Height="53" Margin="19,16,15,16" VerticalAlignment="Center" Width="236" FontSize="30" Foreground="#FF060606" FontWeight="Bold" Click="menuAdmin"/>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center"  BorderBrush="{x:Null}"  Foreground="#FF060606" FontWeight="Bold" Grid.Row="0" Grid.Column="0" FontSize="30" Height="71" Margin="6,7,6,6" Width="258" Background="#FFF8FF61" Click="menuAdmin">
+                <TextBlock TextWrapping="Wrap"  Foreground="Black" FontSize="24" FontWeight="Bold">
+                	<Run FontSize="30" Text="Menu"/>
+                </TextBlock>
+            </Button>
         </Grid>
 
         <!-- Grille d'icônes -->

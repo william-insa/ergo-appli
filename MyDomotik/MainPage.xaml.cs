@@ -97,7 +97,9 @@ namespace MyDomotik
         // accès au mode configuration
         private void adminSelect(object sender, DoubleTappedRoutedEventArgs e)
         {
-            configuration.Arbre.PageCourante.Grille.NumGrille = 0;
+
+            configuration.arbre.PageCourante.Grille.NumGrille = 0 ;
+
             this.Frame.Navigate(typeof(AdminPage));
         }
 

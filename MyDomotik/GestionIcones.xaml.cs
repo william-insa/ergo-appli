@@ -66,12 +66,23 @@ namespace MyDomotik
             this.attribueHandler();
         }
 
+
+        /*
         private void exitAdmin(object sender, RoutedEventArgs e)
         {
-            MainPage.Configuration.Arbre.PageCourante.Grille.NumGrille = 0;
-            this.Frame.Navigate(typeof(MainPage));
-        }
 
+            // il faut mémoriser la grille dans config avant de quitter
+            MainPage.Configuration.arbre.PageCourante.Grille.NumGrille = 0;
+            MainPage.Configuration.arbre.retourAccueil();
+
+
+            this.Frame.Navigate(typeof(MainPage));
+        }*/
+
+        private void goToTailleIcone(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ReglagesTailleIcones));
+        }
 
         public void menuAdmin(object sender, RoutedEventArgs e)
         {

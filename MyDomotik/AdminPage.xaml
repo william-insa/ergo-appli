@@ -10,7 +10,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="85*"/>
             <RowDefinition Height="683*"/>
-
         </Grid.RowDefinitions>
 
         <Grid Background="Black">
@@ -20,12 +19,19 @@
                 <ColumnDefinition Width="251*"/>
             </Grid.ColumnDefinitions>
 
-            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="center" Height="65" Grid.Row="0" Stroke="Black" VerticalAlignment="Center" Width="1109" Grid.ColumnSpan="2" Margin="0,10,6,9"/>
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="65" Grid.Row="0" Grid.Column="0" Stroke="Black" VerticalAlignment="Center" Width="252"/>
+
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="center" Height="65" Grid.Row="0" Grid.Column="1" Stroke="Black" VerticalAlignment="Center" Width="832"/>
 
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="65" Grid.Row="0" Grid.Column="2" Stroke="Black" VerticalAlignment="Center" Width="241"/>
 
+            <Button x:Name="retourMenuAdmin" HorizontalAlignment="Center" VerticalAlignment="Center"  BorderBrush="{x:Null}"  Foreground="#FF060606" FontWeight="Bold" Grid.Row="0" Grid.Column="0" FontSize="30" Height="71" Margin="6,7,6,6" Width="258" Background="#FFF8FF61" IsEnabled="False" Click="menuAdmin">
+                <TextBlock TextWrapping="Wrap"  Foreground="Black" FontSize="24" FontWeight="Bold">
+                	<Run FontSize="30" Text=""/>
+                </TextBlock>
+            </Button>
 
-            <TextBlock x:Name="page_title" HorizontalAlignment="Center" Height="48" TextWrapping="Wrap" VerticalAlignment="Center" Width="1109" FontSize="30" TextAlignment="Center" FontFamily="Segoe UI" Foreground="Black" Grid.Row="0" FontWeight="Bold" Grid.ColumnSpan="2" Margin="0,18,6,18">
+            <TextBlock x:Name="page_title" HorizontalAlignment="Center" Height="48" TextWrapping="Wrap" VerticalAlignment="Center" Width="832" FontSize="30" TextAlignment="Center" FontFamily="Segoe UI" Foreground="Black" Grid.Row="0" Grid.Column="1" FontWeight="Bold">
     			<Run Foreground="Black" Text="Menu"/>
             </TextBlock>
 
@@ -44,7 +50,6 @@
                 <RowDefinition Height="130"/>
                 <RowDefinition Height="130"/>
                 <RowDefinition Height="130"/>
-                <RowDefinition Height="130"/>
             </Grid.RowDefinitions>
 
             <Button x:Name="admin_button_1"  Content="Paramètres interface" HorizontalAlignment="Left" Height="84" Grid.Row="0" VerticalAlignment="Top" Width="802" Background="#FFFFA200" FontSize="36" Click="accesParamInterface"/>
@@ -52,8 +57,6 @@
             <Button x:Name="admin_button_2" Content="Gestion des icones" HorizontalAlignment="Left" Height="84" Grid.Row="1" VerticalAlignment="Top" Width="802" Background="#FFFFA200" FontSize="36" Click="gestionIcones"/>
 
             <Button x:Name="admin_button_3" Content="Réglages réseau" HorizontalAlignment="Left" Height="84" Grid.Row="2" VerticalAlignment="Top" Width="802" Background="#FFFFA200" FontSize="36" Click="accesPageReseau"/>
-
-            <Button x:Name="admin_button_4" Content="Autres" HorizontalAlignment="Left" Height="84" Grid.Row="3" VerticalAlignment="Top" Width="802" Background="#FFFFA200" FontSize="36"/>
 
         </Grid>
 
