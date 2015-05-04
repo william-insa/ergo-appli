@@ -38,7 +38,7 @@
                 </TextBlock>
             </Button>
 
-            <Button x:Name="retour" HorizontalAlignment="Center" VerticalAlignment="Center"  BorderBrush="{x:Null}"  Foreground="#FF060606" FontWeight="Bold" Grid.Row="0" Grid.Column="0" FontSize="30" Height="71" Margin="6,7,6,6" Width="258" Background="#FFF8FF61" Click="retourPagePrec">
+            <Button x:Name="retour" HorizontalAlignment="Center" VerticalAlignment="Center"  BorderBrush="{x:Null}"  Foreground="#FF060606" FontWeight="Bold" Grid.Row="0" Grid.Column="0" FontSize="30" Height="71" Margin="6,7,6,6" Width="258" Background="#FFF8FF61" Click="retourPage">
                 <TextBlock TextWrapping="Wrap"  Foreground="Black" FontSize="24" FontWeight="Bold">
                 	<Run FontSize="30" Text="Retour menu"/>
                 </TextBlock>
