@@ -52,5 +52,10 @@ namespace MyDomotik
             MainPage.Configuration.theme.ModeDefilement = true;
         }
 
+        private void page_title_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+         
+        }
+
     }
 }

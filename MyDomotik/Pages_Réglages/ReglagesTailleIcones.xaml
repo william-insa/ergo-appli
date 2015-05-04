@@ -30,7 +30,7 @@
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="65" Grid.Row="0" Grid.Column="2" Stroke="Black" VerticalAlignment="Center" Width="241"/>
 
             <TextBlock x:Name="page_title" HorizontalAlignment="Center" Height="48" TextWrapping="Wrap" VerticalAlignment="Center" Width="832" FontSize="30" TextAlignment="Center" FontFamily="Segoe UI" Foreground="Black" Grid.Row="0" Grid.Column="1" FontWeight="Bold">
-    			<Run Foreground="Black" Text="Paramètres interface\Taille Icônes"/>
+            	<Run Foreground="Black" Text="Choix de la taille des icônes"/>
             </TextBlock>
 
             <Button x:Name="quitterAdmin"  Height="71" Width="247" BorderBrush="{x:Null}" Background="#FFE04214" Foreground="#FFF7EEEE" Grid.Column="2" FontSize="18" Click="exitAdmin" Margin="2,7,0,6">
@@ -41,7 +41,7 @@
 
             <Button x:Name="retour" HorizontalAlignment="Center" VerticalAlignment="Center"  BorderBrush="{x:Null}"  Foreground="#FF060606" FontWeight="Bold" Grid.Row="0" Grid.Column="0" FontSize="30" Height="71" Margin="6,7,6,6" Width="258" Background="#FFF8FF61" Click="retourPagePrec">
                 <TextBlock TextWrapping="Wrap"  Foreground="Black" FontSize="24" FontWeight="Bold">
-                	<Run FontSize="30" Text="Retour"/>
+                	<Run FontSize="30" Text="Retour menu"/>
                 </TextBlock>
             </Button>
 
