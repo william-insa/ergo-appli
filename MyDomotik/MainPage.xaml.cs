@@ -68,8 +68,6 @@ namespace MyDomotik
             affichage.afficheCouleur(barreMenu, cadre, accueil, precedent, suivant);
 
             affichePageGrille();
-
-            afficheHeure();
         }
 
         public void affichePageGrille()
@@ -80,13 +78,7 @@ namespace MyDomotik
             this.attribueHandler();
 
             // affichage du cadre supérieur de la page
-
-            if (configuration.arbre.PageCourante.Grille.nbPagesGrille() == 0)
-            {
-                page_title.Text = configuration.arbre.PageCourante.Nom + "(" + 1 + "/" + 1 + ")";
-            } else {
-                page_title.Text = configuration.arbre.PageCourante.Nom + "(" + (configuration.arbre.PageCourante.Grille.NumGrille + 1) + "/" + configuration.arbre.PageCourante.Grille.nbPagesGrille() + ")";
-            }
+            page_title.Text = configuration.arbre.PageCourante.Nom;
         }
 
         public void afficheHeure()
@@ -132,7 +124,6 @@ namespace MyDomotik
         private void PageAccueil(object sender, RoutedEventArgs e)
         {
             configuration.arbre.retourAccueil();
-            MainPage.Configuration.arbre.PageCourante.Grille.NumGrille = 0;
             this.Frame.Navigate(typeof(MainPage));
         }
 

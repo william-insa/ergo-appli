@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 //using ClassLibrary1.OutputStream;
 using Windows.Storage.Streams;
+using System.IO;
 using Windows.Storage;
 using System.Xml.Serialization;
 

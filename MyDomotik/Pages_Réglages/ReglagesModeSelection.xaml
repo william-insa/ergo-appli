@@ -32,7 +32,7 @@
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="65" Grid.Row="0" Grid.Column="2" Stroke="Black" VerticalAlignment="Center" Width="241"/>
 
             <TextBlock x:Name="page_title" HorizontalAlignment="Center" Height="48" TextWrapping="Wrap" VerticalAlignment="Center" Width="832" FontSize="30" TextAlignment="Center" FontFamily="Segoe UI" Grid.Row="0" Grid.Column="1" FontWeight="Bold" >
-    			<Run Foreground="Black" Text="Choix du mode de sélection"/>
+    			<Run Foreground="Black" Text="Mode de sélection"/>
             </TextBlock>
 
             <Button x:Name="quitterAdmin"  Height="71" Width="247" BorderBrush="{x:Null}" Background="#FFE04214" Foreground="#FFF7EEEE" Grid.Column="2" FontSize="18" Click="exitAdmin" Margin="2,7,0,6">
@@ -40,7 +40,7 @@
                 	<Run FontSize="30" Text="Quitter"/>
                 </TextBlock>
             </Button>
-            <Button x:Name="retourMenu" Content="Retour menu" HorizontalAlignment="Center" Height="53" Margin="19,16,15,15" VerticalAlignment="Center" Width="236" FontSize="30" Foreground="#FF060606" FontWeight="Bold" Click="retourAdminPage"/>
+            <Button x:Name="retourMenu" Content="Menu" HorizontalAlignment="Center" Height="53" Margin="19,16,15,15" VerticalAlignment="Center" Width="236" FontSize="30" Foreground="#FF060606" FontWeight="Bold" Click="retourAdminPage"/>
 
 
 
