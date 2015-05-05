@@ -70,6 +70,7 @@ namespace MyDomotik
 
             this.theme = new Theme();
             this.arbre = new Arbre(pageHome);
+            Arbre.PagePrincipale = pageHome;
         }
 
         public string toStringXML()
@@ -153,7 +154,8 @@ namespace MyDomotik
             //Arbre a = Arbre.arbreVue(pagePiece);  // on trouve la pièce dans l'arbre global grâce à la Vue pagePiece de la pièce dans laquelle on souhaite mettre l'équipement
 
             //a.Fils.Add(new Arbre(pageEquip));  // on ajoute l'équipement à la liste des fils de la Vue pagePiece
-            
+
+           arbre.ajouterVue(pagePiece, pageEquip);
 
             // ajoute une icone (associee à l'equipement) a la grille de la page de la piece + à la liste Configuration.equipements
             pagePiece.ajouterIcone(icone, index, numPage);  // on ajoute l'icone à la grille de la Vue de la pièce
