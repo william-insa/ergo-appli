@@ -49,6 +49,10 @@
             
         </Grid>
 
+        <!-- Grille des icônes -->
+        <Grid x:Name="cadre2" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF0D1F91"  Width="1346" Height="500" Grid.Row="1" Margin="10,0,10,10"/>
+        <TextBox x:Name="nomIcone2" HorizontalAlignment="Left" Height="42" Margin="465,260,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="446" Grid.Row="1" Background="#FFA49090" FontSize="24" FontWeight="Bold" Visibility="Collapsed"/>
+
         <!-- Boutons Précédent & Suivant -->
         <Button x:Name="previous2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#FF47CB16" BorderBrush="{x:Null}" Height="59" Width="79" Click="pagePrecedente2" Margin="0,222,0,229">
             <Grid>
@@ -68,10 +72,6 @@
             </Grid>
         </Button>
 
-
-        <!-- Grille des icônes -->
-        <Grid x:Name="cadre2" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FF0D1F91"  Width="1346" Height="500" Grid.Row="1" Margin="10,0,10,10"/>
-        <TextBox x:Name="nomIcone2" HorizontalAlignment="Left" Height="42" Margin="465,260,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="446" Grid.Row="1" Background="#FFA49090" FontSize="24" FontWeight="Bold" Visibility="Collapsed"/>
 
         <!-- Popup supprimer/renommer icône -->
         <Rectangle x:Name="messageBox2" Grid.Row="1" Fill="#FF7E7E83" HorizontalAlignment="Center" Height="50" Stroke="#FF0A0909" VerticalAlignment="Center" Width="705" Margin="332,205,329,255" Visibility="Collapsed"/>
